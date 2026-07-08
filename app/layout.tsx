@@ -42,6 +42,10 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
   robots: { index: true, follow: true },
   manifest: "/manifest.json",
+  icons: {
+    icon: "/images/logo.png",
+    apple: "/images/logo.png",
+  },
 };
 
 const faqSchema = {
@@ -102,8 +106,6 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <head>
-        <link rel="icon" href="/images/logo.png" sizes="any" />
-        <link rel="apple-touch-icon" href="/images/logo.png" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
