@@ -12,12 +12,7 @@ import {
 } from "lucide-react";
 import Header from "@/components/Header";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import {
-  COMPANY,
-  WHATSAPP,
-  SERVICES,
-  FAQS,
-} from "@/lib/constants";
+import { COMPANY, WHATSAPP, SERVICES, FAQS } from "@/lib/constants";
 
 export default function Home() {
   return (
@@ -46,25 +41,15 @@ export default function Home() {
             criado para transformar o seu visual em uma experiência.
           </p>
           <div className="hero-actions">
-            <a
-              className="button"
-              href={WHATSAPP.url}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <MessageCircle size={19} aria-hidden="true" /> Agendar pelo WhatsApp
+            <a className="button" href={WHATSAPP.url} target="_blank" rel="noreferrer">
+              <MessageCircle size={19} aria-hidden="true" /> <span>Agendar pelo WhatsApp</span>
             </a>
-            <a
-              className="button button-ghost"
-              href={COMPANY.mapsUrl}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <MapPin size={19} aria-hidden="true" /> Como chegar
+            <a className="button button-ghost" href={COMPANY.mapsUrl} target="_blank" rel="noreferrer">
+              <MapPin size={19} aria-hidden="true" /> <span>Como chegar</span>
             </a>
           </div>
           <div className="hero-proof">
-            <Star size={18} fill="currentColor" aria-hidden="true" />{" "}
+            <Star size={18} fill="currentColor" aria-hidden="true" />
             <b>{COMPANY.googleRating.toFixed(1)} no Google</b>
             <span aria-hidden="true">•</span>
             <span>{COMPANY.googleReviews} avaliações</span>
@@ -72,45 +57,47 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="experiencia" className="section experience container">
-        <div className="section-copy">
-          <span className="eyebrow dark">A experiência DiFaria</span>
-          <h2>Mais que um corte. Uma assinatura de estilo.</h2>
-          <p>
-            A DiFaria Barber Music une técnica, estética, música e atendimento
-            personalizado. Cada detalhe do ambiente foi pensado para homens que
-            valorizam presença, qualidade e personalidade.
-          </p>
-          <div className="feature-grid">
-            <div>
-              <Scissors aria-hidden="true" />
-              <h3>Técnica e precisão</h3>
-              <p>Acabamento limpo e consultoria para encontrar o estilo ideal.</p>
-            </div>
-            <div>
-              <Music2 aria-hidden="true" />
-              <h3>Atmosfera única</h3>
-              <p>Uma identidade que conecta barbearia, música e experiência.</p>
-            </div>
-            <div>
-              <Sparkles aria-hidden="true" />
-              <h3>Atendimento premium</h3>
-              <p>Cuidado individual para você sair confiante em cada visita.</p>
+      <section id="experiencia" className="section section-cream">
+        <div className="container experience">
+          <div className="section-copy">
+            <span className="eyebrow dark">A experiência DiFaria</span>
+            <h2>Mais que um corte. Uma assinatura de estilo.</h2>
+            <p>
+              A DiFaria Barber Music une técnica, estética, música e atendimento
+              personalizado. Cada detalhe do ambiente foi pensado para homens que
+              valorizam presença, qualidade e personalidade.
+            </p>
+            <div className="feature-grid">
+              <div>
+                <Scissors aria-hidden="true" />
+                <h3>Técnica e precisão</h3>
+                <p>Acabamento limpo e consultoria para encontrar o estilo ideal.</p>
+              </div>
+              <div>
+                <Music2 aria-hidden="true" />
+                <h3>Atmosfera única</h3>
+                <p>Uma identidade que conecta barbearia, música e experiência.</p>
+              </div>
+              <div>
+                <Sparkles aria-hidden="true" />
+                <h3>Atendimento premium</h3>
+                <p>Cuidado individual para você sair confiante em cada visita.</p>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="portrait-frame">
-          <Image
-            src="/images/will.jpeg"
-            alt="Profissional da DiFaria Barber Music realizando um atendimento"
-            width={720}
-            height={900}
-            sizes="(max-width: 800px) 100vw, 45vw"
-          />
+          <div className="portrait-frame">
+            <Image
+              src="/images/will.jpeg"
+              alt="Profissional da DiFaria Barber Music realizando um atendimento"
+              width={720}
+              height={900}
+              sizes="(max-width: 800px) 100vw, 45vw"
+            />
+          </div>
         </div>
       </section>
 
-      <section id="servicos" className="section services-section">
+      <section id="servicos" className="section section-dark">
         <div className="container">
           <span className="eyebrow">Serviços</span>
           <h2>Visual alinhado do seu jeito</h2>
@@ -124,51 +111,47 @@ export default function Home() {
             ))}
           </div>
           <div className="center">
-            <a
-              className="button"
-              href={WHATSAPP.url}
-              target="_blank"
-              rel="noreferrer"
-            >
-              Consultar e agendar
+            <a className="button" href={WHATSAPP.url} target="_blank" rel="noreferrer">
+              <span>Consultar e agendar</span>
             </a>
           </div>
         </div>
       </section>
 
-      <section id="galeria" className="section container">
-        <span className="eyebrow dark">Ambiente</span>
-        <h2>Onde estilo e música se encontram</h2>
-        <div className="gallery">
-          <Image
-            src="/images/barbearia-interior.jpg"
-            alt="Cadeira e ambiente da barbearia DiFaria em Presidente Epitácio"
-            width={900}
-            height={900}
-          />
-          <Image
-            src="/images/will.jpeg"
-            alt="Profissional da DiFaria Barber Music durante atendimento personalizado"
-            width={900}
-            height={900}
-          />
-          <Image
-            src="/images/capa.jpg"
-            alt="Logotipo da DiFaria Barber Music, barbearia em Presidente Epitácio"
-            width={1200}
-            height={700}
-          />
+      <section id="galeria" className="section section-cream">
+        <div className="container">
+          <span className="eyebrow dark">Ambiente</span>
+          <h2>Onde estilo e música se encontram</h2>
+          <div className="gallery">
+            <Image
+              src="/images/barbearia-interior.jpg"
+              alt="Cadeira e ambiente da barbearia DiFaria em Presidente Epitácio"
+              width={900}
+              height={900}
+            />
+            <Image
+              src="/images/will.jpeg"
+              alt="Profissional da DiFaria Barber Music durante atendimento personalizado"
+              width={900}
+              height={900}
+            />
+            <Image
+              src="/images/capa.jpg"
+              alt="Logotipo da DiFaria Barber Music, barbearia em Presidente Epitácio"
+              width={1200}
+              height={700}
+            />
+          </div>
         </div>
       </section>
 
-      <section className="section faq-section">
+      <section id="faq" className="section section-mid">
         <div className="container faq-layout">
           <div>
             <span className="eyebrow dark">Dúvidas frequentes</span>
             <h2>Antes de escolher seu próximo corte</h2>
             <p>
-              Informações rápidas para facilitar sua visita à DiFaria Barber
-              Music.
+              Informações rápidas para facilitar sua visita à DiFaria Barber Music.
             </p>
           </div>
           <div className="faq-list">
@@ -189,11 +172,7 @@ export default function Home() {
             <h2>Seu próximo visual começa aqui.</h2>
             <p>Fale com a DiFaria Barber Music e reserve seu horário.</p>
             <div className="contact-lines">
-              <a
-                href={COMPANY.mapsUrl}
-                target="_blank"
-                rel="noreferrer"
-              >
+              <a href={COMPANY.mapsUrl} target="_blank" rel="noreferrer">
                 <MapPin aria-hidden="true" /> {COMPANY.address.full}
               </a>
               <a href={WHATSAPP.url} target="_blank" rel="noreferrer">
@@ -205,7 +184,7 @@ export default function Home() {
             </div>
           </div>
           <a className="button button-light" href={WHATSAPP.url} target="_blank" rel="noreferrer">
-            Agendar agora
+            <span>Agendar agora</span>
           </a>
         </div>
       </section>
@@ -215,8 +194,8 @@ export default function Home() {
           <Image
             src="/images/logo-difa.png"
             alt="DiFaria Barber Music"
-            width={220}
-            height={90}
+            width={200}
+            height={82}
           />
           <p>{COMPANY.tagline}</p>
           <div className="socials">
@@ -239,8 +218,7 @@ export default function Home() {
           </div>
         </div>
         <div className="container footer-bottom">
-          &copy; {new Date().getFullYear()} {COMPANY.name}. Todos os direitos
-          reservados.
+          &copy; {new Date().getFullYear()} {COMPANY.name}. Todos os direitos reservados.
         </div>
       </footer>
 

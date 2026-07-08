@@ -23,10 +23,10 @@ export default function NotFound() {
     >
       <span
         style={{
-          fontSize: "clamp(5rem, 15vw, 10rem)",
+          fontSize: "clamp(6rem, 18vw, 12rem)",
           fontWeight: 800,
           lineHeight: 1,
-          letterSpacing: "-0.06em",
+          letterSpacing: "-0.08em",
           color: "#1f4a33",
         }}
       >
@@ -37,12 +37,19 @@ export default function NotFound() {
           fontSize: "clamp(1.5rem, 4vw, 2.5rem)",
           fontWeight: 700,
           margin: "16px 0 12px",
-          letterSpacing: "-0.03em",
+          letterSpacing: "-0.04em",
         }}
       >
         Página não encontrada
       </h1>
-      <p style={{ maxWidth: 480, color: "#72816a", margin: "0 0 36px" }}>
+      <p
+        style={{
+          maxWidth: 480,
+          color: "#72816a",
+          margin: "0 0 40px",
+          fontSize: "1.05rem",
+        }}
+      >
         O conteúdo que você procura não está disponível ou foi movido.
       </p>
       <Link
@@ -53,11 +60,11 @@ export default function NotFound() {
           gap: 10,
           background: "#f0eadc",
           color: "#071710",
-          padding: "16px 24px",
+          padding: "18px 28px",
           fontWeight: 800,
           textTransform: "uppercase",
           letterSpacing: "0.08em",
-          fontSize: "0.76rem",
+          fontSize: "0.75rem",
           textDecoration: "none",
         }}
       >
