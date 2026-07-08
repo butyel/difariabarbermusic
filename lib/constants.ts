@@ -38,7 +38,7 @@ export const COMPANY = {
   instagram: "https://www.instagram.com/difaria_barber_music/",
   facebook:
     "https://www.facebook.com/share/1D3Lsi8fzQ/?mibextid=wwXIfr",
-  domain: "https://difariabarbermusic.com.br",
+  domain: "https://butyel.github.io/difariabarbermusic",
 };
 
 export const WHATSAPP = {
