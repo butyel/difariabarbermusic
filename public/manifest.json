@@ -1,0 +1,21 @@
+{
+  "name": "DiFaria Barber Music",
+  "short_name": "DiFaria Barber",
+  "description": "Barbearia premium em Presidente Epitácio. Corte masculino, degradê, barba e atendimento personalizado.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#071710",
+  "theme_color": "#071710",
+  "icons": [
+    {
+      "src": "/images/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
