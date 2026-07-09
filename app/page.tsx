@@ -227,10 +227,10 @@ export default function Home() {
       <footer className="footer">
         <div className="container footer-grid">
           <Image
-            src="/images/logo-difa.png"
+            src="/images/logo.png"
             alt="DiFaria Barber Music"
-            width={200}
-            height={82}
+            width={160}
+            height={58}
           />
           <p>{COMPANY.tagline}</p>
           <div className="socials">
