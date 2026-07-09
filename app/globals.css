@@ -327,7 +327,7 @@ p {
 .hero-content > p {
   max-width: 640px;
   font-size: 1.1rem;
-  color: var(--hero-text);
+  color: #d4a843 !important;
   line-height: 1.7;
 }
 
