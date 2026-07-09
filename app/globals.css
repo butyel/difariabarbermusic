@@ -1014,7 +1014,7 @@ p {
    ============================================= */
 .hero-image {
   object-fit: cover;
-  object-position: center 15%;
+  object-position: center 60%;
   transition: transform 0.1s linear;
 }
 
