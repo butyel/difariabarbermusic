@@ -324,10 +324,10 @@ p {
   padding-top: 20px;
 }
 
-.hero-content > p {
+.hero-content p {
   max-width: 640px;
   font-size: 1.1rem;
-  color: #f5c842 !important;
+  color: #f5c842;
   line-height: 1.7;
 }
 
