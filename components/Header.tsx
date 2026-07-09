@@ -2,13 +2,32 @@
 
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { NAV_LINKS, WHATSAPP } from "@/lib/constants";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="site-header">
+    <header
+      className={`site-header${scrolled ? " scrolled" : ""}`}
+      style={{
+        background: scrolled
+          ? "rgba(5, 12, 8, 0.92)"
+          : "rgba(5, 12, 8, 0.6)",
+        borderColor: scrolled
+          ? "rgba(255, 255, 255, 0.08)"
+          : "rgba(255, 255, 255, 0.12)",
+      }}
+    >
       <a className="brand" href="#inicio" aria-label="DiFaria Barber Music - início">
         <Image src="/images/logo-difa.png" alt="DiFaria Barber Music" width={190} height={70} priority />
       </a>
@@ -32,7 +51,7 @@ export default function Header() {
           target="_blank"
           rel="noreferrer"
         >
-          Agendar
+          <span>Agendar</span>
         </a>
       </nav>
     </header>

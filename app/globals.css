@@ -11,7 +11,7 @@
   --line: rgba(255, 255, 255, 0.13);
   --line-dark: rgba(7, 23, 16, 0.15);
   --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
-  --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 * {
@@ -437,29 +437,6 @@ p {
   line-height: 1.6;
 }
 
-/* Gallery */
-.gallery {
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  grid-template-rows: 380px 380px;
-  gap: 16px;
-}
-
-.gallery img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: var(--transition);
-}
-
-.gallery img:hover {
-  filter: brightness(1.05);
-}
-
-.gallery img:first-child {
-  grid-row: 1 / 3;
-}
-
 /* FAQ */
 .faq-section {
   background: #e4dfd2;
@@ -710,11 +687,6 @@ p {
     grid-template-columns: 1fr 1fr;
   }
 
-  .gallery {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 300px 300px;
-  }
-
   .contact-card {
     flex-direction: column;
     align-items: flex-start;
@@ -776,15 +748,6 @@ p {
     padding: 32px 24px;
   }
 
-  .gallery {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(3, 260px);
-  }
-
-  .gallery img:first-child {
-    grid-row: auto;
-  }
-
   .contact-card {
     padding: 36px 24px;
   }
@@ -803,5 +766,237 @@ p {
   .whatsapp-float svg {
     width: 22px;
     height: 22px;
+  }
+}
+
+/* =============================================
+   Scroll Animations
+   ============================================= */
+.animate-in {
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.animate-in[data-visible="false"] {
+  opacity: 0;
+}
+
+.animate-in[data-visible="true"] {
+  opacity: 1;
+  transform: none;
+}
+
+.animate-in.fade-up[data-visible="false"] {
+  transform: translateY(50px);
+}
+
+.animate-in.fade-in[data-visible="false"] {
+  transform: none;
+}
+
+.animate-in.scale-in[data-visible="false"] {
+  transform: scale(0.92);
+}
+
+.animate-in.slide-left[data-visible="false"] {
+  transform: translateX(-40px);
+}
+
+.animate-in.slide-right[data-visible="false"] {
+  transform: translateX(40px);
+}
+
+.animate-in.stagger .stagger-item {
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: 0ms;
+  will-change: opacity, transform;
+}
+
+.animate-in.stagger[data-visible="true"] .stagger-item {
+  opacity: 1;
+  transform: none;
+}
+
+.animate-in.stagger[data-visible="false"] .stagger-item {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* =============================================
+   Gallery & Lightbox
+   ============================================= */
+.gallery {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-rows: 380px 380px;
+  gap: 16px;
+}
+
+.gallery-btn {
+  all: unset;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+}
+
+.gallery-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.4s ease;
+}
+
+.gallery-btn:hover img {
+  transform: scale(1.06);
+  filter: brightness(1.08);
+}
+
+.gallery-btn::after {
+  content: "⊕";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: white;
+  font-size: 2rem;
+  opacity: 0;
+  background: rgba(7, 23, 16, 0.25);
+  transition: var(--transition);
+}
+
+.gallery-btn:hover::after {
+  opacity: 1;
+}
+
+.gallery-btn:first-child {
+  grid-row: 1 / 3;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  background: rgba(3, 10, 6, 0.95);
+  backdrop-filter: blur(16px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  background: transparent;
+  border: 0;
+  color: white;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 10;
+  transition: var(--transition);
+}
+
+.lightbox-close:hover {
+  transform: scale(1.1);
+}
+
+.lightbox-content {
+  max-width: 90vw;
+  max-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-image {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 4px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 24px;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.lightbox-nav button {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  width: 44px;
+  height: 44px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: var(--transition);
+  display: grid;
+  place-items: center;
+}
+
+.lightbox-nav button:hover {
+  border-color: var(--cream);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* =============================================
+   Parallax Hero
+   ============================================= */
+.hero-image {
+  object-fit: cover;
+  object-position: center 30%;
+  transition: transform 0.1s linear;
+}
+
+/* =============================================
+   Section divider
+   ============================================= */
+.section-divider {
+  height: 1px;
+  background: var(--line-dark);
+  margin: 0;
+  border: 0;
+}
+
+/* =============================================
+   Responsive gallery
+   ============================================= */
+@media (max-width: 900px) {
+  .gallery {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 300px 300px;
+  }
+}
+
+@media (max-width: 600px) {
+  .gallery {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 260px);
+  }
+
+  .gallery-btn:first-child {
+    grid-row: auto;
+  }
+
+  .lightbox-content {
+    max-width: 95vw;
   }
 }
