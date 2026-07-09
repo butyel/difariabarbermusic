@@ -218,6 +218,8 @@ export default function Home() {
           </div>
         </div>
         <div className="container footer-bottom">
+          <a href="/politica-de-privacidade" style={{ color: "inherit", textDecoration: "underline", textUnderlineOffset: 3 }}>Política de Privacidade</a>
+          <span style={{ margin: "0 12px", color: "#7f8981" }}>—</span>
           &copy; {new Date().getFullYear()} {COMPANY.name}. Todos os direitos reservados.
         </div>
       </footer>

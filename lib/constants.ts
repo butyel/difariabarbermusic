@@ -22,6 +22,7 @@ export const COMPANY = {
   googleReviews: 92,
   googleProfile:
     "https://www.google.com.br/search?kgmid=/g/11mbn8gm1h&hl=pt-BR&q=DiFaria+Barber+Music",
+  googleReviewLink: "https://g.page/r/Cdu1jJatqVhMEBM/review",
   coordinates: {
     lat: -21.774110569502966,
     lng: -52.119201922057215,
