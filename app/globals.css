@@ -234,7 +234,7 @@ p {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 36px;
+  padding: 4px 36px;
   background: var(--header-bg);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -243,7 +243,7 @@ p {
 }
 
 .brand img {
-  width: 120px;
+  width: 100px;
   height: auto;
   display: block;
 }
@@ -251,9 +251,9 @@ p {
 .nav {
   display: flex;
   align-items: center;
-  gap: 22px;
+  gap: 16px;
   color: white;
-  font-size: 0.68rem;
+  font-size: 0.65rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -752,11 +752,11 @@ p {
   }
 
   .site-header {
-    padding: 6px 16px;
+    padding: 3px 16px;
   }
 
   .brand img {
-    width: 100px;
+    width: 80px;
   }
 
   .section {
