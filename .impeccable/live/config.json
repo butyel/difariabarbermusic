@@ -1,0 +1,12 @@
+{
+  "framework": "nextjs-static",
+  "files": ["out/index.html", "out/barbearia-em-presidente-epitacio/index.html", "out/corte-masculino-presidente-epitacio/index.html", "out/corte-degrade-presidente-epitacio/index.html", "out/barba-presidente-epitacio/index.html", "out/corte-e-barba-presidente-epitacio/index.html", "out/corte-infantil-presidente-epitacio/index.html"],
+  "insertBefore": "</body>",
+  "commentSyntax": "html",
+  "devServerCommand": "npm run dev",
+  "devServerPort": 3000,
+  "cspChecked": false,
+  "proxy": {
+    "url": "http://localhost:3000"
+  }
+}

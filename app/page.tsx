@@ -73,7 +73,7 @@ export default function Home() {
         <div className="container experience">
           <div className="section-copy">
             <AnimateIn variant="fade-up">
-              <span className="eyebrow dark">A experiência DiFaria</span>
+              <span className="eyebrow dark">A experiência</span>
             </AnimateIn>
             <AnimateIn variant="fade-up" delay={100}>
               <h2>Mais que um corte. Uma assinatura de estilo.</h2>
@@ -122,7 +122,7 @@ export default function Home() {
       <section id="servicos" className="section section-dark">
         <div className="container">
           <AnimateIn variant="fade-up">
-            <span className="eyebrow">Serviços</span>
+            <span className="eyebrow">Especialidades</span>
           </AnimateIn>
           <AnimateIn variant="fade-up" delay={100}>
             <h2>Visual alinhado do seu jeito</h2>
@@ -151,7 +151,7 @@ export default function Home() {
       <section id="galeria" className="section section-cream">
         <div className="container">
           <AnimateIn variant="fade-up">
-            <span className="eyebrow dark">Ambiente</span>
+            <span className="eyebrow dark">Galeria</span>
           </AnimateIn>
           <AnimateIn variant="fade-up" delay={100}>
             <h2>Onde estilo e música se encontram</h2>
@@ -166,7 +166,7 @@ export default function Home() {
         <div className="container faq-layout">
           <div>
             <AnimateIn variant="fade-up">
-              <span className="eyebrow dark">Dúvidas frequentes</span>
+              <span className="eyebrow dark">Perguntas</span>
             </AnimateIn>
             <AnimateIn variant="fade-up" delay={100}>
               <h2>Antes de escolher seu próximo corte</h2>
@@ -194,7 +194,7 @@ export default function Home() {
         <div className="container contact-card">
           <div>
             <AnimateIn variant="fade-up">
-              <span className="eyebrow">Agende sua experiência</span>
+              <span className="eyebrow">Agende</span>
             </AnimateIn>
             <AnimateIn variant="fade-up" delay={100}>
               <h2>Seu próximo visual começa aqui.</h2>
@@ -256,7 +256,7 @@ export default function Home() {
           <a href="/politica-de-privacidade" style={{ color: "inherit", textDecoration: "underline", textUnderlineOffset: 3 }}>
             Política de Privacidade
           </a>
-          <span style={{ margin: "0 12px", color: "#7f8981" }}>—</span>
+          <span style={{ margin: "0 12px", color: "var(--footer-text)" }}>—</span>
           &copy; {new Date().getFullYear()} {COMPANY.name}. Todos os direitos reservados.
         </div>
       </footer>
