@@ -125,9 +125,7 @@ export default function ContatoPage() {
             </p>
           </AnimateIn>
           <AnimateIn variant="fade-up" delay={150}>
-            <div style={{ width: "100%", height: 400, borderRadius: 12, overflow: "hidden" }}>
-              <Map />
-            </div>
+            <Map />
           </AnimateIn>
         </div>
       </section>
