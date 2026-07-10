@@ -42,6 +42,7 @@ export const metadata: Metadata = {
   },
   alternates: { canonical: `${COMPANY.domain}/` },
   robots: { index: true, follow: true },
+  verification: { google: "0TC4N0E899HDPA0csITKXyKu1Avl6QuOk7pMxUnKROM" },
   manifest: "/manifest.json",
   icons: {
     icon: "/images/logo.png",
