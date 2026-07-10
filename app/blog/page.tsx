@@ -120,7 +120,7 @@ export default function BlogPage() {
             <div className="center" style={{ marginTop: 48 }}>
               <p style={{ color: "#72816a" }}>
                 Fique por dentro das novidades. Siga a DiFaria no{" "}
-                <a href={COMPANY.instagram} target="_blank" rel="noreferrer" style={{ color: "var(--cream)" }}>
+                <a href={COMPANY.instagram} target="_blank" rel="noreferrer" style={{ color: "var(--text-dark)" }}>
                   Instagram
                 </a>.
               </p>
