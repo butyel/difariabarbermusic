@@ -46,7 +46,8 @@ export default function Map() {
         map,
         icon: {
           url: "/images/logo.png",
-          scaledSize: { width: 48, height: 18 } as any,
+          scaledSize: new g.Size(48, 18),
+          optimized: false,
         },
         title: COMPANY.name,
       });
