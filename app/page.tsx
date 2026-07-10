@@ -233,6 +233,17 @@ export default function Home() {
             height={58}
           />
           <p>{COMPANY.tagline}</p>
+          <div className="footer-info">
+            <a href={COMPANY.mapsUrl} target="_blank" rel="noreferrer">
+              <MapPin size={16} aria-hidden="true" /> {COMPANY.address.street}, {COMPANY.address.neighborhood} - {COMPANY.address.city}/{COMPANY.address.state}
+            </a>
+            <a href={WHATSAPP.url} target="_blank" rel="noreferrer">
+              <MessageCircle size={16} aria-hidden="true" /> {COMPANY.phone}
+            </a>
+            <span>
+              <Clock3 size={16} aria-hidden="true" /> {COMPANY.hours.full}
+            </span>
+          </div>
           <div className="socials">
             <a
               href={COMPANY.instagram}

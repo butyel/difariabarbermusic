@@ -23,6 +23,24 @@ const images = [
     w: 1200,
     h: 700,
   },
+  {
+    src: "/images/barbearia.jpg",
+    alt: "Ambiente da barbearia DiFaria",
+    w: 900,
+    h: 900,
+  },
+  {
+    src: "/images/barbeiro.jpg",
+    alt: "Barbeiro da DiFaria realizando atendimento",
+    w: 900,
+    h: 900,
+  },
+  {
+    src: "/images/difaria.jpg",
+    alt: "Fachada da DiFaria Barber Music",
+    w: 900,
+    h: 900,
+  },
 ];
 
 export default function Gallery() {

@@ -74,11 +74,10 @@ const barbershopSchema = {
     streetAddress: COMPANY.address.street,
     addressLocality: COMPANY.address.city,
     addressRegion: COMPANY.address.state,
+    postalCode: COMPANY.address.zip || undefined,
     addressCountry: "BR",
   },
   sameAs: [COMPANY.instagram, COMPANY.facebook],
-  areaServed: `${COMPANY.address.city} - ${COMPANY.address.state}`,
-  description: COMPANY.description,
   geo: {
     "@type": "GeoCoordinates",
     latitude: COMPANY.coordinates.lat,
@@ -98,6 +97,13 @@ const barbershopSchema = {
       closes: "16:00",
     },
   ],
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: COMPANY.googleRating,
+    bestRating: 5,
+    ratingCount: COMPANY.googleReviews,
+    reviewAspect: "Google Reviews",
+  },
 };
 
 export default function RootLayout({
