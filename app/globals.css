@@ -440,6 +440,7 @@ p {
 
 .service-card {
   background: var(--green-950);
+  color: white;
   padding: 44px 36px;
   min-height: 280px;
   transition: var(--transition);

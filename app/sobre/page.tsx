@@ -25,7 +25,7 @@ export default function SobrePage() {
               <span className="eyebrow dark">A experiência</span>
             </AnimateIn>
             <AnimateIn variant="fade-up" delay={100}>
-              <h1>Mais que um corte. Uma experiência que transforma sua presença.</h1>
+              <h1 style={{ lineHeight: 1.1 }}>Mais que um corte. Uma experiência!<br /><span style={{ fontSize: "0.65em", fontWeight: 400, display: "block", marginTop: 8 }}>Uma experiência que transforma sua presença.</span></h1>
             </AnimateIn>
             <AnimateIn variant="fade-up" delay={150}>
               <p>

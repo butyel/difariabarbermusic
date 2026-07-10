@@ -194,7 +194,7 @@ export default function Home() {
             <span className="eyebrow dark">Galeria</span>
           </AnimateIn>
           <AnimateIn variant="fade-up" delay={100}>
-            <h2>Onde estilo e música se encontram</h2>
+            <h2 style={{ textAlign: "center", margin: "16px auto 28px" }}>Onde estilo e música se encontram</h2>
           </AnimateIn>
           <AnimateIn variant="fade-up" delay={300}>
             <div className="center" style={{ marginTop: 24 }}>
