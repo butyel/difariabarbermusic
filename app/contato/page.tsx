@@ -126,7 +126,7 @@ export default function ContatoPage() {
           <AnimateIn variant="fade-up" delay={150}>
             <div style={{ width: "100%", height: 400, borderRadius: 12, overflow: "hidden" }}>
               <iframe
-                src={`https://maps.google.com/maps?q=${encodeURIComponent(COMPANY.address.full)}&t=&z=16&ie=UTF8&iwloc=&output=embed`}
+                src={`https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_KEY || ""}&q=${encodeURIComponent(COMPANY.address.full)}&center=${COMPANY.coordinates.lat},${COMPANY.coordinates.lng}&zoom=16`}
                 width="100%"
                 height="100%"
                 style={{ border: 0, filter: "invert(0.9) hue-rotate(180deg)" }}
