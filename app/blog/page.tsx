@@ -72,12 +72,15 @@ export default function BlogPage() {
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 24 }}>
             {posts.map((post) => (
-              <AnimateIn key={post.slug} variant="fade-up">
+              <AnimateIn key={post.slug} variant="fade-up" className="grid-item">
                 <article style={{
                   background: "var(--bg-card)",
                   borderRadius: 12,
                   overflow: "hidden",
                   border: "1px solid var(--line-dark)",
+                  height: "100%",
+                  display: "flex",
+                  flexDirection: "column",
                 }}>
                   <div style={{ position: "relative", height: 200 }}>
                     <Image
@@ -88,9 +91,9 @@ export default function BlogPage() {
                       sizes="(max-width: 600px) 100vw, 33vw"
                     />
                   </div>
-                  <div style={{ padding: 24 }}>
+                  <div style={{ padding: 24, flex: 1, display: "flex", flexDirection: "column" }}>
                     <h2 style={{ fontSize: "1.1rem", marginBottom: 8 }}>{post.title}</h2>
-                    <p style={{ color: "#72816a", fontSize: "0.9rem", lineHeight: 1.6 }}>
+                    <p style={{ color: "#72816a", fontSize: "0.9rem", lineHeight: 1.6, flex: 1 }}>
                       {post.excerpt}
                     </p>
                     <Link
