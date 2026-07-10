@@ -122,7 +122,7 @@ export default function Home() {
             <span className="eyebrow dark">O que oferecemos</span>
           </AnimateIn>
           <AnimateIn variant="fade-up" delay={100}>
-            <h2>Nossos serviços</h2>
+            <h2 style={{ textAlign: "center", margin: "16px auto 28px" }}>Nossos serviços</h2>
           </AnimateIn>
           <AnimateIn variant="fade-up" delay={150}>
             <p style={{ maxWidth: 600, margin: "0 auto 40px", color: "#48564d" }}>
@@ -157,7 +157,7 @@ export default function Home() {
             <span className="eyebrow">A experiência</span>
           </AnimateIn>
           <AnimateIn variant="fade-up" delay={100}>
-            <h2>Mais que um corte. Uma assinatura de estilo.</h2>
+            <h2 style={{ textAlign: "center", margin: "16px auto 28px" }}>Mais que um corte. Uma assinatura de estilo.</h2>
           </AnimateIn>
           <AnimateIn variant="fade-up" delay={150}>
             <p style={{ maxWidth: 600, margin: "0 auto", color: "#72816a" }}>

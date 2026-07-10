@@ -88,7 +88,7 @@ export default function SobrePage() {
             <span className="eyebrow">Código de Imagem</span>
           </AnimateIn>
           <AnimateIn variant="fade-up" delay={100}>
-            <h2>Presença, credibilidade e autoridade</h2>
+            <h2 style={{ textAlign: "center", margin: "16px auto 28px" }}>Presença, credibilidade e autoridade</h2>
           </AnimateIn>
           <AnimateIn variant="fade-up" delay={150}>
             <p style={{ maxWidth: 600, margin: "0 auto", color: "#72816a" }}>
