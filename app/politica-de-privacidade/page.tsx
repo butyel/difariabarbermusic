@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { COMPANY, WHATSAPP } from "@/lib/constants";
-import WhatsAppButton from "@/components/WhatsAppButton";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 export const metadata: Metadata = {
   title: "Política de Privacidade",
@@ -150,6 +151,7 @@ export default function PrivacyPolicy() {
           </section>
         ))}
       </div>
+      <Footer />
       <WhatsAppButton />
     </main>
   );

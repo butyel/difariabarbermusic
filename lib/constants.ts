@@ -57,6 +57,7 @@ export const NAV_LINKS = [
   { label: "Sobre", href: "/sobre" },
   { label: "Galeria", href: "/galeria" },
   { label: "Blog", href: "/blog" },
+  { label: "Perguntas", href: "/perguntas-frequentes" },
   { label: "Contato", href: "/contato" },
 ] as const;
 

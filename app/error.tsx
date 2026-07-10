@@ -1,15 +1,10 @@
-import Link from "next/link";
-import type { Metadata } from "next";
+"use client";
+
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
-export const metadata: Metadata = {
-  title: "Página não encontrada",
-  robots: { index: false, follow: false },
-};
-
-export default function NotFound() {
+export default function Error({ reset }: { error: Error; reset: () => void }) {
   return (
     <main>
       <Header />
@@ -28,14 +23,14 @@ export default function NotFound() {
       >
         <span
           style={{
-            fontSize: "clamp(6rem, 18vw, 12rem)",
+            fontSize: "clamp(4rem, 12vw, 8rem)",
             fontWeight: 800,
             lineHeight: 1,
             letterSpacing: "-0.08em",
             color: "#1f4a33",
           }}
         >
-          404
+          Erro
         </span>
         <h1
           style={{
@@ -45,7 +40,7 @@ export default function NotFound() {
             letterSpacing: "-0.04em",
           }}
         >
-          Página não encontrada
+          Algo deu errado
         </h1>
         <p
           style={{
@@ -55,10 +50,10 @@ export default function NotFound() {
             fontSize: "1.05rem",
           }}
         >
-          O conteúdo que você procura não está disponível ou foi movido.
+          Tente novamente ou volte para a página inicial.
         </p>
-        <Link
-          href="/"
+        <button
+          onClick={reset}
           style={{
             display: "inline-flex",
             alignItems: "center",
@@ -70,11 +65,12 @@ export default function NotFound() {
             textTransform: "uppercase",
             letterSpacing: "0.08em",
             fontSize: "0.75rem",
-            textDecoration: "none",
+            border: "none",
+            cursor: "pointer",
           }}
         >
-          Voltar ao início
-        </Link>
+          Tentar novamente
+        </button>
       </div>
       <Footer />
       <WhatsAppButton />

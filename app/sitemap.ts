@@ -57,6 +57,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
+  const blogPosts = [
+    { slug: "corte-ideal-formato-rosto", title: "Corte ideal para formato do rosto" },
+    { slug: "degrade-low-mid-high-fade", title: "Degradê: low, mid ou high fade" },
+    { slug: "cuidados-barba-em-casa", title: "Cuidados com a barba em casa" },
+  ];
+
+  const blogPages = blogPosts.map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
   const servicePages = SEO_SERVICES.map((service) => ({
     url: `${baseUrl}/${service.slug}-em-presidente-epitacio`,
     lastModified: new Date(),
@@ -64,5 +77,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  return [...staticPages, ...servicePages];
+  return [...staticPages, ...blogPages, ...servicePages];
 }
