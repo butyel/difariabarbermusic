@@ -1,11 +1,11 @@
 import Image from "next/image";
+import Link from "next/link";
 import {
   Clock3,
   Facebook,
   Instagram,
   MapPin,
   MessageCircle,
-  Music2,
   Scissors,
   Sparkles,
   Star,
@@ -13,15 +13,63 @@ import {
 import Header from "@/components/Header";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import AnimateIn from "@/components/AnimateIn";
-import Gallery from "@/components/Gallery";
-import { COMPANY, WHATSAPP, SERVICES, FAQS } from "@/lib/constants";
+import { COMPANY, WHATSAPP, SERVICES } from "@/lib/constants";
+
+const barbershopSchema = {
+  "@context": "https://schema.org",
+  "@type": "BarberShop",
+  name: COMPANY.name,
+  image: `${COMPANY.domain}/images/barbearia-interior.jpg`,
+  url: COMPANY.domain,
+  telephone: `+55 ${COMPANY.phoneRaw}`,
+  priceRange: "$$",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: COMPANY.address.street,
+    addressLocality: COMPANY.address.city,
+    addressRegion: COMPANY.address.state,
+    postalCode: COMPANY.address.zip || undefined,
+    addressCountry: "BR",
+  },
+  sameAs: [COMPANY.instagram, COMPANY.facebook],
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: COMPANY.coordinates.lat,
+    longitude: COMPANY.coordinates.lng,
+  },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "09:00",
+      closes: "20:00",
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: "Saturday",
+      opens: "09:00",
+      closes: "16:00",
+    },
+  ],
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: COMPANY.googleRating,
+    bestRating: 5,
+    ratingCount: COMPANY.googleReviews,
+    reviewAspect: "Google Reviews",
+  },
+};
 
 export default function Home() {
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(barbershopSchema) }}
+      />
       <Header />
 
-      <section id="inicio" className="hero">
+      <section className="hero">
         <Image
           className="hero-image"
           src="/images/barbearia-interior.jpg"
@@ -34,7 +82,7 @@ export default function Home() {
         <div className="hero-content container">
           <AnimateIn variant="fade-up">
             <span className="eyebrow">
-              <Music2 size={16} aria-hidden="true" /> {COMPANY.slogan}
+              Estilo. Música. Identidade.
             </span>
           </AnimateIn>
           <AnimateIn variant="fade-up" delay={100}>
@@ -69,67 +117,23 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="experiencia" className="section section-cream">
-        <div className="container experience">
-          <div className="section-copy">
-            <AnimateIn variant="fade-up">
-              <span className="eyebrow dark">A experiência</span>
-            </AnimateIn>
-            <AnimateIn variant="fade-up" delay={100}>
-              <h2>Mais que um corte. Uma assinatura de estilo.</h2>
-            </AnimateIn>
-            <AnimateIn variant="fade-up" delay={150}>
-              <p>
-                A DiFaria Barber Music une técnica, estética, música e atendimento
-                personalizado. Cada detalhe do ambiente foi pensado para homens que
-                valorizam presença, qualidade e personalidade.
-              </p>
-            </AnimateIn>
-            <AnimateIn variant="fade-up" delay={200} stagger>
-              <div className="feature-grid">
-                <div className="stagger-item">
-                  <Scissors aria-hidden="true" />
-                  <h3>Técnica e precisão</h3>
-                  <p>Acabamento limpo e consultoria para encontrar o estilo ideal.</p>
-                </div>
-                <div className="stagger-item">
-                  <Music2 aria-hidden="true" />
-                  <h3>Atmosfera única</h3>
-                  <p>Uma identidade que conecta barbearia, música e experiência.</p>
-                </div>
-                <div className="stagger-item">
-                  <Sparkles aria-hidden="true" />
-                  <h3>Atendimento premium</h3>
-                  <p>Cuidado individual para você sair confiante em cada visita.</p>
-                </div>
-              </div>
-            </AnimateIn>
-          </div>
-          <AnimateIn variant="slide-right" delay={100}>
-            <div className="portrait-frame">
-              <Image
-                src="/images/will.jpeg"
-                alt="Profissional da DiFaria Barber Music realizando um atendimento"
-                width={720}
-                height={900}
-                sizes="(max-width: 800px) 100vw, 45vw"
-              />
-            </div>
-          </AnimateIn>
-        </div>
-      </section>
-
-      <section id="servicos" className="section section-dark">
-        <div className="container">
+      <section className="section section-cream">
+        <div className="container" style={{ textAlign: "center" }}>
           <AnimateIn variant="fade-up">
-            <span className="eyebrow">Especialidades</span>
+            <span className="eyebrow dark">O que oferecemos</span>
           </AnimateIn>
           <AnimateIn variant="fade-up" delay={100}>
-            <h2>Visual alinhado do seu jeito</h2>
+            <h2>Nossos serviços</h2>
+          </AnimateIn>
+          <AnimateIn variant="fade-up" delay={150}>
+            <p style={{ maxWidth: 600, margin: "0 auto 40px", color: "#48564d" }}>
+              Do clássico ao contemporâneo, cada serviço é pensado para valorizar
+              sua identidade com técnica e precisão.
+            </p>
           </AnimateIn>
           <AnimateIn variant="fade-up" delay={150} stagger>
             <div className="services-grid">
-              {SERVICES.map((service, index) => (
+              {SERVICES.slice(0, 3).map((service, index) => (
                 <article className="service-card stagger-item" key={service.title}>
                   <span>0{index + 1}</span>
                   <h3>{service.title}</h3>
@@ -139,58 +143,71 @@ export default function Home() {
             </div>
           </AnimateIn>
           <AnimateIn variant="fade-up" delay={300}>
-            <div className="center">
-              <a className="button" href={WHATSAPP.url} target="_blank" rel="noreferrer">
-                <span>Consultar e agendar</span>
-              </a>
+            <div className="center" style={{ marginTop: 32 }}>
+              <Link className="button" href="/servicos">
+                <span>Ver todos os serviços</span>
+              </Link>
             </div>
           </AnimateIn>
         </div>
       </section>
 
-      <section id="galeria" className="section section-cream">
-        <div className="container">
+      <section className="section section-dark">
+        <div className="container" style={{ textAlign: "center" }}>
+          <AnimateIn variant="fade-up">
+            <span className="eyebrow">A experiência</span>
+          </AnimateIn>
+          <AnimateIn variant="fade-up" delay={100}>
+            <h2>Mais que um corte. Uma assinatura de estilo.</h2>
+          </AnimateIn>
+          <AnimateIn variant="fade-up" delay={150}>
+            <p style={{ maxWidth: 600, margin: "0 auto", color: "#72816a" }}>
+              Técnica, estética, música e atendimento personalizado em Presidente Epitácio.
+            </p>
+          </AnimateIn>
+          <AnimateIn variant="fade-up" delay={200} stagger>
+            <div className="feature-grid" style={{ justifyContent: "center", marginTop: 32 }}>
+              <div className="stagger-item" style={{ textAlign: "center" }}>
+                <Scissors aria-hidden="true" />
+                <h3>Técnica e precisão</h3>
+                <p>Acabamento limpo e consultoria para encontrar o estilo ideal.</p>
+              </div>
+              <div className="stagger-item" style={{ textAlign: "center" }}>
+                <Sparkles aria-hidden="true" />
+                <h3>Atendimento premium</h3>
+                <p>Cuidado individual para você sair confiante em cada visita.</p>
+              </div>
+            </div>
+          </AnimateIn>
+          <AnimateIn variant="fade-up" delay={300}>
+            <div className="center" style={{ marginTop: 32 }}>
+              <Link className="button button-ghost" href="/sobre">
+                <span>Conheça nossa história</span>
+              </Link>
+            </div>
+          </AnimateIn>
+        </div>
+      </section>
+
+      <section className="section section-cream">
+        <div className="container" style={{ textAlign: "center" }}>
           <AnimateIn variant="fade-up">
             <span className="eyebrow dark">Galeria</span>
           </AnimateIn>
           <AnimateIn variant="fade-up" delay={100}>
             <h2>Onde estilo e música se encontram</h2>
           </AnimateIn>
-          <AnimateIn variant="fade-up" delay={150}>
-            <Gallery />
-          </AnimateIn>
-        </div>
-      </section>
-
-      <section id="faq" className="section section-mid">
-        <div className="container faq-layout">
-          <div>
-            <AnimateIn variant="fade-up">
-              <span className="eyebrow dark">Perguntas</span>
-            </AnimateIn>
-            <AnimateIn variant="fade-up" delay={100}>
-              <h2>Antes de escolher seu próximo corte</h2>
-            </AnimateIn>
-            <AnimateIn variant="fade-up" delay={150}>
-              <p>
-                Informações rápidas para facilitar sua visita à DiFaria Barber Music.
-              </p>
-            </AnimateIn>
-          </div>
-          <AnimateIn variant="fade-up" delay={150} stagger>
-            <div className="faq-list">
-              {FAQS.map(({ question, answer }) => (
-                <details className="stagger-item" key={question}>
-                  <summary>{question}</summary>
-                  <p>{answer}</p>
-                </details>
-              ))}
+          <AnimateIn variant="fade-up" delay={300}>
+            <div className="center" style={{ marginTop: 24 }}>
+              <Link className="button" href="/galeria">
+                <span>Ver galeria completa</span>
+              </Link>
             </div>
           </AnimateIn>
         </div>
       </section>
 
-      <section id="contato" className="section contact-section">
+      <section className="section contact-section">
         <div className="container contact-card">
           <div>
             <AnimateIn variant="fade-up">

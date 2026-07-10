@@ -1,6 +1,8 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { NAV_LINKS, WHATSAPP } from "@/lib/constants";
@@ -8,6 +10,7 @@ import { NAV_LINKS, WHATSAPP } from "@/lib/constants";
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -28,9 +31,9 @@ export default function Header() {
           : "rgba(255, 255, 255, 0.12)",
       }}
     >
-      <a className="brand" href="#inicio" aria-label="DiFaria Barber Music - início">
+      <Link className="brand" href="/" aria-label="DiFaria Barber Music - início">
         <Image src="/images/logo.png" alt="DiFaria Barber Music" width={120} height={44} priority />
-      </a>
+      </Link>
       <button
         className="menu-button"
         aria-label={open ? "Fechar menu" : "Abrir menu"}
@@ -41,9 +44,14 @@ export default function Header() {
       </button>
       <nav className={open ? "nav open" : "nav"} aria-label="Navegação principal">
         {NAV_LINKS.map(({ label, href }) => (
-          <a key={href} href={href} onClick={() => setOpen(false)}>
+          <Link
+            key={href}
+            href={href}
+            className={pathname === href ? "active" : ""}
+            onClick={() => setOpen(false)}
+          >
             {label}
-          </a>
+          </Link>
         ))}
         <a
           className="button button-small"

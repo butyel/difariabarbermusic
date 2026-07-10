@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
-import { COMPANY, SEO_KEYWORDS, FAQS } from "@/lib/constants";
+import { COMPANY, SEO_KEYWORDS } from "@/lib/constants";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -48,83 +48,11 @@ export const metadata: Metadata = {
   },
 };
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  mainEntity: FAQS.map((faq) => ({
-    "@type": "Question",
-    name: faq.question,
-    acceptedAnswer: {
-      "@type": "Answer",
-      text: faq.answer,
-    },
-  })),
-};
-
-const barbershopSchema = {
-  "@context": "https://schema.org",
-  "@type": "Barbershop",
-  name: COMPANY.name,
-  image: `${COMPANY.domain}/images/barbearia-interior.jpg`,
-  url: COMPANY.domain,
-  telephone: `+55 ${COMPANY.phoneRaw}`,
-  priceRange: "$$",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: COMPANY.address.street,
-    addressLocality: COMPANY.address.city,
-    addressRegion: COMPANY.address.state,
-    postalCode: COMPANY.address.zip || undefined,
-    addressCountry: "BR",
-  },
-  sameAs: [COMPANY.instagram, COMPANY.facebook],
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: COMPANY.coordinates.lat,
-    longitude: COMPANY.coordinates.lng,
-  },
-  openingHoursSpecification: [
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      opens: "09:00",
-      closes: "20:00",
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: "Saturday",
-      opens: "09:00",
-      closes: "16:00",
-    },
-  ],
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: COMPANY.googleRating,
-    bestRating: 5,
-    ratingCount: COMPANY.googleReviews,
-    reviewAspect: "Google Reviews",
-  },
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="pt-BR">
-      <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(barbershopSchema),
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(faqSchema),
-          }}
-        />
-      </head>
       <body className={montserrat.variable}>{children}</body>
     </html>
   );

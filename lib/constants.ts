@@ -52,11 +52,12 @@ export const WHATSAPP = {
 };
 
 export const NAV_LINKS = [
-  { label: "Início", href: "#inicio" },
-  { label: "Experiência", href: "#experiencia" },
-  { label: "Serviços", href: "#servicos" },
-  { label: "Galeria", href: "#galeria" },
-  { label: "Contato", href: "#contato" },
+  { label: "Início", href: "/" },
+  { label: "Serviços", href: "/servicos" },
+  { label: "Sobre", href: "/sobre" },
+  { label: "Galeria", href: "/galeria" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contato", href: "/contato" },
 ] as const;
 
 export const SERVICES = [
