@@ -73,8 +73,34 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
   const post = posts.find((p) => p.slug === slug);
   if (!post) notFound();
 
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.excerpt,
+    image: `${COMPANY.domain}${post.image}`,
+    author: {
+      "@type": "Person",
+      name: post.author,
+    },
+    datePublished: post.date,
+    publisher: {
+      "@type": "Organization",
+      name: COMPANY.name,
+      logo: `${COMPANY.domain}/images/logo.png`,
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${COMPANY.domain}/blog/${post.slug}`,
+    },
+  };
+
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
       <Header />
 
       <section className="section section-cream" style={{ paddingTop: "140px" }}>

@@ -8,7 +8,7 @@ export const COMPANY = {
     "Barbearia em Presidente Epitácio para quem entende que estilo também é identidade.",
   phone: "(18) 98206-4610",
   phoneRaw: "5518982064610",
-  email: "",
+  email: "contato@difariabarbermusic.com.br",
   address: {
     street: "Av. Pres. Vargas, 20-64, Sala 2",
     complement: "Sala 2",

@@ -47,7 +47,7 @@ html {
 
 body {
   margin: 0;
-  font-family: var(--font-brand), "Arial", sans-serif;
+  font-family: var(--font-brand), "Arial", "Helvetica", "Segoe UI", "Roboto", sans-serif;
   background: var(--cream);
   color: var(--green-950);
   -webkit-font-smoothing: antialiased;

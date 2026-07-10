@@ -1,8 +1,14 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
 import { COMPANY, SEO_KEYWORDS } from "@/lib/constants";
 import Analytics from "@/components/Analytics";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#071710",
+};
 
 const montserrat = Montserrat({
   subsets: ["latin"],
