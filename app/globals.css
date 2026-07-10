@@ -204,8 +204,8 @@ p {
 }
 
 .button-small {
-  padding: 12px 20px;
-  font-size: 0.7rem;
+  padding: 6px 14px;
+  font-size: 0.6rem;
 }
 
 .button-ghost {
@@ -234,7 +234,8 @@ p {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 2px 24px;
+  padding: 0 20px;
+  height: 36px;
   background: var(--header-bg);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -243,7 +244,7 @@ p {
 }
 
 .brand img {
-  width: 64px;
+  width: 48px;
   height: auto;
   display: block;
 }
@@ -298,6 +299,7 @@ p {
   align-items: flex-end;
   color: white;
   overflow: hidden;
+  scroll-margin-top: 36px;
 }
 
 .hero-image {
@@ -774,11 +776,12 @@ p {
   }
 
   .site-header {
-    padding: 2px 12px;
+    padding: 0 12px;
+    height: 36px;
   }
 
   .brand img {
-    width: 50px;
+    width: 40px;
   }
 
   .section {

@@ -29,7 +29,7 @@ export default function Header() {
       }}
     >
       <a className="brand" href="#inicio" aria-label="DiFaria Barber Music - início">
-        <Image src="/images/logo.png" alt="DiFaria Barber Music" width={140} height={50} priority />
+        <Image src="/images/logo.png" alt="DiFaria Barber Music" width={100} height={36} priority />
       </a>
       <button
         className="menu-button"
