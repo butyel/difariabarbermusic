@@ -14,10 +14,10 @@ export default function Footer() {
         />
         <p>{COMPANY.tagline}</p>
         <div className="footer-info">
-          <a href={COMPANY.mapsUrl} target="_blank" rel="noreferrer">
-            <MapPin size={16} aria-hidden="true" /> {COMPANY.address.street}, {COMPANY.address.neighborhood} - {COMPANY.address.city}/{COMPANY.address.state}
+          <a href={COMPANY.mapsUrl} target="_blank" rel="noreferrer" data-ga="click_directions">
+            <MapPin size={16} aria-hidden="true" /> {COMPANY.address.full}
           </a>
-          <a href={WHATSAPP.url} target="_blank" rel="noreferrer">
+          <a href={WHATSAPP.url} target="_blank" rel="noreferrer" data-ga="click_whatsapp_footer">
             <MessageCircle size={16} aria-hidden="true" /> {COMPANY.phone}
           </a>
           <span>
@@ -30,6 +30,7 @@ export default function Footer() {
             target="_blank"
             rel="noreferrer"
             aria-label="Instagram da DiFaria Barber Music"
+            data-ga="click_instagram"
           >
             <Instagram aria-hidden="true" />
           </a>
@@ -38,6 +39,7 @@ export default function Footer() {
             target="_blank"
             rel="noreferrer"
             aria-label="Facebook da DiFaria Barber Music"
+            data-ga="click_facebook"
           >
             <Facebook aria-hidden="true" />
           </a>

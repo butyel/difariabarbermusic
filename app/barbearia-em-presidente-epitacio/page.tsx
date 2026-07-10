@@ -4,12 +4,21 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { COMPANY, WHATSAPP } from "@/lib/constants";
 
+const baseUrl = COMPANY.domain;
+
 export const metadata: Metadata = {
-  title: "Barbearia em Presidente Epitácio",
+  title: "Barbearia em Presidente Epitácio | DiFaria Barber Music",
   description:
     "Barbearia premium em Presidente Epitácio. Corte masculino, degradê, barba e atendimento personalizado. Agende seu horário pelo WhatsApp.",
-  alternates: {
-    canonical: "/barbearia-em-presidente-epitacio",
+  alternates: { canonical: `${baseUrl}/barbearia-em-presidente-epitacio` },
+  openGraph: {
+    title: "Barbearia em Presidente Epitácio | DiFaria Barber Music",
+    description:
+      "Barbearia premium em Presidente Epitácio. Corte masculino, degradê, barba e atendimento personalizado.",
+    url: `${baseUrl}/barbearia-em-presidente-epitacio`,
+    images: [
+      { url: `${baseUrl}/images/barbearia-interior.jpg`, width: 1200, height: 630, alt: COMPANY.name },
+    ],
   },
 };
 

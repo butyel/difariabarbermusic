@@ -4,12 +4,24 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import Gallery from "@/components/Gallery";
 import AnimateIn from "@/components/AnimateIn";
+import { COMPANY } from "@/lib/constants";
+
+const baseUrl = COMPANY.domain;
 
 export const metadata: Metadata = {
-  title: "Galeria",
+  title: "Galeria da Barbearia DiFaria em Presidente Epitácio",
   description:
-    "Veja as fotos do ambiente, atendimentos e estrutura da DiFaria Barber Music em Presidente Epitácio. Conheça o espaço onde estilo e música se encontram.",
-  alternates: { canonical: "/galeria" },
+    "Veja fotos da DiFaria Barber Music, do ambiente, da estrutura e da experiência oferecida aos clientes em Presidente Epitácio.",
+  alternates: { canonical: `${baseUrl}/galeria` },
+  openGraph: {
+    title: "Galeria da Barbearia DiFaria em Presidente Epitácio",
+    description:
+      "Veja fotos da DiFaria Barber Music, do ambiente, da estrutura e da experiência oferecida aos clientes em Presidente Epitácio.",
+    url: `${baseUrl}/galeria`,
+    images: [
+      { url: `${baseUrl}/images/barbearia.jpg`, width: 1200, height: 630, alt: "Galeria DiFaria Barber Music" },
+    ],
+  },
 };
 
 export default function GaleriaPage() {

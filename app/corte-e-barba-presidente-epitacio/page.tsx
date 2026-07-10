@@ -4,12 +4,20 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { COMPANY, WHATSAPP } from "@/lib/constants";
 
+const baseUrl = COMPANY.domain;
+
 export const metadata: Metadata = {
-  title: "Corte e Barba em Presidente Epitácio",
+  title: "Corte e Barba em Presidente Epitácio | DiFaria Barber Music",
   description:
     "Corte e barba em Presidente Epitácio em um só lugar. Combo completo para renovar o visual com harmonia. Agende na DiFaria Barber Music.",
-  alternates: {
-    canonical: "/corte-e-barba-presidente-epitacio",
+  alternates: { canonical: `${baseUrl}/corte-e-barba-presidente-epitacio` },
+  openGraph: {
+    title: "Corte e Barba em Presidente Epitácio | DiFaria Barber Music",
+    description: "Corte e barba em Presidente Epitácio em um só lugar. Agende na DiFaria Barber Music.",
+    url: `${baseUrl}/corte-e-barba-presidente-epitacio`,
+    images: [
+      { url: `${baseUrl}/images/barbearia-interior.jpg`, width: 1200, height: 630, alt: COMPANY.name },
+    ],
   },
 };
 

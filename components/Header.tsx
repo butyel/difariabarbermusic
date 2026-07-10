@@ -58,6 +58,7 @@ export default function Header() {
           href={WHATSAPP.url}
           target="_blank"
           rel="noreferrer"
+          data-ga="click_whatsapp_header"
         >
           <span>Agendar</span>
         </a>

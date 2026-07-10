@@ -4,12 +4,20 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { COMPANY, WHATSAPP } from "@/lib/constants";
 
+const baseUrl = COMPANY.domain;
+
 export const metadata: Metadata = {
-  title: "Corte Infantil em Presidente Epitácio",
+  title: "Corte Infantil em Presidente Epitácio | DiFaria Barber Music",
   description:
     "Corte infantil em Presidente Epitácio com atendimento cuidadoso e confortável para os pequenos. Agende na DiFaria Barber Music.",
-  alternates: {
-    canonical: "/corte-infantil-presidente-epitacio",
+  alternates: { canonical: `${baseUrl}/corte-infantil-presidente-epitacio` },
+  openGraph: {
+    title: "Corte Infantil em Presidente Epitácio | DiFaria Barber Music",
+    description: "Corte infantil em Presidente Epitácio com atendimento cuidadoso. Agende na DiFaria.",
+    url: `${baseUrl}/corte-infantil-presidente-epitacio`,
+    images: [
+      { url: `${baseUrl}/images/barbearia-interior.jpg`, width: 1200, height: 630, alt: COMPANY.name },
+    ],
   },
 };
 

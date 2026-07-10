@@ -8,11 +8,22 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import AnimateIn from "@/components/AnimateIn";
 import { COMPANY, WHATSAPP } from "@/lib/constants";
 
+const baseUrl = COMPANY.domain;
+
 export const metadata: Metadata = {
-  title: "Blog",
+  title: "Dicas de Corte, Barba e Estilo Masculino | DiFaria",
   description:
-    "Acompanhe as novidades, dicas de estilo e cuidados da DiFaria Barber Music em Presidente Epitácio. Tudo sobre corte masculino, barba e tendências.",
-  alternates: { canonical: "/blog" },
+    "Conteúdos sobre cortes masculinos, degradê, barba, cuidados pessoais e estilo para homens de Presidente Epitácio e região.",
+  alternates: { canonical: `${baseUrl}/blog` },
+  openGraph: {
+    title: "Dicas de Corte, Barba e Estilo Masculino | DiFaria",
+    description:
+      "Conteúdos sobre cortes masculinos, degradê, barba, cuidados pessoais e estilo para homens de Presidente Epitácio e região.",
+    url: `${baseUrl}/blog`,
+    images: [
+      { url: `${baseUrl}/images/barbearia.jpg`, width: 1200, height: 630, alt: "Blog DiFaria Barber Music" },
+    ],
+  },
 };
 
 const posts = [

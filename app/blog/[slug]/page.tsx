@@ -52,10 +52,19 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
   const { slug } = await props.params;
   const post = posts.find((p) => p.slug === slug);
   if (!post) return { title: "Post não encontrado" };
+  const postUrl = `${COMPANY.domain}/blog/${post.slug}`;
   return {
-    title: post.title,
+    title: `${post.title} | DiFaria Barber Music`,
     description: post.excerpt,
-    alternates: { canonical: `/blog/${post.slug}` },
+    alternates: { canonical: postUrl },
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      url: postUrl,
+      images: [
+        { url: `${COMPANY.domain}${post.image}`, width: 1200, height: 630, alt: post.title },
+      ],
+    },
   };
 }
 

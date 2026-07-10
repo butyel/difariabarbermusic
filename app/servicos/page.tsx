@@ -7,11 +7,22 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import AnimateIn from "@/components/AnimateIn";
 import { COMPANY, WHATSAPP, SERVICES } from "@/lib/constants";
 
+const baseUrl = COMPANY.domain;
+
 export const metadata: Metadata = {
-  title: "Serviços",
+  title: "Corte Masculino e Barba em Presidente Epitácio | DiFaria",
   description:
-    "Conheça todos os serviços da DiFaria Barber Music em Presidente Epitácio: corte masculino, degradê e fade, barba, corte + barba, corte infantil e cuidados especiais.",
-  alternates: { canonical: "/servicos" },
+    "Conheça os serviços da DiFaria Barber Music: corte masculino, degradê, barba, corte infantil e cuidados especiais em Presidente Epitácio.",
+  alternates: { canonical: `${baseUrl}/servicos` },
+  openGraph: {
+    title: "Corte Masculino e Barba em Presidente Epitácio | DiFaria",
+    description:
+      "Conheça os serviços da DiFaria Barber Music: corte masculino, degradê, barba, corte infantil e cuidados especiais em Presidente Epitácio.",
+    url: `${baseUrl}/servicos`,
+    images: [
+      { url: `${baseUrl}/images/barbearia-interior.jpg`, width: 1200, height: 630, alt: COMPANY.name },
+    ],
+  },
 };
 
 export default function ServicosPage() {
@@ -46,7 +57,7 @@ export default function ServicosPage() {
           </AnimateIn>
           <AnimateIn variant="fade-up" delay={300}>
             <div className="center" style={{ marginTop: 48 }}>
-              <a className="button" href={WHATSAPP.url} target="_blank" rel="noreferrer">
+              <a className="button" href={WHATSAPP.url} target="_blank" rel="noreferrer" data-ga="click_whatsapp_service">
                 <span>Consultar e agendar</span>
               </a>
             </div>

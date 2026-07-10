@@ -4,12 +4,20 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { COMPANY, WHATSAPP } from "@/lib/constants";
 
+const baseUrl = COMPANY.domain;
+
 export const metadata: Metadata = {
-  title: "Barba em Presidente Epitácio",
+  title: "Barba em Presidente Epitácio | DiFaria Barber Music",
   description:
     "Barba em Presidente Epitácio com desenho, alinhamento e acabamento profissional. Valorize seu visual. Agende na DiFaria Barber Music.",
-  alternates: {
-    canonical: "/barba-presidente-epitacio",
+  alternates: { canonical: `${baseUrl}/barba-presidente-epitacio` },
+  openGraph: {
+    title: "Barba em Presidente Epitácio | DiFaria Barber Music",
+    description: "Barba em Presidente Epitácio com desenho e acabamento profissional. Agende na DiFaria.",
+    url: `${baseUrl}/barba-presidente-epitacio`,
+    images: [
+      { url: `${baseUrl}/images/barbearia-interior.jpg`, width: 1200, height: 630, alt: COMPANY.name },
+    ],
   },
 };
 

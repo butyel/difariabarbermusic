@@ -6,11 +6,22 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import AnimateIn from "@/components/AnimateIn";
 import { COMPANY, WHATSAPP } from "@/lib/constants";
 
+const baseUrl = COMPANY.domain;
+
 export const metadata: Metadata = {
-  title: "Sobre",
+  title: "Conheça a DiFaria Barber Music em Presidente Epitácio",
   description:
-    "Conheça a história da DiFaria Barber Music em Presidente Epitácio. Técnica, estética, música e atendimento personalizado para homens que valorizam presença e personalidade.",
-  alternates: { canonical: "/sobre" },
+    "Conheça a história da DiFaria Barber Music, criada por William Farias para unir barbearia, música, estilo, presença e atendimento personalizado.",
+  alternates: { canonical: `${baseUrl}/sobre` },
+  openGraph: {
+    title: "Conheça a DiFaria Barber Music em Presidente Epitácio",
+    description:
+      "Conheça a história da DiFaria Barber Music, criada por William Farias para unir barbearia, música, estilo, presença e atendimento personalizado.",
+    url: `${baseUrl}/sobre`,
+    images: [
+      { url: `${baseUrl}/images/will.jpeg`, width: 1200, height: 630, alt: "William Farias - DiFaria Barber Music" },
+    ],
+  },
 };
 
 export default function SobrePage() {

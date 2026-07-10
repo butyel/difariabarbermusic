@@ -4,11 +4,22 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
+const baseUrl = COMPANY.domain;
+
 export const metadata: Metadata = {
-  title: "Política de Privacidade",
+  title: "Política de Privacidade | DiFaria Barber Music",
   description:
-    "Política de Privacidade da DiFaria Barber Music. Saiba como seus dados são coletados, utilizados e protegidos.",
-  alternates: { canonical: "/politica-de-privacidade" },
+    "Saiba como a DiFaria Barber Music coleta, utiliza e protege os dados pessoais dos visitantes e clientes do site.",
+  alternates: { canonical: `${baseUrl}/politica-de-privacidade` },
+  openGraph: {
+    title: "Política de Privacidade | DiFaria Barber Music",
+    description:
+      "Saiba como a DiFaria Barber Music coleta, utiliza e protege os dados pessoais dos visitantes e clientes do site.",
+    url: `${baseUrl}/politica-de-privacidade`,
+    images: [
+      { url: `${baseUrl}/images/logo.png`, width: 1200, height: 630, alt: COMPANY.name },
+    ],
+  },
 };
 
 const sections = [

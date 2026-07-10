@@ -7,55 +7,53 @@ import AnimateIn from "@/components/AnimateIn";
 import Map from "@/components/Map";
 import { COMPANY, WHATSAPP } from "@/lib/constants";
 
+const baseUrl = COMPANY.domain;
+
 export const metadata: Metadata = {
-  title: "Contato",
+  title: "Agende seu Corte em Presidente Epitácio | DiFaria",
   description:
-    "Entre em contato com a DiFaria Barber Music em Presidente Epitácio. Agende seu horário pelo WhatsApp, veja o endereço e horários de funcionamento.",
-  alternates: { canonical: "/contato" },
+    "Agende seu corte ou barba na DiFaria Barber Music, no Centro de Presidente Epitácio. Atendimento pelo WhatsApp e localização pelo Google Maps.",
+  alternates: { canonical: `${baseUrl}/contato` },
+  openGraph: {
+    title: "Agende seu Corte em Presidente Epitácio | DiFaria",
+    description:
+      "Agende seu corte ou barba na DiFaria Barber Music, no Centro de Presidente Epitácio. Atendimento pelo WhatsApp e localização pelo Google Maps.",
+    url: `${baseUrl}/contato`,
+    images: [
+      { url: `${baseUrl}/images/barbearia-interior.jpg`, width: 1200, height: 630, alt: COMPANY.name },
+    ],
+  },
 };
 
 const contactSchema = {
   "@context": "https://schema.org",
-  "@type": "BarberShop",
+  "@type": "Barbershop",
+  "@id": `${baseUrl}/#barbershop`,
   name: COMPANY.name,
-  image: `${COMPANY.domain}/images/barbearia-interior.jpg`,
-  url: COMPANY.domain,
-  telephone: `+55 ${COMPANY.phoneRaw}`,
+  url: baseUrl,
+  telephone: `+55${COMPANY.phoneRaw}`,
   priceRange: "$$",
+  image: [`${baseUrl}/images/barbearia-interior.jpg`],
+  logo: `${baseUrl}/images/logo.png`,
   address: {
     "@type": "PostalAddress",
-    streetAddress: COMPANY.address.street,
-    addressLocality: COMPANY.address.city,
-    addressRegion: COMPANY.address.state,
-    postalCode: COMPANY.address.zip || undefined,
+    streetAddress: "Av. Pres. Vargas, 20-64, Sala 2",
+    addressLocality: "Presidente Epitácio",
+    addressRegion: "SP",
     addressCountry: "BR",
   },
-  sameAs: [COMPANY.instagram, COMPANY.facebook],
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: COMPANY.coordinates.lat,
-    longitude: COMPANY.coordinates.lng,
-  },
-  openingHoursSpecification: [
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      opens: "09:00",
-      closes: "20:00",
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: "Saturday",
-      opens: "09:00",
-      closes: "16:00",
-    },
+  sameAs: [
+    "https://www.instagram.com/difaria_barber_music/",
+    "https://www.facebook.com/share/1D3Lsi8fzQ/?mibextid=wwXIfr",
   ],
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: COMPANY.googleRating,
-    bestRating: 5,
-    ratingCount: COMPANY.googleReviews,
-    reviewAspect: "Google Reviews",
+  founder: {
+    "@type": "Person",
+    name: "William Farias",
+    jobTitle: "CEO e barbeiro",
+  },
+  areaServed: {
+    "@type": "City",
+    name: "Presidente Epitácio",
   },
 };
 
@@ -85,10 +83,10 @@ export default function ContatoPage() {
             <div>
               <AnimateIn variant="fade-up" delay={200}>
                 <div className="contact-lines">
-                  <a href={COMPANY.mapsUrl} target="_blank" rel="noreferrer">
+                  <a href={COMPANY.mapsUrl} target="_blank" rel="noreferrer" data-ga="click_directions">
                     <MapPin aria-hidden="true" /> {COMPANY.address.full}
                   </a>
-                  <a href={WHATSAPP.url} target="_blank" rel="noreferrer">
+                  <a href={WHATSAPP.url} target="_blank" rel="noreferrer" data-ga="click_whatsapp_contato">
                     <MessageCircle aria-hidden="true" /> {COMPANY.phone}
                   </a>
                   <span>

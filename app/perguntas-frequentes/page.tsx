@@ -6,11 +6,22 @@ import AnimateIn from "@/components/AnimateIn";
 import FaqAccordion from "@/components/FaqAccordion";
 import { COMPANY, FAQS } from "@/lib/constants";
 
+const baseUrl = COMPANY.domain;
+
 export const metadata: Metadata = {
-  title: "Perguntas Frequentes",
+  title: "Dúvidas sobre Cortes e Agendamentos | DiFaria Barber Music",
   description:
-    "Tire suas dúvidas sobre a DiFaria Barber Music em Presidente Epitácio: agendamento, serviços, formas de pagamento e mais.",
-  alternates: { canonical: "/perguntas-frequentes" },
+    "Tire suas dúvidas sobre agendamento, localização, cortes, barba e atendimento na DiFaria Barber Music em Presidente Epitácio.",
+  alternates: { canonical: `${baseUrl}/perguntas-frequentes` },
+  openGraph: {
+    title: "Dúvidas sobre Cortes e Agendamentos | DiFaria Barber Music",
+    description:
+      "Tire suas dúvidas sobre agendamento, localização, cortes, barba e atendimento na DiFaria Barber Music em Presidente Epitácio.",
+    url: `${baseUrl}/perguntas-frequentes`,
+    images: [
+      { url: `${baseUrl}/images/barbearia-interior.jpg`, width: 1200, height: 630, alt: COMPANY.name },
+    ],
+  },
 };
 
 const faqSchema = {

@@ -4,12 +4,20 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { COMPANY, WHATSAPP } from "@/lib/constants";
 
+const baseUrl = COMPANY.domain;
+
 export const metadata: Metadata = {
-  title: "Corte Degradê em Presidente Epitácio",
+  title: "Corte Degradê em Presidente Epitácio | DiFaria Barber Music",
   description:
     "Corte degradê em Presidente Epitácio com transições limpas. Low fade, mid fade, high fade e navalhado. Agende na DiFaria Barber Music.",
-  alternates: {
-    canonical: "/corte-degrade-presidente-epitacio",
+  alternates: { canonical: `${baseUrl}/corte-degrade-presidente-epitacio` },
+  openGraph: {
+    title: "Corte Degradê em Presidente Epitácio | DiFaria Barber Music",
+    description: "Corte degradê em Presidente Epitácio com transições limpas. Agende na DiFaria.",
+    url: `${baseUrl}/corte-degrade-presidente-epitacio`,
+    images: [
+      { url: `${baseUrl}/images/barbearia-interior.jpg`, width: 1200, height: 630, alt: COMPANY.name },
+    ],
   },
 };
 

@@ -4,12 +4,20 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { COMPANY, WHATSAPP } from "@/lib/constants";
 
+const baseUrl = COMPANY.domain;
+
 export const metadata: Metadata = {
-  title: "Corte Masculino em Presidente Epitácio",
+  title: "Corte Masculino em Presidente Epitácio | DiFaria Barber Music",
   description:
     "Corte masculino em Presidente Epitácio com acabamento preciso. Do clássico ao contemporâneo. Agende seu horário na DiFaria Barber Music.",
-  alternates: {
-    canonical: "/corte-masculino-presidente-epitacio",
+  alternates: { canonical: `${baseUrl}/corte-masculino-presidente-epitacio` },
+  openGraph: {
+    title: "Corte Masculino em Presidente Epitácio | DiFaria Barber Music",
+    description: "Corte masculino em Presidente Epitácio com acabamento preciso. Agende na DiFaria.",
+    url: `${baseUrl}/corte-masculino-presidente-epitacio`,
+    images: [
+      { url: `${baseUrl}/images/barbearia-interior.jpg`, width: 1200, height: 630, alt: COMPANY.name },
+    ],
   },
 };
 
