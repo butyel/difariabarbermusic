@@ -2,26 +2,14 @@
 
 import Image from "next/image";
 import { X } from "lucide-react";
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 
-const images = [
+const slideImages = [
   {
     src: "/images/barbearia-interior.jpg",
     alt: "Cadeira e ambiente da barbearia DiFaria em Presidente Epitácio",
     w: 900,
     h: 900,
-  },
-  {
-    src: "/images/will.jpeg",
-    alt: "Profissional da DiFaria Barber Music durante atendimento personalizado",
-    w: 900,
-    h: 900,
-  },
-  {
-    src: "/images/capa.jpg",
-    alt: "Logotipo da DiFaria Barber Music, barbearia em Presidente Epitácio",
-    w: 1200,
-    h: 700,
   },
   {
     src: "/images/barbearia.jpg",
@@ -43,10 +31,48 @@ const images = [
   },
 ];
 
+const rightImages = [
+  {
+    src: "/images/will.jpeg",
+    alt: "Profissional da DiFaria Barber Music durante atendimento personalizado",
+    w: 900,
+    h: 900,
+  },
+  {
+    src: "/images/capa.jpg",
+    alt: "Logotipo da DiFaria Barber Music, barbearia em Presidente Epitácio",
+    w: 1200,
+    h: 700,
+  },
+];
+
+const allImages = [...slideImages, ...rightImages];
+
 export default function Gallery() {
+  const [slideIndex, setSlideIndex] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const close = useCallback(() => setSelected(null), []);
+
+  const startAutoSlide = useCallback(() => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    intervalRef.current = setInterval(() => {
+      setSlideIndex((prev) => (prev + 1) % slideImages.length);
+    }, 3000);
+  }, []);
+
+  const stopAutoSlide = useCallback(() => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
+  }, []);
+
+  useEffect(() => {
+    startAutoSlide();
+    return stopAutoSlide;
+  }, [startAutoSlide, stopAutoSlide]);
 
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
@@ -56,14 +82,48 @@ export default function Gallery() {
     return () => window.removeEventListener("keydown", handleKey);
   }, [close]);
 
+  const slide = slideImages[slideIndex];
+
   return (
     <>
       <div className="gallery">
-        {images.map((img, i) => (
+        <button
+          className="gallery-btn gallery-slide"
+          onClick={() => setSelected(slideIndex)}
+          aria-label={`Ampliar imagem: ${slide.alt}`}
+          onMouseEnter={stopAutoSlide}
+          onMouseLeave={startAutoSlide}
+        >
+          <Image
+            src={slide.src}
+            alt={slide.alt}
+            width={slide.w}
+            height={slide.h}
+            sizes="(max-width: 900px) 100vw, 60vw"
+            className="gallery-slide-img"
+          />
+          <span className="gallery-slide-dots">
+            {slideImages.map((_, i) => (
+              <span
+                key={i}
+                className={`gallery-dot${i === slideIndex ? " active" : ""}`}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setSlideIndex(i);
+                }}
+              />
+            ))}
+          </span>
+        </button>
+
+        {rightImages.map((img) => (
           <button
             key={img.src}
             className="gallery-btn"
-            onClick={() => setSelected(i)}
+            onClick={() => {
+              const idx = allImages.findIndex((x) => x.src === img.src);
+              setSelected(idx);
+            }}
             aria-label={`Ampliar imagem: ${img.alt}`}
           >
             <Image
@@ -71,7 +131,7 @@ export default function Gallery() {
               alt={img.alt}
               width={img.w}
               height={img.h}
-              sizes={i === 0 ? "(max-width: 900px) 100vw, 60vw" : "(max-width: 900px) 50vw, 40vw"}
+              sizes="(max-width: 900px) 50vw, 40vw"
             />
           </button>
         ))}
@@ -84,10 +144,10 @@ export default function Gallery() {
           </button>
           <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
             <Image
-              src={images[selected].src}
-              alt={images[selected].alt}
-              width={images[selected].w}
-              height={images[selected].h}
+              src={allImages[selected].src}
+              alt={allImages[selected].alt}
+              width={allImages[selected].w}
+              height={allImages[selected].h}
               className="lightbox-image"
               priority
             />
@@ -98,8 +158,8 @@ export default function Gallery() {
                 ‹
               </button>
             )}
-            <span>{selected + 1} / {images.length}</span>
-            {selected < images.length - 1 && (
+            <span>{selected + 1} / {allImages.length}</span>
+            {selected < allImages.length - 1 && (
               <button onClick={() => setSelected(selected + 1)} aria-label="Próxima">
                 ›
               </button>
