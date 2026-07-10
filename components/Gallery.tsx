@@ -29,6 +29,12 @@ const slideImages = [
     w: 900,
     h: 900,
   },
+  {
+    src: "/images/corte-masculino.jpg",
+    alt: "Corte masculino realizado na DiFaria Barber Music em Presidente Epitácio",
+    w: 900,
+    h: 900,
+  },
 ];
 
 const rightImages = [
@@ -43,6 +49,18 @@ const rightImages = [
     alt: "Logotipo da DiFaria Barber Music, barbearia em Presidente Epitácio",
     w: 1200,
     h: 700,
+  },
+  {
+    src: "/images/barbearia-atendimento.jpg",
+    alt: "Atendimento na DiFaria Barber Music em Presidente Epitácio",
+    w: 900,
+    h: 900,
+  },
+  {
+    src: "/images/barbearia-exterior.jpg",
+    alt: "Fachada da barbearia DiFaria em Presidente Epitácio",
+    w: 900,
+    h: 900,
   },
 ];
 
