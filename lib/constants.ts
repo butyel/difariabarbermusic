@@ -39,7 +39,7 @@ export const COMPANY = {
   instagram: "https://www.instagram.com/difaria_barber_music/",
   facebook:
     "https://www.facebook.com/share/1D3Lsi8fzQ/?mibextid=wwXIfr",
-  domain: process.env.NEXT_PUBLIC_SITE_URL || "https://difariabarbermusic.vercel.app",
+  domain: process.env.NEXT_PUBLIC_SITE_URL || "https://difariabarbermusic.com.br",
 };
 
 export const WHATSAPP = {
