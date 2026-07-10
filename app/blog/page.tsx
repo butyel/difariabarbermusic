@@ -48,6 +48,27 @@ const posts = [
     image: "/images/difaria.jpg",
     slug: "cuidados-barba-em-casa",
   },
+  {
+    title: "Melhores barbearias em Presidente Epitácio: o que procurar",
+    excerpt:
+      "O que considerar ao escolher uma barbearia em Presidente Epitácio? Ambiente, técnica, atendimento e localização fazem toda a diferença.",
+    image: "/images/barbearia-interior.jpg",
+    slug: "melhores-barbearias-presidente-epitacio",
+  },
+  {
+    title: "Tendências de corte masculino para 2026",
+    excerpt:
+      "Cortes texturizados, degradê moderno e barba bem cuidada estão entre as principais tendências de estilo masculino para 2026.",
+    image: "/images/capa.jpg",
+    slug: "tendencias-corte-masculino-2026",
+  },
+  {
+    title: "Como cuidar do degradê entre as visitas à barbearia",
+    excerpt:
+      "Manter o degradê bonito por mais tempo exige cuidados simples. Veja dicas de hidratação, penteado e produtos para usar em casa.",
+    image: "/images/will.jpeg",
+    slug: "cuidar-degrade-entre-visitas",
+  },
 ];
 
 export default function BlogPage() {

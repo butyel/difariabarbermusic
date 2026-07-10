@@ -42,6 +42,39 @@ const posts = [
     author: "DiFaria Barber Music",
     date: "Julho 2026",
   },
+  {
+    slug: "melhores-barbearias-presidente-epitacio",
+    title: "Melhores barbearias em Presidente Epitácio: o que procurar",
+    excerpt:
+      "O que considerar ao escolher uma barbearia em Presidente Epitácio? Ambiente, técnica, atendimento e localização fazem toda a diferença.",
+    image: "/images/barbearia-interior.jpg",
+    content:
+      "Escolher a barbearia certa em Presidente Epitácio pode transformar completamente sua experiência de cuidado pessoal. Mas o que realmente faz uma barbearia se destacar?\n\n1. Técnica e atualização profissional: uma boa barbearia investe em treinamento constante. Técnicas como degradê navalhado, cortes texturizados e barba desenhada exigem domínio e prática.\n\n2. Ambiente e experiência: o espaço diz muito sobre o cuidado que você vai receber. Ambiente limpo, organizado e com uma boa música faz diferença no resultado final.\n\n3. Atendimento personalizado: cada pessoa tem formato de rosto, tipo de cabelo e estilo de vida diferentes. Um bom barbeiro ouve antes de cortar.\n\n4. Produtos de qualidade: barbearias que usam produtos profissionais para finalização mostram compromisso com o resultado.\n\n5. Localização e horários: a praticidade de encontrar uma barbearia no centro de Presidente Epitácio, com horários flexíveis, facilita a rotina.\n\nNa DiFaria Barber Music, reunimos todos esses diferenciais em um só lugar. Agende sua visita e venha conhecer.",
+    author: "DiFaria Barber Music",
+    date: "Julho 2026",
+  },
+  {
+    slug: "tendencias-corte-masculino-2026",
+    title: "Tendências de corte masculino para 2026",
+    excerpt:
+      "Cortes texturizados, degradê moderno e barba bem cuidada estão entre as principais tendências de estilo masculino para 2026.",
+    image: "/images/capa.jpg",
+    content:
+      "O universo dos cortes masculinos está em constante evolução. Em 2026, as tendências combinam o clássico e o contemporâneo com um toque de personalidade. Confira o que vem por aí:\n\nCorte texturizado: o textured crop continua em alta. A proposta é criar movimento e volume natural no topo, com laterais mais curtas. Ideal para quem busca um visual moderno sem exageros.\n\nDegradê criativo: o degradê tradicional ganha variações como o burst fade (em volta da orelha) e o drop fade (mais baixo atrás). A criatividade na transição entre os tamanhos é o destaque.\n\nBarba cheia e bem cuidada: barba grande continua elegante, desde que bem alinhada. O contorno definido e a hidratação são essenciais para um visual sofisticado.\n\nCorte desconectado: a diferença brusca entre o topo e as laterais cria um contraste moderno. Funciona bem com finalizações texturizadas.\n\nCorte social: o clássico bem executado nunca sai de moda. Corte social com risco na lateral e degradê suave é a escolha de quem prefere um visual elegante e atemporal.\n\nNa DiFaria Barber Music, acompanhamos as tendências sem perder a essência do atendimento personalizado. Agende seu horário e descubra o estilo ideal para você.",
+    author: "DiFaria Barber Music",
+    date: "Julho 2026",
+  },
+  {
+    slug: "cuidar-degrade-entre-visitas",
+    title: "Como cuidar do degradê entre as visitas à barbearia",
+    excerpt:
+      "Manter o degradê bonito por mais tempo exige cuidados simples. Veja dicas de hidratação, penteado e produtos para usar em casa.",
+    image: "/images/will.jpeg",
+    content:
+      "O degradê é um dos cortes mais versáteis e elegantes, mas exige manutenção. Entre uma visita e outra à barbearia, alguns cuidados fazem toda a diferença para manter o visual impecável.\n\n1. Lave o cabelo com frequência adequada: lavar todos os dias pode ressecar os fios. O ideal é lavar em dias alternados com shampoo suave e condicionador.\n\n2. Use produtos leves: pomadas e ceras com baixo brilho ajudam a estilizar sem pesar no visual. Produtos muito oleosos podem desmanchar a transição do degradê.\n\n3. Penteie na direção certa: use um pente ou escova para alinhar o cabelo no sentido do corte. Isso evita que os fios fiquem desordenados e quebrem a harmonia do degradê.\n\n4. Hidrate os fios: cabelo hidratado tem mais movimento e brilho natural. Use um leave-in leve ou óleo capilar nas pontas.\n\n5. Apare o contorno com cuidado: se o degradê começar a perder a definição, você pode aparar apenas o contorno do pescoço e das orelhas com uma máquina. Mas deixe a manutenção completa para o barbeiro.\n\n6. Evite bonés e chapéus apertados: o atrito constante pode desmanchar o degradê e causar frizz.\n\nAgende sua próxima visita na DiFaria Barber Music e mantenha seu degradê sempre impecável.",
+    author: "DiFaria Barber Music",
+    date: "Julho 2026",
+  },
 ];
 
 export function generateStaticParams() {

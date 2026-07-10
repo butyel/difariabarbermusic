@@ -61,6 +61,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { slug: "corte-ideal-formato-rosto", title: "Corte ideal para formato do rosto" },
     { slug: "degrade-low-mid-high-fade", title: "Degradê: low, mid ou high fade" },
     { slug: "cuidados-barba-em-casa", title: "Cuidados com a barba em casa" },
+    { slug: "melhores-barbearias-presidente-epitacio", title: "Melhores barbearias em Presidente Epitácio" },
+    { slug: "tendencias-corte-masculino-2026", title: "Tendências de corte masculino para 2026" },
+    { slug: "cuidar-degrade-entre-visitas", title: "Como cuidar do degradê entre visitas" },
   ];
 
   const blogPages = blogPosts.map((post) => ({
