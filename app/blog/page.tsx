@@ -6,7 +6,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import AnimateIn from "@/components/AnimateIn";
-import { COMPANY, WHATSAPP } from "@/lib/constants";
+import { COMPANY } from "@/lib/constants";
+import { posts, BLOG_AUTHOR } from "@/lib/blog";
 
 const baseUrl = COMPANY.domain;
 
@@ -26,50 +27,13 @@ export const metadata: Metadata = {
   },
 };
 
-const posts = [
-  {
-    title: "Como escolher o corte ideal para o formato do seu rosto",
-    excerpt:
-      "Nem todo corte funciona para todo mundo. Aprenda a identificar seu formato de rosto e descubra o estilo que mais valoriza seus traços.",
-    image: "/images/barbearia.jpg",
-    slug: "corte-ideal-formato-rosto",
-  },
-  {
-    title: "Degradê: low fade, mid fade ou high fade?",
-    excerpt:
-      "Entenda as diferenças entre os tipos de degradê e descubra qual combina mais com seu estilo e tipo de cabelo.",
-    image: "/images/barbeiro.jpg",
-    slug: "degrade-low-mid-high-fade",
-  },
-  {
-    title: "Cuidados com a barba: como manter o shape em casa",
-    excerpt:
-      "Dicas práticas para manter sua barba alinhada entre as visitas à barbearia. Hidratação, aparação e produtos recomendados.",
-    image: "/images/difaria.jpg",
-    slug: "cuidados-barba-em-casa",
-  },
-  {
-    title: "Melhores barbearias em Presidente Epitácio: o que procurar",
-    excerpt:
-      "O que considerar ao escolher uma barbearia em Presidente Epitácio? Ambiente, técnica, atendimento e localização fazem toda a diferença.",
-    image: "/images/barbearia-interior.jpg",
-    slug: "melhores-barbearias-presidente-epitacio",
-  },
-  {
-    title: "Tendências de corte masculino para 2026",
-    excerpt:
-      "Cortes texturizados, degradê moderno e barba bem cuidada estão entre as principais tendências de estilo masculino para 2026.",
-    image: "/images/capa.jpg",
-    slug: "tendencias-corte-masculino-2026",
-  },
-  {
-    title: "Como cuidar do degradê entre as visitas à barbearia",
-    excerpt:
-      "Manter o degradê bonito por mais tempo exige cuidados simples. Veja dicas de hidratação, penteado e produtos para usar em casa.",
-    image: "/images/will.jpeg",
-    slug: "cuidar-degrade-entre-visitas",
-  },
-];
+function formatDate(iso: string) {
+  return new Date(iso).toLocaleDateString("pt-BR", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+}
 
 export default function BlogPage() {
   return (
@@ -117,6 +81,11 @@ export default function BlogPage() {
                     <p style={{ color: "#72816a", fontSize: "0.9rem", lineHeight: 1.6, flex: 1 }}>
                       {post.excerpt}
                     </p>
+                    <div style={{ display: "flex", alignItems: "center", gap: 8, fontSize: "0.78rem", color: "#8a9a8a", marginTop: 12 }}>
+                      <span>{BLOG_AUTHOR.name}</span>
+                      <span>·</span>
+                      <span>{formatDate(post.publishedDate)}</span>
+                    </div>
                     <Link
                       href={`/blog/${post.slug}`}
                       style={{
