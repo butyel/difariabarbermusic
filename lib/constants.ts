@@ -92,6 +92,42 @@ export const SERVICES = [
     slug: "corte-infantil",
   },
   {
+    title: "Barboterapia",
+    description:
+      "Relaxamento e cuidado com barba, toalhas quentes e óleos essenciais.",
+    slug: "barboterapia",
+  },
+  {
+    title: "Visagismo masculino",
+    description:
+      "Análise facial para criar um visual personalizado que valoriza seus traços.",
+    slug: "visagismo-masculino",
+  },
+  {
+    title: "Sobrancelha masculina",
+    description:
+      "Design e alinhamento da sobrancelha com pinça e navalha para um olhar marcante.",
+    slug: "sobrancelha-masculina",
+  },
+  {
+    title: "Hidratação capilar",
+    description:
+      "Tratamento capilar masculino com produtos profissionais para fios saudáveis.",
+    slug: "hidratacao-capilar-masculina",
+  },
+  {
+    title: "Pacote para noivos",
+    description:
+      "Preparação completa para o grande dia: corte, barba e cuidados especiais.",
+    slug: "pacote-para-noivos",
+  },
+  {
+    title: "Produção para casamento",
+    description:
+      "Visual completo para casamentos: corte, barba, sobrancelha e finalização.",
+    slug: "producao-masculina-para-casamento",
+  },
+  {
     title: "Cuidados especiais",
     description:
       "Hidratação, pigmentação, sobrancelha e finalização profissional.",
@@ -138,6 +174,12 @@ export const SEO_KEYWORDS = [
   "corte degradê Presidente Epitácio",
   "barba Presidente Epitácio",
   "corte e barba em Presidente Epitácio",
+  "barboterapia Presidente Epitácio",
+  "visagismo masculino Presidente Epitácio",
+  "sobrancelha masculina",
+  "hidratação capilar masculina",
+  "pacote noivos Presidente Epitácio",
+  "produção casamento masculino",
   "barbearia premium",
   "barbearia perto de mim",
   "DiFaria Barber Music",
@@ -158,4 +200,10 @@ export const SEO_SERVICES = [
   { slug: "barba", title: "Barba", h1: "Barba em" },
   { slug: "corte-e-barba", title: "Corte e Barba", h1: "Corte e Barba em" },
   { slug: "corte-infantil", title: "Corte Infantil", h1: "Corte Infantil em" },
+  { slug: "barboterapia", title: "Barboterapia", h1: "Barboterapia em" },
+  { slug: "visagismo-masculino", title: "Visagismo Masculino", h1: "Visagismo Masculino em" },
+  { slug: "sobrancelha-masculina", title: "Sobrancelha Masculina", h1: "Sobrancelha Masculina em" },
+  { slug: "hidratacao-capilar-masculina", title: "Hidratação Capilar", h1: "Hidratação Capilar em" },
+  { slug: "pacote-para-noivos", title: "Pacote para Noivos", h1: "Pacote para Noivos em" },
+  { slug: "producao-masculina-para-casamento", title: "Produção para Casamento", h1: "Produção para Casamento em" },
 ] as const;

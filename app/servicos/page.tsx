@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Scissors, Music2, Sparkles, ExternalLink } from "lucide-react";
+import { Scissors, Music2, Sparkles, ArrowRight } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -11,20 +11,22 @@ import { COMPANY, WHATSAPP, SERVICES } from "@/lib/constants";
 const baseUrl = COMPANY.domain;
 
 export const metadata: Metadata = {
-  title: "Corte Masculino e Barba em Presidente Epitácio | DiFaria",
+  title: "Serviços de Barbearia em Presidente Epitácio | DiFaria",
   description:
-    "Conheça os serviços da DiFaria Barber Music: corte masculino, degradê, barba, corte infantil e cuidados especiais em Presidente Epitácio.",
+    "Conheça todos os serviços da DiFaria Barber Music: corte masculino, degradê, barba, barboterapia, visagismo, sobrancelha e mais em Presidente Epitácio.",
   alternates: { canonical: `${baseUrl}/servicos` },
   openGraph: {
-    title: "Corte Masculino e Barba em Presidente Epitácio | DiFaria",
+    title: "Serviços de Barbearia em Presidente Epitácio | DiFaria",
     description:
-      "Conheça os serviços da DiFaria Barber Music: corte masculino, degradê, barba, corte infantil e cuidados especiais em Presidente Epitácio.",
+      "Conheça todos os serviços da DiFaria Barber Music em Presidente Epitácio.",
     url: `${baseUrl}/servicos`,
     images: [
       { url: `${baseUrl}/images/barbearia-interior.jpg`, width: 1200, height: 630, alt: COMPANY.name },
     ],
   },
 };
+
+const servicesWithPage = SERVICES.filter((s) => "slug" in s);
 
 export default function ServicosPage() {
   return (
@@ -37,7 +39,7 @@ export default function ServicosPage() {
             <span className="eyebrow">Especialidades</span>
           </AnimateIn>
           <AnimateIn variant="fade-up" delay={100}>
-            <h1>Visual alinhado do seu jeito</h1>
+            <h1 style={{ margin: "20px auto 24px", maxWidth: 800 }}>Serviços de barbearia em Presidente Epitácio</h1>
           </AnimateIn>
           <AnimateIn variant="fade-up" delay={150}>
             <p style={{ maxWidth: 600, marginBottom: 48, color: "#72816a" }}>
@@ -47,24 +49,21 @@ export default function ServicosPage() {
           </AnimateIn>
           <AnimateIn variant="fade-up" delay={150} stagger>
             <div className="services-grid">
-              {SERVICES.map((service, index) => {
-                const href = "slug" in service
-                  ? `/${service.slug}-em-presidente-epitacio`
-                  : null;
-                const content = (
-                  <article className="service-card stagger-item" key={service.title} style={{ textAlign: "center" }}>
-                    <span>0{index + 1}</span>
-                    <h2 style={{ fontSize: "1.2rem", margin: "12px 0 8px" }}>{service.title}</h2>
-                    <p>{service.description}</p>
-                    {href && <ExternalLink aria-hidden="true" size={16} style={{ marginTop: 16, opacity: 0.4 }} />}
-                  </article>
-                );
-                return href ? (
+              {servicesWithPage.map((service, index) => {
+                const href = `/${service.slug}-em-presidente-epitacio`;
+                return (
                   <Link key={service.title} href={href} style={{ textDecoration: "none", color: "inherit" }}>
-                    {content}
+                    <article className="service-card stagger-item" style={{ textAlign: "center", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+                      <div>
+                        <span>0{String(index + 1).padStart(2, "0")}</span>
+                        <h2 style={{ fontSize: "1.2rem", margin: "12px 0 8px" }}>{service.title}</h2>
+                        <p>{service.description}</p>
+                      </div>
+                      <span className="saiba-mais">
+                        Saiba mais <ArrowRight aria-hidden="true" size={14} />
+                      </span>
+                    </article>
                   </Link>
-                ) : (
-                  content
                 );
               })}
             </div>
@@ -86,7 +85,7 @@ export default function ServicosPage() {
               <span className="eyebrow dark">Preços sob consulta</span>
             </AnimateIn>
             <AnimateIn variant="fade-up" delay={100}>
-              <h2>Qualidade que cabe no seu bolso</h2>
+              <h2 style={{ margin: "16px 0 28px" }}>Qualidade que cabe no seu bolso</h2>
             </AnimateIn>
             <AnimateIn variant="fade-up" delay={150}>
               <p>
@@ -128,6 +127,27 @@ export default function ServicosPage() {
           </AnimateIn>
         </div>
       </section>
+
+      <div className="section section-dark">
+        <div className="container" style={{ textAlign: "center" }}>
+          <AnimateIn variant="fade-up">
+            <span className="eyebrow">Agende</span>
+          </AnimateIn>
+          <AnimateIn variant="fade-up" delay={100}>
+            <h2 style={{ margin: "16px auto 28px" }}>Qual serviço você precisa?</h2>
+          </AnimateIn>
+          <AnimateIn variant="fade-up" delay={150}>
+            <p style={{ maxWidth: 500, margin: "0 auto 32px", color: "#72816a" }}>
+              Fale conosco pelo WhatsApp e agende o melhor horário para você.
+            </p>
+          </AnimateIn>
+          <AnimateIn variant="fade-up" delay={200}>
+            <a className="button" href={WHATSAPP.url} target="_blank" rel="noreferrer" data-ga="click_whatsapp_service">
+              <span>Agendar agora</span>
+            </a>
+          </AnimateIn>
+        </div>
+      </div>
 
       <Footer />
       <WhatsAppButton />

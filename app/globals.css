@@ -468,6 +468,26 @@ p {
   line-height: 1.6;
 }
 
+.saiba-mais {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--hero-text);
+  opacity: 0;
+  transform: translateY(4px);
+  transition: var(--transition);
+}
+
+.service-card:hover .saiba-mais {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* FAQ */
 .faq-section {
   background: var(--neutral-mid);
