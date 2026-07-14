@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import AnimateIn from "@/components/AnimateIn";
 import Map from "@/components/Map";
-import { COMPANY, WHATSAPP } from "@/lib/constants";
+import { COMPANY, WHATSAPP, SERVICES } from "@/lib/constants";
 
 const baseUrl = COMPANY.domain;
 
@@ -32,6 +32,7 @@ const contactSchema = {
   name: COMPANY.name,
   url: baseUrl,
   telephone: `+55${COMPANY.phoneRaw}`,
+  email: COMPANY.email,
   priceRange: "$$",
   image: [`${baseUrl}/images/barbearia-interior.jpg`],
   logo: `${baseUrl}/images/logo.png`,
@@ -40,11 +41,35 @@ const contactSchema = {
     streetAddress: "Av. Pres. Vargas, 20-64, Sala 2",
     addressLocality: "Presidente Epitácio",
     addressRegion: "SP",
+    postalCode: COMPANY.address.zip,
     addressCountry: "BR",
   },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: COMPANY.coordinates.lat,
+    longitude: COMPANY.coordinates.lng,
+  },
+  hasMap: COMPANY.mapsUrl,
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "09:00",
+      closes: "20:00",
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: "Saturday",
+      opens: "09:00",
+      closes: "16:00",
+    },
+  ],
+  paymentAccepted: COMPANY.paymentMethods,
+  currenciesAccepted: "BRL",
   sameAs: [
     "https://www.instagram.com/difaria_barber_music/",
     "https://www.facebook.com/share/1D3Lsi8fzQ/?mibextid=wwXIfr",
+    COMPANY.googleProfile,
   ],
   founder: {
     "@type": "Person",
@@ -54,6 +79,18 @@ const contactSchema = {
   areaServed: {
     "@type": "City",
     name: "Presidente Epitácio",
+  },
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Serviços de barbearia",
+    itemListElement: SERVICES.filter((s) => "slug" in s).map((s) => ({
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: s.title,
+        description: s.description,
+      },
+    })),
   },
 };
 
