@@ -73,12 +73,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  const servicePages = SEO_SERVICES.map((service) => ({
-    url: `${baseUrl}/${service.slug}-em-presidente-epitacio`,
-    lastModified: new Date(),
-    changeFrequency: "monthly" as const,
-    priority: 0.8,
-  }));
+  const servicePages = SEO_SERVICES
+    .filter((s) => s.slug !== "barbearia")
+    .map((service) => ({
+      url: `${baseUrl}/${service.slug}-em-presidente-epitacio`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    }));
 
   return [...staticPages, ...blogPages, ...servicePages];
 }
