@@ -27,8 +27,7 @@ export const COMPANY = {
     lat: -21.774110569502966,
     lng: -52.119201922057215,
   },
-  mapsUrl:
-    "https://www.google.com/maps/search/?api=1&query=Av.%20Pres.%20Vargas%2C%2020-64%20-%20Centro%2C%20Presidente%20Epit%C3%A1cio%20-%20SP",
+  mapsUrl: "https://g.page/r/Cdu1jJatqVhMEBM",
   hours: {
     weekdays: "09:00 – 20:00",
     saturday: "09:00 – 16:00",
