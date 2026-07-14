@@ -15,7 +15,7 @@ export const COMPANY = {
     neighborhood: "Centro",
     city: "Presidente Epitácio",
     state: "SP",
-    zip: "19470-000",
+    zip: "19470-041",
     full: "Av. Pres. Vargas, 20-64, Sala 2, Centro, Presidente Epitácio, SP",
   },
   googleRating: 5.0,
