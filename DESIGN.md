@@ -19,7 +19,7 @@ colors:
 typography:
   display:
     fontFamily: "Montserrat, Arial, sans-serif"
-    fontSize: "clamp(3rem, 7.5vw, 7rem)"
+    fontSize: "clamp(3rem, 6.2vw, 5.8rem)"
     fontWeight: 500
     lineHeight: 0.9
     letterSpacing: "-0.06em"
@@ -149,7 +149,7 @@ A restrained two-anchor palette: deep forest green anchors the dark side, warm c
 **Character:** Confident, contemporary, unsentimental. Monotype family throughout — the range of weights (300 light to 800 extra-bold) and aggressive sizing (7rem display down to 0.7rem label) provides all the contrast the design needs.
 
 ### Hierarchy
-- **Display** (500 weight, `clamp(3rem, 7.5vw, 7rem)`, 0.9 line-height, -0.06em letter-spacing): Hero headline only. Tight letter-spacing and tall size make a statement. `text-wrap: balance` applied. Max 920px width.
+- **Display** (500 weight, `clamp(3rem, 6.2vw, 5.8rem)`, 0.96 line-height, -0.055em letter-spacing): Hero headline only. Tight letter-spacing and controlled scale preserve impact without hiding the photography. `text-wrap: balance` applied. Max 920px width.
 - **Heading** (500 weight, `clamp(2.2rem, 4.5vw, 4.8rem)`, 1 line-height, -0.05em letter-spacing): Section titles. Nearly as aggressive as display but with breathing room. Max 840px width.
 - **Subheading** (500 weight, 1.25rem, 1.3 line-height, -0.03em letter-spacing): Card titles, feature labels.
 - **Body** (400 weight, 1rem, 1.75 line-height): Paragraph text. Capped at 65–75ch on prose sections. Color is Slate Green (#4e5b53) on cream, Muted (#b6beb8) on dark.
@@ -185,8 +185,8 @@ Depth is conveyed primarily through **tonal layering** (dark surface on cream, c
 - **Small variant:** 12px 20px padding, 0.7rem font. Used in the header nav for the "Agendar" button.
 
 ### Header
-- **Style:** Fixed, full-width, transparent dark base (`rgba(5,12,8,0.6)`) with 20px backdrop-blur. Bottom 1px border at 8% white opacity. On scroll past 60px, opacity increases to 0.92.
-- **Logo:** 150px wide, left-aligned.
+- **Style:** Fixed, full-width, 76px high, transparent dark base (`rgba(5,12,8,0.6)`) with 20px backdrop-blur. Bottom 1px border at 8% white opacity. On scroll past 60px, the header becomes 68px high and opacity increases to 0.92.
+- **Logo:** 112px wide, left-aligned.
 - **Navigation:** Uppercase 0.73rem, 600 weight, 0.1em tracking. Underline animation on hover (1px cream line, left-to-right fill).
 - **Mobile:** Hamburger menu at 900px. Full-screen overlay (`rgba(5,12,8,0.98)`) with centered stacked links. No underline animation — tap targets are large enough without it.
 
@@ -210,7 +210,7 @@ Depth is conveyed primarily through **tonal layering** (dark surface on cream, c
 ### WhatsApp Float
 - **Style:** Fixed bottom-right (24px from edges), 60px circle, Green 700 (#1f4a33) background, white icon (26px). Shadow: `0 14px 35px rgba(0,0,0,0.3)`.
 - **Hover:** Scale to 1.1x, background shifts to the lighter Green 700 (#1f4a33 replaced by var(--green-700)), shadow deepens.
-- **Mobile:** 52px at 16px offset.
+- **Mobile:** Full-width booking bar at the bottom, with icon and the label “Agendar horário”. This makes the primary conversion action explicit and easier to tap.
 - **Z-index:** 200 — above everything except the lightbox (300).
 
 ### Social Icons (Footer)

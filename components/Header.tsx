@@ -20,17 +20,7 @@ export default function Header() {
   }, []);
 
   return (
-    <header
-      className={`site-header${scrolled ? " scrolled" : ""}`}
-      style={{
-        background: scrolled
-          ? "rgba(5, 12, 8, 0.92)"
-          : "rgba(5, 12, 8, 0.6)",
-        borderColor: scrolled
-          ? "rgba(255, 255, 255, 0.08)"
-          : "rgba(255, 255, 255, 0.12)",
-      }}
-    >
+    <header className={`site-header${scrolled ? " scrolled" : ""}`}>
       <Link className="brand" href="/" aria-label="DiFaria Barber Music - início">
         <Image src="/images/logo.png" alt="DiFaria Barber Music" width={120} height={44} priority />
       </Link>

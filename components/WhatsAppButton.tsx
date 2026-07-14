@@ -12,6 +12,7 @@ export default function WhatsAppButton() {
       data-ga="click_whatsapp_float"
     >
       <MessageCircle aria-hidden="true" />
+      <span>Agendar horário</span>
     </a>
   );
 }
