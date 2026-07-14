@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Sparkles, Droplets, Heart, Clock, DollarSign, Star, Quote, Scissors, Sun, Wind, ArrowRight } from "lucide-react";
+import { Sparkles, Droplets, Heart, Clock, DollarSign, Star, Scissors, Sun, Wind, ArrowRight } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import AnimateIn from "@/components/AnimateIn";
 import FaqAccordion from "@/components/FaqAccordion";
+import Testimonials from "@/components/Testimonials";
 import { COMPANY, WHATSAPP, SERVICES } from "@/lib/constants";
+import { TESTIMONIALS } from "@/lib/testimonials";
 
 const baseUrl = COMPANY.domain;
 const city = "Presidente Epitácio";
@@ -54,16 +56,7 @@ const faqs = [
   },
 ];
 
-const testimonials = [
-  {
-    text: "Fiz barboterapia pela primeira vez e foi a melhor experiência. A pele ficou macia, a barba hidratada e saí de lá super relaxado.",
-    author: "André L.",
-  },
-  {
-    text: "Minha barba vivia ressecada e coçando. Depois da barboterapia na DiFaria, mudou completamente. Virei mensalista!",
-    author: "Felipe S.",
-  },
-];
+
 
 const servicesWithSlug = SERVICES.filter((s): s is typeof s & { slug: string } => "slug" in s);
 const related = servicesWithSlug.filter((s) => ["barba", "corte-e-barba", "visagismo-masculino", "sobrancelha-masculina"].includes(s.slug));
@@ -219,23 +212,7 @@ export default function BarboterapiaPage() {
         </div>
       </section>
 
-      <section className="section section-cream">
-        <div className="container" style={{ textAlign: "center" }}>
-          <AnimateIn variant="fade-up"><span className="eyebrow dark">Depoimentos</span></AnimateIn>
-          <AnimateIn variant="fade-up" delay={100}><h2 style={{ margin: "16px auto 28px" }}>O que nossos clientes dizem</h2></AnimateIn>
-          <AnimateIn variant="fade-up" delay={150} stagger>
-            <div className="feature-grid" style={{ justifyContent: "center", marginTop: 24 }}>
-              {testimonials.map((t) => (
-                <div className="stagger-item" key={t.author} style={{ textAlign: "center", maxWidth: 320 }}>
-                  <Quote aria-hidden="true" style={{ margin: "0 auto 12px", opacity: 0.3 }} size={24} />
-                  <p style={{ fontStyle: "italic", color: "#2a4235", marginBottom: 12 }}>&ldquo;{t.text}&rdquo;</p>
-                  <p style={{ fontWeight: 600, margin: 0, color: "#1f4a33" }}>{t.author}</p>
-                </div>
-              ))}
-            </div>
-          </AnimateIn>
-        </div>
-      </section>
+          <Testimonials testimonials={TESTIMONIALS["barboterapia"]} variant="cream" />
 
       <section className="section section-dark">
         <div className="container" style={{ textAlign: "center" }}>

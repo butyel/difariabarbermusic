@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
-import { Smile, Sparkles, Heart, Shield, DollarSign, Star, Quote } from "lucide-react";
+import { Smile, Sparkles, Heart, Shield, DollarSign, Star } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import AnimateIn from "@/components/AnimateIn";
 import FaqAccordion from "@/components/FaqAccordion";
+import Testimonials from "@/components/Testimonials";
 import { COMPANY, WHATSAPP } from "@/lib/constants";
+import { TESTIMONIALS } from "@/lib/testimonials";
 
 const baseUrl = COMPANY.domain;
 
@@ -53,16 +55,7 @@ const faqs = [
   },
 ];
 
-const testimonials = [
-  {
-    text: "Meu filho sempre teve pavor de cortar cabelo. Na DiFaria ele ficou super tranquilo e ainda saiu todo estiloso. Viremos sempre!",
-    author: "Ana C.",
-  },
-  {
-    text: "Levei meu sobrinho de 4 anos e foi uma experiência incrível. O profissional foi super paciente, o menino saiu feliz e lindo!",
-    author: "Juliana M.",
-  },
-];
+
 
 export default function CorteInfantilPage() {
   return (
@@ -176,27 +169,7 @@ export default function CorteInfantilPage() {
         </div>
       </section>
 
-      <section className="section section-dark">
-        <div className="container" style={{ textAlign: "center" }}>
-          <AnimateIn variant="fade-up">
-            <span className="eyebrow">Depoimentos</span>
-          </AnimateIn>
-          <AnimateIn variant="fade-up" delay={100}>
-            <h2 style={{ textAlign: "center", margin: "16px auto 28px" }}>O que nossos clientes dizem</h2>
-          </AnimateIn>
-          <AnimateIn variant="fade-up" delay={150} stagger>
-            <div className="feature-grid" style={{ justifyContent: "center", marginTop: 24 }}>
-              {testimonials.map((t) => (
-                <div className="stagger-item" key={t.author} style={{ textAlign: "center", maxWidth: 320 }}>
-                  <Quote aria-hidden="true" style={{ margin: "0 auto 12px", opacity: 0.3 }} size={24} />
-                  <p style={{ fontStyle: "italic", color: "#72816a", marginBottom: 12 }}>&ldquo;{t.text}&rdquo;</p>
-                  <p style={{ fontWeight: 600, margin: 0, color: "#d4a853" }}>{t.author}</p>
-                </div>
-              ))}
-            </div>
-          </AnimateIn>
-        </div>
-      </section>
+          <Testimonials testimonials={TESTIMONIALS["corte-infantil"]} variant="dark" />
 
       <section className="section section-dark" style={{ paddingTop: 0 }}>
         <div className="container" style={{ textAlign: "center" }}>

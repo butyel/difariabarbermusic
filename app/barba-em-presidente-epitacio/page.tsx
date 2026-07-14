@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
-import { Scissors, Sparkles, Droplets, Star, DollarSign, ThumbsUp, Quote } from "lucide-react";
+import { Scissors, Sparkles, Droplets, Star, DollarSign, ThumbsUp } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import AnimateIn from "@/components/AnimateIn";
 import FaqAccordion from "@/components/FaqAccordion";
+import Testimonials from "@/components/Testimonials";
 import { COMPANY, WHATSAPP } from "@/lib/constants";
+import { TESTIMONIALS } from "@/lib/testimonials";
 
 const baseUrl = COMPANY.domain;
 
@@ -53,16 +55,7 @@ const faqs = [
   },
 ];
 
-const testimonials = [
-  {
-    text: "Minha barba nunca esteve tão alinhada. O desenho ficou perfeito, valorizou demais meu rosto. Profissionalismo incrível!",
-    author: "Fernando A.",
-  },
-  {
-    text: "Fiz a hidratação de barba e o resultado surpreendeu. Fios muito mais macios e sem coceira. Virei cliente!",
-    author: "Marcos D.",
-  },
-];
+
 
 export default function BarbaPage() {
   return (
@@ -176,27 +169,7 @@ export default function BarbaPage() {
         </div>
       </section>
 
-      <section className="section section-dark">
-        <div className="container" style={{ textAlign: "center" }}>
-          <AnimateIn variant="fade-up">
-            <span className="eyebrow">Depoimentos</span>
-          </AnimateIn>
-          <AnimateIn variant="fade-up" delay={100}>
-            <h2 style={{ textAlign: "center", margin: "16px auto 28px" }}>O que nossos clientes dizem</h2>
-          </AnimateIn>
-          <AnimateIn variant="fade-up" delay={150} stagger>
-            <div className="feature-grid" style={{ justifyContent: "center", marginTop: 24 }}>
-              {testimonials.map((t) => (
-                <div className="stagger-item" key={t.author} style={{ textAlign: "center", maxWidth: 320 }}>
-                  <Quote aria-hidden="true" style={{ margin: "0 auto 12px", opacity: 0.3 }} size={24} />
-                  <p style={{ fontStyle: "italic", color: "#72816a", marginBottom: 12 }}>&ldquo;{t.text}&rdquo;</p>
-                  <p style={{ fontWeight: 600, margin: 0, color: "#d4a853" }}>{t.author}</p>
-                </div>
-              ))}
-            </div>
-          </AnimateIn>
-        </div>
-      </section>
+          <Testimonials testimonials={TESTIMONIALS["barba"]} variant="dark" />
 
       <section className="section section-dark" style={{ paddingTop: 0 }}>
         <div className="container" style={{ textAlign: "center" }}>

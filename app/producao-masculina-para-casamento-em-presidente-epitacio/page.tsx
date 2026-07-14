@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Sparkles, Heart, Clock, Star, DollarSign, Quote, Scissors, ArrowRight, Music2 } from "lucide-react";
+import { Sparkles, Heart, Clock, Star, DollarSign, Scissors, ArrowRight, Music2 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import AnimateIn from "@/components/AnimateIn";
 import FaqAccordion from "@/components/FaqAccordion";
+import Testimonials from "@/components/Testimonials";
 import { COMPANY, WHATSAPP, SERVICES } from "@/lib/constants";
+import { TESTIMONIALS } from "@/lib/testimonials";
 
 const baseUrl = COMPANY.domain;
 const city = "Presidente Epitácio";
@@ -54,16 +56,7 @@ const faqs = [
   },
 ];
 
-const testimonials = [
-  {
-    text: "Fiz a produção para o casamento do meu irmão. Fiquei muito bem, recebi vários elogios. O acabamento é impecável.",
-    author: "Rafael B.",
-  },
-  {
-    text: "Levamos os padrinhos para fazer a produção na DiFaria e o resultado foi sensacional. Todo mundo alinhado e bonito nas fotos.",
-    author: "Luciana (mãe do noivo)",
-  },
-];
+
 
 const servicesWithSlug = SERVICES.filter((s): s is typeof s & { slug: string } => "slug" in s);
 const related = servicesWithSlug.filter((s) => ["corte-masculino", "barba", "corte-e-barba", "sobrancelha-masculina", "barboterapia", "pacote-para-noivos"].includes(s.slug));
@@ -175,23 +168,7 @@ export default function ProducaoCasamentoPage() {
         </div>
       </section>
 
-      <section className="section section-cream">
-        <div className="container" style={{ textAlign: "center" }}>
-          <AnimateIn variant="fade-up"><span className="eyebrow dark">Depoimentos</span></AnimateIn>
-          <AnimateIn variant="fade-up" delay={100}><h2 style={{ margin: "16px auto 28px" }}>O que nossos clientes dizem</h2></AnimateIn>
-          <AnimateIn variant="fade-up" delay={150} stagger>
-            <div className="feature-grid" style={{ justifyContent: "center", marginTop: 24 }}>
-              {testimonials.map((t) => (
-                <div className="stagger-item" key={t.author} style={{ textAlign: "center", maxWidth: 320 }}>
-                  <Quote aria-hidden="true" style={{ margin: "0 auto 12px", opacity: 0.3 }} size={24} />
-                  <p style={{ fontStyle: "italic", color: "#2a4235", marginBottom: 12 }}>&ldquo;{t.text}&rdquo;</p>
-                  <p style={{ fontWeight: 600, margin: 0, color: "#1f4a33" }}>{t.author}</p>
-                </div>
-              ))}
-            </div>
-          </AnimateIn>
-        </div>
-      </section>
+          <Testimonials testimonials={TESTIMONIALS["producao-masculina-para-casamento"]} variant="cream" />
 
       <section className="section section-dark">
         <div className="container" style={{ textAlign: "center" }}>
