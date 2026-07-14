@@ -1110,6 +1110,15 @@ p {
   }
 }
 
+/* Media card */
+.media-card {
+  transition: border-color 0.2s ease;
+}
+
+.media-card:hover {
+  border-color: #d4a853 !important;
+}
+
 /* =============================================
    Section divider
    ============================================= */

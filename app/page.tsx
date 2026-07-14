@@ -13,7 +13,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import AnimateIn from "@/components/AnimateIn";
-import { COMPANY, WHATSAPP, SERVICES } from "@/lib/constants";
+import { COMPANY, WHATSAPP, SERVICES, MEDIA } from "@/lib/constants";
 
 const baseUrl = COMPANY.domain;
 
@@ -155,12 +155,19 @@ export default function Home() {
             </div>
           </AnimateIn>
           <AnimateIn variant="fade-up" delay={400}>
-            <div className="hero-proof">
+            <a
+              className="hero-proof"
+              href={COMPANY.googleReviewLink}
+              target="_blank"
+              rel="noreferrer"
+              data-ga="click_google_reviews"
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
               <Star size={18} fill="currentColor" aria-hidden="true" />
               <b>{COMPANY.googleRating.toFixed(1)} no Google</b>
               <span aria-hidden="true">•</span>
               <span>{COMPANY.googleReviews} avaliações</span>
-            </div>
+            </a>
           </AnimateIn>
         </div>
       </section>
@@ -250,6 +257,46 @@ export default function Home() {
               <Link className="button" href="/galeria">
                 <span>Ver galeria completa</span>
               </Link>
+            </div>
+          </AnimateIn>
+        </div>
+      </section>
+
+      <section className="section section-dark">
+        <div className="container" style={{ textAlign: "center" }}>
+          <AnimateIn variant="fade-up">
+            <span className="eyebrow">DiFaria na mídia</span>
+          </AnimateIn>
+          <AnimateIn variant="fade-up" delay={100}>
+            <h2 style={{ textAlign: "center", margin: "16px auto 28px" }}>Quem conhece, reconhece</h2>
+          </AnimateIn>
+          <AnimateIn variant="fade-up" delay={150}>
+            <div style={{ maxWidth: 600, margin: "0 auto" }}>
+              {MEDIA.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  data-ga="click_media"
+                  className="media-card"
+                  style={{
+                    display: "block",
+                    padding: "24px 32px",
+                    border: "1px solid rgba(255,255,255,0.1)",
+                    borderRadius: 16,
+                    textDecoration: "none",
+                    color: "inherit",
+                  }}
+                >
+                  <p style={{ fontSize: "0.8rem", textTransform: "uppercase", letterSpacing: 1, color: "#72816a", margin: "0 0 8px" }}>
+                    {item.name} &middot; {item.date}
+                  </p>
+                  <p style={{ fontSize: "1.05rem", fontWeight: 600, margin: 0, color: "#d4a853" }}>
+                    {item.headline}
+                  </p>
+                </a>
+              ))}
             </div>
           </AnimateIn>
         </div>

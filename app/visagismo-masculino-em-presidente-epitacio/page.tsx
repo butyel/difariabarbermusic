@@ -7,11 +7,12 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import AnimateIn from "@/components/AnimateIn";
 import FaqAccordion from "@/components/FaqAccordion";
 import Testimonials from "@/components/Testimonials";
-import { COMPANY, WHATSAPP, SERVICES } from "@/lib/constants";
+import { COMPANY, WHATSAPP, SERVICES, whatsappUrl } from "@/lib/constants";
 import { TESTIMONIALS } from "@/lib/testimonials";
 
 const baseUrl = COMPANY.domain;
 const city = "Presidente Epitácio";
+const trackingMessage = "Olá, encontrei a DiFaria pela página de visagismo masculino e gostaria de consultar os horários disponíveis.";
 
 export const metadata: Metadata = {
   title: `Visagismo Masculino em ${city} | DiFaria Barber Music`,
@@ -182,7 +183,7 @@ export default function VisagismoPage() {
               <div style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 16, padding: "24px 32px", minWidth: 180 }}>
                 <Clock aria-hidden="true" style={{ margin: "0 auto 12px", opacity: 0.6 }} size={28} />
                 <p style={{ fontSize: "0.95rem", margin: 0, color: "#72816a" }}>Duração</p>
-                <p style={{ fontSize: "1.6rem", fontWeight: 700, margin: "8px 0 0", color: "#d4a853" }}>30-40 min</p>
+                <p style={{ fontSize: "1.6rem", fontWeight: 700, margin: "8px 0 0", color: "#d4a853" }}>60 min</p>
               </div>
               <div style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 16, padding: "24px 32px", minWidth: 180 }}>
                 <DollarSign aria-hidden="true" style={{ margin: "0 auto 12px", opacity: 0.6 }} size={28} />
@@ -190,6 +191,9 @@ export default function VisagismoPage() {
                 <p style={{ fontSize: "1.6rem", fontWeight: 700, margin: "8px 0 0", color: "#d4a853" }}>Sob consulta</p>
               </div>
             </div>
+            <p style={{ marginTop: 20, fontSize: "0.85rem", color: "#72816a" }}>
+              Aceitamos: Cartão de Crédito, Débito, PIX e Dinheiro
+            </p>
           </AnimateIn>
         </div>
       </section>
@@ -223,7 +227,7 @@ export default function VisagismoPage() {
           </AnimateIn>
           <AnimateIn variant="fade-up" delay={200}>
             <div className="center" style={{ marginTop: 32 }}>
-              <a className="button" href={WHATSAPP.url} target="_blank" rel="noreferrer" data-ga="click_whatsapp_service">
+              <a className="button" href={whatsappUrl(trackingMessage)} target="_blank" rel="noreferrer" data-ga="click_whatsapp_service">
                 <span>Agendar agora</span>
               </a>
             </div>

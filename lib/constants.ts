@@ -35,10 +35,13 @@ export const COMPANY = {
     full: "Seg a Sex: 09:00 – 20:00 | Sáb: 09:00 – 16:00",
   },
   paymentMethods: ["Cartão de Crédito", "Cartão de Débito", "PIX", "Dinheiro"],
+  paymentIcons: ["credit-card", "debit-card", "pix", "money"] as const,
   instagram: "https://www.instagram.com/difaria_barber_music/",
   facebook:
     "https://www.facebook.com/share/1D3Lsi8fzQ/?mibextid=wwXIfr",
   domain: process.env.NEXT_PUBLIC_SITE_URL || "https://difariabarbermusic.com.br",
+  cancellationPolicy:
+    "Pedimos que eventuais cancelamentos ou atrasos sejam comunicados com até 2 horas de antecedência para que possamos reorganizar a agenda.",
 };
 
 export const WHATSAPP = {
@@ -50,6 +53,24 @@ export const WHATSAPP = {
   },
 };
 
+export function whatsappUrl(customMessage?: string): string {
+  const msg = customMessage || WHATSAPP.message;
+  return `https://api.whatsapp.com/send?phone=${WHATSAPP.number}&text=${encodeURIComponent(msg)}`;
+}
+
+export function serviceWhatsappUrl(service: ServiceInfo): string {
+  return whatsappUrl(service.whatsappMessage);
+}
+
+export const MEDIA = [
+  {
+    name: "TriboVibe",
+    url: "https://tribovibe.com.br/difaria-barber-music-barbearia-tematica-com-musica-e-estilo-em-presidente-epitacio/",
+    headline: "DiFaria Barber Music: barbearia temática com música e estilo em Presidente Epitácio",
+    date: "2025",
+  },
+];
+
 export const NAV_LINKS = [
   { label: "Início", href: "/" },
   { label: "Serviços", href: "/servicos" },
@@ -60,79 +81,123 @@ export const NAV_LINKS = [
   { label: "Contato", href: "/contato" },
 ] as const;
 
-export const SERVICES = [
+export interface ServiceInfo {
+  title: string;
+  description: string;
+  slug?: string;
+  duration?: string;
+  whatsappMessage?: string;
+}
+
+export const SERVICES: ServiceInfo[] = [
   {
     title: "Corte masculino",
     description:
       "Do clássico ao contemporâneo, com acabamento preciso e identidade.",
     slug: "corte-masculino",
+    duration: "40 min",
+    whatsappMessage:
+      "Olá, encontrei a DiFaria pela página de corte masculino e gostaria de consultar os horários disponíveis.",
   },
   {
     title: "Degradê e fade",
     description:
       "Low fade, mid fade, high fade e navalhado com transições limpas.",
     slug: "corte-degrade",
+    duration: "45 min",
+    whatsappMessage:
+      "Olá, encontrei a DiFaria pela página de degradê e fade e gostaria de consultar os horários disponíveis.",
   },
   {
     title: "Barba",
     description:
       "Desenho, alinhamento, acabamento e cuidado para valorizar o rosto.",
     slug: "barba",
+    duration: "30 min",
+    whatsappMessage:
+      "Olá, encontrei a DiFaria pela página de barba e gostaria de consultar os horários disponíveis.",
   },
   {
     title: "Corte + barba",
     description:
       "O combo completo para renovar o visual com harmonia.",
     slug: "corte-e-barba",
+    duration: "60 min",
+    whatsappMessage:
+      "Olá, encontrei a DiFaria pela página de corte + barba e gostaria de consultar os horários disponíveis.",
   },
   {
     title: "Corte infantil",
     description:
       "Atendimento cuidadoso e confortável para os pequenos.",
     slug: "corte-infantil",
+    duration: "30 min",
+    whatsappMessage:
+      "Olá, encontrei a DiFaria pela página de corte infantil e gostaria de consultar os horários disponíveis.",
   },
   {
     title: "Barboterapia",
     description:
       "Relaxamento e cuidado com barba, toalhas quentes e óleos essenciais.",
     slug: "barboterapia",
+    duration: "50 min",
+    whatsappMessage:
+      "Olá, encontrei a DiFaria pela página de barboterapia e gostaria de consultar os horários disponíveis.",
   },
   {
     title: "Visagismo masculino",
     description:
       "Análise facial para criar um visual personalizado que valoriza seus traços.",
     slug: "visagismo-masculino",
+    duration: "60 min",
+    whatsappMessage:
+      "Olá, encontrei a DiFaria pela página de visagismo masculino e gostaria de consultar os horários disponíveis.",
   },
   {
     title: "Sobrancelha masculina",
     description:
       "Design e alinhamento da sobrancelha com pinça e navalha para um olhar marcante.",
     slug: "sobrancelha-masculina",
+    duration: "20 min",
+    whatsappMessage:
+      "Olá, encontrei a DiFaria pela página de sobrancelha masculina e gostaria de consultar os horários disponíveis.",
   },
   {
     title: "Hidratação capilar",
     description:
       "Tratamento capilar masculino com produtos profissionais para fios saudáveis.",
     slug: "hidratacao-capilar-masculina",
+    duration: "40 min",
+    whatsappMessage:
+      "Olá, encontrei a DiFaria pela página de hidratação capilar e gostaria de consultar os horários disponíveis.",
   },
   {
     title: "Pacote para noivos",
     description:
       "Preparação completa para o grande dia: corte, barba e cuidados especiais.",
     slug: "pacote-para-noivos",
+    duration: "90 min",
+    whatsappMessage:
+      "Olá, encontrei a DiFaria pela página de pacote para noivos e gostaria de consultar os horários disponíveis.",
   },
   {
     title: "Produção para casamento",
     description:
       "Visual completo para casamentos: corte, barba, sobrancelha e finalização.",
     slug: "producao-masculina-para-casamento",
+    duration: "75 min",
+    whatsappMessage:
+      "Olá, encontrei a DiFaria pela página de produção para casamento e gostaria de consultar os horários disponíveis.",
   },
   {
     title: "Cuidados especiais",
     description:
       "Hidratação, pigmentação, sobrancelha e finalização profissional.",
+    duration: "30-50 min",
+    whatsappMessage:
+      "Olá, encontrei a DiFaria pelo site e gostaria de consultar os horários disponíveis.",
   },
-] as const;
+];
 
 export const FAQS = [
   {

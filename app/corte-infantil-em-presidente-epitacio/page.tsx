@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
-import { Smile, Sparkles, Heart, Shield, DollarSign, Star } from "lucide-react";
+import { Smile, Sparkles, Heart, Shield, DollarSign, Star, Clock } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import AnimateIn from "@/components/AnimateIn";
 import FaqAccordion from "@/components/FaqAccordion";
 import Testimonials from "@/components/Testimonials";
-import { COMPANY, WHATSAPP } from "@/lib/constants";
+import { COMPANY, WHATSAPP, whatsappUrl } from "@/lib/constants";
 import { TESTIMONIALS } from "@/lib/testimonials";
 
 const baseUrl = COMPANY.domain;
+const trackingMessage = "Olá, encontrei a DiFaria pela página de corte infantil e gostaria de consultar os horários disponíveis.";
 
 export const metadata: Metadata = {
   title: "Corte Infantil em Presidente Epitácio | DiFaria Barber Music",
@@ -143,6 +144,11 @@ export default function CorteInfantilPage() {
           <AnimateIn variant="fade-up" delay={200}>
             <div className="center" style={{ marginTop: 28, display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
               <div style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 16, padding: "24px 32px", minWidth: 180 }}>
+                <Clock aria-hidden="true" style={{ margin: "0 auto 12px", opacity: 0.6 }} size={28} />
+                <p style={{ fontSize: "0.95rem", margin: 0, color: "#72816a" }}>Duração</p>
+                <p style={{ fontSize: "1.6rem", fontWeight: 700, margin: "8px 0 0", color: "#d4a853" }}>30 min</p>
+              </div>
+              <div style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 16, padding: "24px 32px", minWidth: 180 }}>
                 <DollarSign aria-hidden="true" style={{ margin: "0 auto 12px", opacity: 0.6 }} size={28} />
                 <p style={{ fontSize: "0.95rem", margin: 0, color: "#72816a" }}>Corte infantil</p>
                 <p style={{ fontSize: "1.6rem", fontWeight: 700, margin: "8px 0 0", color: "#d4a853" }}>Sob consulta</p>
@@ -153,6 +159,9 @@ export default function CorteInfantilPage() {
                 <p style={{ fontSize: "1.6rem", fontWeight: 700, margin: "8px 0 0", color: "#d4a853" }}>Consulte</p>
               </div>
             </div>
+            <p style={{ marginTop: 20, fontSize: "0.85rem", color: "#72816a" }}>
+              Aceitamos: Cartão de Crédito, Débito, PIX e Dinheiro
+            </p>
           </AnimateIn>
         </div>
       </section>
@@ -183,7 +192,7 @@ export default function CorteInfantilPage() {
           </AnimateIn>
           <AnimateIn variant="fade-up" delay={200}>
             <div className="center" style={{ marginTop: 32 }}>
-              <a className="button" href={WHATSAPP.url} target="_blank" rel="noreferrer" data-ga="click_whatsapp_service">
+              <a className="button" href={whatsappUrl(trackingMessage)} target="_blank" rel="noreferrer" data-ga="click_whatsapp_service">
                 <span>Agendar agora</span>
               </a>
             </div>
