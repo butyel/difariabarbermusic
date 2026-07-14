@@ -66,26 +66,31 @@ export const SERVICES = [
     title: "Corte masculino",
     description:
       "Do clássico ao contemporâneo, com acabamento preciso e identidade.",
+    slug: "corte-masculino",
   },
   {
     title: "Degradê e fade",
     description:
       "Low fade, mid fade, high fade e navalhado com transições limpas.",
+    slug: "corte-degrade",
   },
   {
     title: "Barba",
     description:
       "Desenho, alinhamento, acabamento e cuidado para valorizar o rosto.",
+    slug: "barba",
   },
   {
     title: "Corte + barba",
     description:
       "O combo completo para renovar o visual com harmonia.",
+    slug: "corte-e-barba",
   },
   {
     title: "Corte infantil",
     description:
       "Atendimento cuidadoso e confortável para os pequenos.",
+    slug: "corte-infantil",
   },
   {
     title: "Cuidados especiais",

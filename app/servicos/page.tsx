@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Scissors, Music2, Sparkles } from "lucide-react";
+import Link from "next/link";
+import { Scissors, Music2, Sparkles, ExternalLink } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -46,13 +47,26 @@ export default function ServicosPage() {
           </AnimateIn>
           <AnimateIn variant="fade-up" delay={150} stagger>
             <div className="services-grid">
-              {SERVICES.map((service, index) => (
-                <article className="service-card stagger-item" key={service.title}>
-                  <span>0{index + 1}</span>
-                  <h2 style={{ fontSize: "1.2rem", margin: "12px 0 8px" }}>{service.title}</h2>
-                  <p>{service.description}</p>
-                </article>
-              ))}
+              {SERVICES.map((service, index) => {
+                const href = "slug" in service
+                  ? `/${service.slug}-em-presidente-epitacio`
+                  : null;
+                const content = (
+                  <article className="service-card stagger-item" key={service.title} style={{ textAlign: "center" }}>
+                    <span>0{index + 1}</span>
+                    <h2 style={{ fontSize: "1.2rem", margin: "12px 0 8px" }}>{service.title}</h2>
+                    <p>{service.description}</p>
+                    {href && <ExternalLink aria-hidden="true" size={16} style={{ marginTop: 16, opacity: 0.4 }} />}
+                  </article>
+                );
+                return href ? (
+                  <Link key={service.title} href={href} style={{ textDecoration: "none", color: "inherit" }}>
+                    {content}
+                  </Link>
+                ) : (
+                  content
+                );
+              })}
             </div>
           </AnimateIn>
           <AnimateIn variant="fade-up" delay={300}>
