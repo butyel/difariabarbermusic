@@ -74,7 +74,7 @@ export default function CorteInfantilPage() {
             <span className="eyebrow">Infantil</span>
           </AnimateIn>
           <AnimateIn variant="fade-up" delay={100}>
-            <h1>Corte Infantil em Presidente Epitácio</h1>
+            <h1 style={{ margin: "20px auto 24px" }}>Corte Infantil em Presidente Epitácio</h1>
           </AnimateIn>
           <AnimateIn variant="fade-up" delay={150}>
             <p style={{ maxWidth: 700, margin: "24px auto", color: "#72816a" }}>
