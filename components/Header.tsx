@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
-import { NAV_LINKS, WHATSAPP } from "@/lib/constants";
+import { NAV_LINKS } from "@/lib/constants";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -43,15 +43,14 @@ export default function Header() {
             {label}
           </Link>
         ))}
-        <a
+        <Link
           className="button button-small"
-          href={WHATSAPP.url}
-          target="_blank"
-          rel="noreferrer"
-          data-ga="click_whatsapp_header"
+          href="/agendar"
+          onClick={() => setOpen(false)}
+          data-ga="click_booking_header"
         >
           <span>Agendar</span>
-        </a>
+        </Link>
       </nav>
     </header>
   );

@@ -40,15 +40,21 @@ O site também pode coletar automaticamente algumas informações técnicas, com
 A DiFaria Barber Music não vende e não comercializa dados pessoais.`,
   },
   {
-    title: "4. Atendimento pelo WhatsApp e redes sociais",
+    title: "4. Agendamento online e GBarber",
+    content: `Quando o agendamento online estiver ativo, nome, telefone, data de nascimento opcional, serviços, profissional, data e horário escolhidos serão processados no GBarber, sistema de gestão utilizado pela DiFaria Barber Music. A infraestrutura do sistema utiliza serviços do Firebase/Google para armazenar e consultar as informações necessárias ao atendimento.
+
+Esses dados são utilizados para registrar o horário, evitar conflitos de agenda, identificar o cliente e permitir a administração do atendimento pela equipe da barbearia.`,
+  },
+  {
+    title: "5. Atendimento pelo WhatsApp e redes sociais",
     content: `O site possui links para WhatsApp, Instagram e Facebook. Ao clicar nesses links, o visitante será direcionado para plataformas externas. A partir desse momento, o uso das informações também estará sujeito às regras e políticas de privacidade de cada plataforma.`,
   },
   {
-    title: "5. Google Maps",
+    title: "6. Google Maps",
     content: `O site pode utilizar o Google Maps para mostrar a localização da barbearia e facilitar a criação de rotas. Ao utilizar esse recurso, algumas informações técnicas podem ser processadas pelo Google.`,
   },
   {
-    title: "6. Uso de cookies",
+    title: "7. Uso de cookies",
     content: `Cookies são pequenos arquivos armazenados no dispositivo do visitante. Eles ajudam o site a funcionar corretamente, guardar preferências e entender como as pessoas navegam pelas páginas.
 
 Tipos de cookies que podem ser utilizados:
@@ -58,41 +64,41 @@ Tipos de cookies que podem ser utilizados:
 • Publicidade — apenas se o site vier a trabalhar com anúncios`,
   },
   {
-    title: "7. Ferramentas de análise",
+    title: "8. Ferramentas de análise",
     content: `O site poderá utilizar ferramentas como o Google Analytics para entender melhor o comportamento dos visitantes. Esses dados ajudam a identificar melhorias e tornar o site mais útil.`,
   },
   {
-    title: "8. Compartilhamento de informações",
+    title: "9. Compartilhamento de informações",
     content: `Os dados pessoais poderão ser compartilhados apenas quando necessário para o funcionamento do site, atendimento ou cumprimento de obrigação legal. O compartilhamento poderá ocorrer com empresas de hospedagem, plataformas de atendimento, serviços de agendamento, ferramentas de análise, redes sociais e autoridades públicas, quando houver obrigação legal.`,
   },
   {
-    title: "9. Segurança dos dados",
+    title: "10. Segurança dos dados",
     content: `A DiFaria Barber Music procura adotar cuidados técnicos e administrativos para proteger as informações pessoais contra acesso não autorizado, perda, alteração indevida, divulgação sem autorização e uso incorreto.`,
   },
   {
-    title: "10. Por quanto tempo os dados são armazenados",
+    title: "11. Por quanto tempo os dados são armazenados",
     content: `Os dados serão mantidos apenas pelo tempo necessário para realizar o atendimento, concluir o agendamento, cumprir obrigações legais, proteger os direitos da empresa e prevenir fraudes.`,
   },
   {
-    title: "11. Direitos do titular dos dados",
+    title: "12. Direitos do titular dos dados",
     content: `De acordo com a LGPD, o titular pode solicitar: confirmação de tratamento, acesso às informações, correção de dados, exclusão, bloqueio ou anonimização, informação sobre compartilhamento, retirada de autorização, portabilidade e esclarecimentos sobre decisões automatizadas.
 
 Solicitações podem ser feitas pelo WhatsApp: ${COMPANY.phone}`,
   },
   {
-    title: "12. Dados de crianças e adolescentes",
+    title: "13. Dados de crianças e adolescentes",
     content: `O site não foi criado especificamente para crianças. Nos casos de agendamento de corte infantil, os dados devem ser fornecidos ou autorizados pelos pais ou responsáveis legais.`,
   },
   {
-    title: "13. Links para outros sites",
+    title: "14. Links para outros sites",
     content: `O site pode apresentar links para outras páginas, aplicativos ou redes sociais. A DiFaria Barber Music não se responsabiliza pelas práticas de privacidade dessas plataformas externas.`,
   },
   {
-    title: "14. Alterações nesta política",
+    title: "15. Alterações nesta política",
     content: `Esta Política de Privacidade pode ser atualizada sempre que houver mudanças no site, nos serviços utilizados ou nas regras aplicáveis. A versão mais recente ficará disponível nesta página, acompanhada da data da última atualização.`,
   },
   {
-    title: "15. Contato",
+    title: "16. Contato",
     content: `Dúvidas, solicitações ou pedidos relacionados à privacidade podem ser encaminhados pelos canais:
 
 DiFaria Barber Music
@@ -124,7 +130,7 @@ export default function PrivacyPolicy() {
             marginBottom: 48,
           }}
         >
-          Última atualização: 8 de julho de 2026
+          Última atualização: 15 de julho de 2026
         </p>
         <p style={{ marginBottom: 48, color: "#48564d" }}>
           A DiFaria Barber Music respeita a privacidade de seus clientes e de

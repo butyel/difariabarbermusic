@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowUpRight,
+  CalendarDays,
   Clock3,
   MapPin,
   MessageCircle,
@@ -146,9 +147,9 @@ export default function Home() {
           </AnimateIn>
           <AnimateIn variant="fade-up" delay={300}>
             <div className="hero-actions">
-              <a className="button" href={WHATSAPP.url} target="_blank" rel="noreferrer" data-ga="click_whatsapp_hero">
-                <MessageCircle size={19} aria-hidden="true" /> <span>Agendar horário</span>
-              </a>
+              <Link className="button" href="/agendar" data-ga="click_booking_hero">
+                <CalendarDays size={19} aria-hidden="true" /> <span>Agendar horário</span>
+              </Link>
               <a className="button button-ghost" href={COMPANY.mapsUrl} target="_blank" rel="noreferrer" data-ga="click_directions">
                 <MapPin size={19} aria-hidden="true" /> <span>Como chegar</span>
               </a>
@@ -416,9 +417,9 @@ export default function Home() {
             </AnimateIn>
           </div>
           <AnimateIn variant="scale-in" delay={300}>
-            <a className="button button-light" href={WHATSAPP.url} target="_blank" rel="noreferrer" data-ga="click_whatsapp_hero">
+            <Link className="button button-light" href="/agendar" data-ga="click_booking_footer">
               <span>Agendar agora</span>
-            </a>
+            </Link>
           </AnimateIn>
         </div>
       </section>
