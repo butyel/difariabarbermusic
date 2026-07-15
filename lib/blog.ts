@@ -28,7 +28,7 @@ export const posts: BlogPost[] = [
     title: "Barboterapia: o que é e quando vale a pena",
     excerpt:
       "Conheça as etapas da barboterapia e entenda como o cuidado profissional ajuda a deixar barba e pele mais confortáveis e bem-apresentadas.",
-    image: "/images/difaria.jpg",
+    image: "/images/blog/barboterapia.webp",
     publishedDate: "2026-07-15T09:00:00-03:00",
     updatedDate: "2026-07-15T09:00:00-03:00",
     serviceSlugs: ["barboterapia", "barba"],
@@ -73,7 +73,7 @@ Se você procura barboterapia em Presidente Epitácio, agende uma avaliação na
     title: "Visagismo masculino: um visual pensado para você",
     excerpt:
       "Entenda como rosto, cabelo, barba e rotina são analisados para criar um visual masculino coerente com a sua identidade.",
-    image: "/images/will.jpeg",
+    image: "/images/blog/visagismo-masculino.webp",
     publishedDate: "2026-07-15T09:00:00-03:00",
     updatedDate: "2026-07-15T09:00:00-03:00",
     serviceSlugs: ["visagismo-masculino", "corte-masculino"],
@@ -118,7 +118,7 @@ Na DiFaria Barber Music, o visagismo masculino em Presidente Epitácio faz parte
     title: "Corte e barba: como criar um visual equilibrado",
     excerpt:
       "Veja como volume, contorno e proporção ajudam a combinar corte de cabelo e barba em um visual mais harmônico.",
-    image: "/images/barbeiro.jpg",
+    image: "/images/blog/corte-e-barba.webp",
     publishedDate: "2026-07-15T09:00:00-03:00",
     updatedDate: "2026-07-15T09:00:00-03:00",
     serviceSlugs: ["corte-e-barba", "corte-masculino", "barba"],
@@ -163,7 +163,7 @@ Na DiFaria Barber Music, o serviço de corte e barba em Presidente Epitácio é 
     title: "Hidratação capilar masculina: quando o cabelo precisa",
     excerpt:
       "Ressecamento, aspereza e dificuldade para finalizar podem indicar falta de hidratação. Saiba reconhecer os sinais e cuidar melhor dos fios.",
-    image: "/images/corte-masculino.jpg",
+    image: "/images/blog/hidratacao-capilar.webp",
     publishedDate: "2026-07-15T09:00:00-03:00",
     updatedDate: "2026-07-15T09:00:00-03:00",
     serviceSlugs: ["hidratacao-capilar-masculina", "corte-masculino"],
@@ -210,7 +210,7 @@ Na DiFaria Barber Music, a hidratação capilar masculina em Presidente Epitáci
     title: "Sobrancelha masculina: alinhamento com aparência natural",
     excerpt:
       "Saiba como remover excessos e organizar o desenho da sobrancelha masculina sem deixá-la fina ou artificial.",
-    image: "/images/barbearia-atendimento.jpg",
+    image: "/images/blog/sobrancelha-masculina.webp",
     publishedDate: "2026-07-15T09:00:00-03:00",
     updatedDate: "2026-07-15T09:00:00-03:00",
     serviceSlugs: ["sobrancelha-masculina"],
@@ -255,7 +255,7 @@ Na DiFaria Barber Music, o serviço de sobrancelha masculina em Presidente Epit�
     title: "Cabelo e barba para casamento: quando fazer cada cuidado",
     excerpt:
       "Um cronograma simples ajuda o noivo a chegar ao casamento com corte, barba e acabamento no ponto certo, sem mudanças de última hora.",
-    image: "/images/barbearia-interior.jpg",
+    image: "/images/blog/noivo-casamento.webp",
     publishedDate: "2026-07-15T09:00:00-03:00",
     updatedDate: "2026-07-15T09:00:00-03:00",
     serviceSlugs: ["pacote-para-noivos", "producao-masculina-para-casamento", "corte-e-barba"],
