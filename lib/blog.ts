@@ -12,6 +12,12 @@ export type BlogPost = {
   updatedDate: string;
   faqs: { question: string; answer: string }[];
   serviceSlugs: string[];
+  relatedPage?: {
+    title: string;
+    description: string;
+    href: string;
+    label: string;
+  };
 };
 
 const authorName = "William Farias";
@@ -23,6 +29,343 @@ const reviewedTitle = "CEO e barbeiro";
 export const BLOG_AUTHOR = { name: authorName, bio: authorBio, image: authorImage, title: reviewedTitle };
 
 export const posts: BlogPost[] = [
+  {
+    slug: "codigo-de-imagem-programa-para-empresas",
+    title: "Código de Imagem: cuidado pessoal como benefício corporativo",
+    excerpt:
+      "Conheça o programa da DiFaria que organiza a manutenção do visual de líderes e equipes com planos mensais e atendimento prioritário.",
+    image: "/images/blog/visagismo-masculino.webp",
+    publishedDate: "2026-07-15T15:00:00-03:00",
+    updatedDate: "2026-07-15T15:00:00-03:00",
+    serviceSlugs: [],
+    relatedPage: {
+      title: "Código de Imagem para empresas",
+      description:
+        "Veja como funciona o programa, conheça os planos e solicite uma apresentação para sua equipe.",
+      href: "/codigo-de-imagem",
+      label: "Conhecer o programa",
+    },
+    faqs: [
+      {
+        question: "O que é o Código de Imagem?",
+        answer:
+          "É um programa corporativo da DiFaria Barber Music que organiza a manutenção de cortes de cabelo de proprietários, líderes e colaboradores por meio de planos mensais e agendamento em lote.",
+      },
+      {
+        question: "Quais empresas podem participar?",
+        answer:
+          "Empresas de diferentes segmentos podem consultar o programa, especialmente aquelas com equipes de atendimento, vendas, liderança ou contato frequente com clientes e parceiros.",
+      },
+      {
+        question: "O programa pode ser adaptado ao tamanho da equipe?",
+        answer:
+          "Sim. Os planos apresentados usam uma equipe-base de nove profissionais, mas outras configurações podem ser avaliadas diretamente com a DiFaria.",
+      },
+    ],
+    content: `A experiência de uma empresa é construída por processos, ambiente, produto e pelas pessoas que representam a marca todos os dias. Quem recebe um cliente, conduz uma reunião ou lidera uma equipe também participa dessa percepção.
+
+Foi a partir dessa visão que a DiFaria Barber Music criou o Código de Imagem, um programa corporativo para organizar a manutenção do visual de proprietários, lideranças e colaboradores.
+
+O que o programa entrega
+
+O Código de Imagem transforma atendimentos individuais em uma rotina simples para a empresa. Os participantes recebem cortes de cabelo conforme a frequência prevista no plano, com atendimento prioritário e horários organizados em lote.
+
+A proposta não é impor um padrão único de aparência. Cada profissional continua recebendo um atendimento coerente com seus traços, seu estilo e sua função. O ganho para a empresa está na constância e na facilidade de gestão.
+
+Como funciona na prática
+
+Primeiro, a DiFaria entende o tamanho da equipe e a rotina da operação. Depois, organiza uma agenda distribuída para que os colaboradores sejam atendidos sem concentrar ausências no mesmo período.
+
+Os planos mensais ajudam a manter essa organização ao longo do tempo. A empresa sabe quantos atendimentos estão previstos, enquanto a equipe conta com um benefício de cuidado pessoal fácil de utilizar.
+
+Para quem o Código de Imagem é indicado
+
+O programa pode atender empresas de diferentes segmentos. Ele é especialmente interessante para equipes de atendimento, vendas, hospitalidade, gastronomia, liderança e outras funções em que os profissionais mantêm contato frequente com clientes e parceiros.
+
+Também pode fazer parte de ações de valorização interna, benefícios corporativos ou preparação para eventos e momentos importantes da empresa.
+
+Planos para diferentes frequências
+
+O Plano Fundador contempla um corte mensal para cada profissional da equipe-base. O Plano Presença Premium oferece dois cortes mensais, indicado para quem deseja uma manutenção mais frequente.
+
+Empresas com outro número de participantes podem solicitar uma avaliação personalizada. A disponibilidade, os horários e as condições são confirmados diretamente com a DiFaria.
+
+O Código de Imagem amplia a experiência Barber Music para o ambiente corporativo: cuidado pessoal, organização e atendimento com identidade. Conheça a página do programa e converse com William sobre a melhor configuração para sua equipe.`,
+  },
+  {
+    slug: "barboterapia-o-que-e-beneficios",
+    title: "Barboterapia: o que é e quando vale a pena",
+    excerpt:
+      "Conheça as etapas da barboterapia e entenda como o cuidado profissional ajuda a deixar barba e pele mais confortáveis e bem-apresentadas.",
+    image: "/images/blog/barboterapia.webp",
+    publishedDate: "2026-07-15T09:00:00-03:00",
+    updatedDate: "2026-07-15T09:00:00-03:00",
+    serviceSlugs: ["barboterapia", "barba"],
+    faqs: [
+      {
+        question: "Qual é a diferença entre fazer a barba e fazer barboterapia?",
+        answer: "O serviço de barba concentra-se no desenho, no alinhamento e no acabamento. A barboterapia acrescenta uma rotina de cuidado e relaxamento, com preparação da pele, toalha quente, produtos específicos e finalização hidratante.",
+      },
+      {
+        question: "A barboterapia é indicada para barba curta?",
+        answer: "Sim. O benefício não depende do comprimento dos fios, porque o tratamento também cuida da pele e melhora o conforto durante o barbear. O procedimento é adaptado ao estilo de cada cliente.",
+      },
+      {
+        question: "Com que frequência posso fazer barboterapia?",
+        answer: "A frequência depende do crescimento da barba e da sensibilidade da pele. Para muitos clientes, combinar o tratamento com a manutenção habitual da barba já mantém um bom resultado. O barbeiro pode orientar a periodicidade ideal após avaliar sua rotina.",
+      },
+    ],
+    content: `Barboterapia é um cuidado profissional que combina técnica de barbear, preparação da pele e um momento de relaxamento. Ela é indicada para quem deseja um contorno preciso, mas também valoriza conforto e atenção aos detalhes.
+
+Na DiFaria Barber Music, em Presidente Epitácio, o atendimento começa com uma conversa sobre o estilo da barba, a rotina do cliente e possíveis pontos de sensibilidade. Essa avaliação ajuda a definir o desenho e os produtos mais adequados.
+
+Como funciona a barboterapia
+
+Primeiro, a barba é analisada e preparada. A toalha quente ajuda a amaciar os fios e torna o procedimento mais confortável. Em seguida, o barbeiro realiza o desenho respeitando as proporções do rosto e o crescimento natural dos pelos.
+
+Depois do alinhamento, entram os cuidados de finalização. Produtos próprios para barba ajudam a hidratar os fios e a pele, reduzir a sensação de ressecamento e deixar o visual organizado.
+
+Para quem o serviço é indicado
+
+A barboterapia pode ser feita em barbas curtas, médias ou longas. Ela costuma ser uma boa escolha para quem sente desconforto ao se barbear, quer recuperar um contorno perdido ou simplesmente deseja transformar a manutenção da barba em uma experiência mais completa.
+
+Também funciona bem antes de compromissos importantes, como reuniões, festas e casamentos. O resultado é uma barba com desenho coerente com o rosto e acabamento profissional.
+
+Como manter o resultado em casa
+
+Entre os atendimentos, use shampoo específico algumas vezes por semana, hidrate com óleo ou balm e evite avançar no contorno feito pelo barbeiro. Uma rotina simples preserva o desenho e facilita a próxima manutenção.
+
+Se você procura barboterapia em Presidente Epitácio, agende uma avaliação na DiFaria Barber Music. O atendimento é personalizado para que cuidado, técnica e identidade apareçam no mesmo resultado.`,
+  },
+  {
+    slug: "visagismo-masculino-como-funciona",
+    title: "Visagismo masculino: um visual pensado para você",
+    excerpt:
+      "Entenda como rosto, cabelo, barba e rotina são analisados para criar um visual masculino coerente com a sua identidade.",
+    image: "/images/blog/visagismo-masculino.webp",
+    publishedDate: "2026-07-15T09:00:00-03:00",
+    updatedDate: "2026-07-15T09:00:00-03:00",
+    serviceSlugs: ["visagismo-masculino", "corte-masculino"],
+    faqs: [
+      {
+        question: "Visagismo é apenas escolher um corte pelo formato do rosto?",
+        answer: "Não. O formato do rosto é uma parte da análise. O visagismo também considera textura do cabelo, barba, proporções, rotina de manutenção, ambiente profissional e a imagem que a pessoa deseja transmitir.",
+      },
+      {
+        question: "Preciso mudar completamente o meu visual?",
+        answer: "Não. A proposta pode ser uma mudança sutil. Muitas vezes, ajustar proporções, acabamento, volume e desenho da barba já deixa o conjunto mais equilibrado sem abandonar o estilo com o qual você se identifica.",
+      },
+      {
+        question: "Posso levar fotos de referência?",
+        answer: "Sim. As referências ajudam a comunicar preferências. Durante a avaliação, o barbeiro adapta a ideia ao seu cabelo, ao formato do rosto e ao nível de manutenção que cabe na sua rotina.",
+      },
+    ],
+    content: `Visagismo masculino é o processo de construir um visual que faça sentido para a pessoa, e não apenas reproduzir um corte visto em uma foto. O objetivo é equilibrar cabelo, barba, rosto e estilo de vida para chegar a uma imagem coerente e fácil de manter.
+
+Na prática, dois clientes podem pedir o mesmo corte e receber adaptações diferentes. Isso acontece porque densidade dos fios, direção de crescimento, formato da cabeça e proporções do rosto mudam de uma pessoa para outra.
+
+O que é analisado
+
+A avaliação começa com uma conversa. O barbeiro precisa entender como você trabalha, quanto tempo dedica ao cabelo pela manhã, com que frequência consegue voltar à barbearia e qual impressão deseja transmitir.
+
+Depois, são observados formato do rosto, testa, mandíbula, perfil, textura e volume do cabelo. Se houver barba, ela entra na composição. Um desenho mais cheio ou mais curto pode equilibrar o rosto e alterar bastante a leitura do conjunto.
+
+Estética e rotina precisam andar juntas
+
+Um visual bonito no dia do corte, mas impossível de reproduzir em casa, não é uma boa solução. Por isso, o visagismo considera o nível de manutenção. O resultado pode ser mais prático, clássico, criativo ou marcante, desde que esteja alinhado ao cotidiano do cliente.
+
+O processo também ajuda quem sente que usa o mesmo corte há anos sem saber se ele ainda representa sua fase atual. A mudança não precisa ser radical. Às vezes, uma nova proporção no topo, uma lateral diferente ou a correção do desenho da barba já renovam a imagem.
+
+Como se preparar para a avaliação
+
+Leve referências do que gosta e também do que não gosta. Conte como costuma finalizar o cabelo e quais dificuldades encontra. Quanto mais clara for a conversa, mais personalizado será o resultado.
+
+Na DiFaria Barber Music, o visagismo masculino em Presidente Epitácio faz parte de uma experiência de atendimento individual. A técnica orienta o corte, mas a sua identidade é o ponto de partida.`,
+  },
+  {
+    slug: "como-combinar-corte-e-barba",
+    title: "Corte e barba: como criar um visual equilibrado",
+    excerpt:
+      "Veja como volume, contorno e proporção ajudam a combinar corte de cabelo e barba em um visual mais harmônico.",
+    image: "/images/blog/corte-e-barba.webp",
+    publishedDate: "2026-07-15T09:00:00-03:00",
+    updatedDate: "2026-07-15T09:00:00-03:00",
+    serviceSlugs: ["corte-e-barba", "corte-masculino", "barba"],
+    faqs: [
+      {
+        question: "Corte e barba precisam ter o mesmo estilo?",
+        answer: "Eles não precisam ser idênticos, mas devem conversar entre si. Volume, linhas e acabamento podem criar continuidade entre cabelo e barba mesmo quando a proposta combina elementos clássicos e modernos.",
+      },
+      {
+        question: "Barba cheia combina com degradê?",
+        answer: "Sim. A transição pode conectar a costeleta ao degradê e manter o conjunto limpo. O comprimento ideal da barba depende do formato do rosto e do volume disponível em cada região.",
+      },
+      {
+        question: "É melhor fazer corte e barba no mesmo atendimento?",
+        answer: "Fazer os dois juntos facilita a leitura do conjunto e permite ajustar proporções no mesmo momento. Também é uma opção prática para quem quer renovar o visual por completo.",
+      },
+    ],
+    content: `Cabelo e barba ocupam áreas diferentes, mas formam uma única composição. Quando os dois são planejados juntos, o visual fica mais equilibrado e transmite mais cuidado. Quando cada parte segue uma direção sem conexão, até um bom corte pode parecer incompleto.
+
+O primeiro ponto é observar as proporções. Um corte com muito volume no topo e uma barba muito longa pode alongar o rosto. Já laterais curtas combinadas com volume bem distribuído na barba podem valorizar a mandíbula e criar presença.
+
+A conexão pelas costeletas
+
+A região das costeletas faz a ligação visual entre cabelo e barba. Em cortes com degradê, essa transição pode ser suave e progressiva. Em propostas mais clássicas, ela pode permanecer mais cheia. O importante é que a passagem pareça intencional.
+
+Contorno que respeita o rosto
+
+O desenho da barba deve acompanhar o crescimento dos fios e ajudar a equilibrar o formato do rosto. Linhas muito altas nas bochechas ou um contorno do pescoço fora de posição podem comprometer o resultado. A marcação correta melhora o acabamento sem criar uma aparência artificial.
+
+Escolha de acordo com a rotina
+
+Um combo de corte e barba precisa continuar funcionando depois que você sai da cadeira. Quem prefere baixa manutenção pode optar por um corte de crescimento mais discreto e barba curta. Quem gosta de um visual mais definido pode manter degradê e contornos em intervalos menores.
+
+Finalização faz diferença
+
+Pomada ou pasta modeladora ajuda a organizar o cabelo. Na barba, óleo e balm controlam fios, melhoram o toque e mantêm o aspecto saudável. O barbeiro pode mostrar a quantidade e a forma correta de aplicar cada produto.
+
+Na DiFaria Barber Music, o serviço de corte e barba em Presidente Epitácio é pensado como um conjunto. Antes de começar, avaliamos rosto, cabelo, barba e preferência pessoal para entregar um visual que tenha unidade e represente você.`,
+  },
+  {
+    slug: "hidratacao-capilar-masculina-quando-fazer",
+    title: "Hidratação capilar masculina: quando o cabelo precisa",
+    excerpt:
+      "Ressecamento, aspereza e dificuldade para finalizar podem indicar falta de hidratação. Saiba reconhecer os sinais e cuidar melhor dos fios.",
+    image: "/images/blog/hidratacao-capilar.webp",
+    publishedDate: "2026-07-15T09:00:00-03:00",
+    updatedDate: "2026-07-15T09:00:00-03:00",
+    serviceSlugs: ["hidratacao-capilar-masculina", "corte-masculino"],
+    faqs: [
+      {
+        question: "Cabelo curto também precisa de hidratação?",
+        answer: "Sim. O comprimento não impede o ressecamento. Sol, água quente, shampoo inadequado, uso frequente de boné e produtos de finalização podem afetar fios curtos e o couro cabeludo.",
+      },
+      {
+        question: "Com que frequência devo hidratar o cabelo?",
+        answer: "A frequência varia conforme textura, rotina e estado dos fios. Cabelos mais secos ou cacheados podem precisar de intervalos menores. Uma avaliação profissional ajuda a definir o cuidado sem pesar o cabelo.",
+      },
+      {
+        question: "Hidratação deixa o cabelo oleoso?",
+        answer: "Quando o produto é adequado e aplicado corretamente, não. O excesso ou o uso de fórmulas incompatíveis pode pesar. Por isso, quantidade, tempo de ação e enxágue fazem parte do resultado.",
+      },
+    ],
+    content: `Cabelo masculino também sofre com ressecamento, aspereza e perda de movimento. Como muitos homens usam os fios curtos, esses sinais podem ser confundidos com dificuldade de pentear ou com um corte que perdeu o formato.
+
+A hidratação capilar ajuda a devolver água e maciez aos fios. Ela não muda a estrutura do cabelo, mas melhora o toque, o brilho e a resposta aos produtos de finalização.
+
+Sinais de que o cabelo precisa de cuidado
+
+Fios ásperos, opacos, com frizz e difíceis de organizar são sinais comuns. O cabelo também pode absorver muita pomada sem ganhar definição ou ficar armado mesmo depois de penteado.
+
+Sol, vento, água muito quente e lavagens frequentes com shampoo agressivo contribuem para o ressecamento. Cabelos ondulados, cacheados e crespos costumam exigir atenção especial, porque a oleosidade natural leva mais tempo para chegar às pontas.
+
+Como funciona a hidratação profissional
+
+O atendimento começa com a observação do fio e do couro cabeludo. Depois da limpeza, é aplicado um produto compatível com a necessidade do cabelo. O tempo de ação e o enxágue correto evitam que o resultado fique pesado.
+
+A finalização também é importante. Ela mostra como o cabelo responde depois do tratamento e quais produtos podem ajudar a manter o efeito em casa.
+
+Cuidados simples no dia a dia
+
+Evite água muito quente, não exagere na quantidade de shampoo e escolha finalizadores adequados ao seu tipo de cabelo. Se usa pomada todos os dias, faça uma limpeza eficiente para não acumular resíduos.
+
+Hidratação não substitui um corte bem executado, mas pode valorizar a textura e melhorar o acabamento. Em alguns casos, combinar os dois serviços é a melhor forma de renovar o visual.
+
+Na DiFaria Barber Music, a hidratação capilar masculina em Presidente Epitácio é adaptada ao estado dos fios e à rotina de cada cliente. Agende uma avaliação e descubra o cuidado mais adequado para o seu cabelo.`,
+  },
+  {
+    slug: "sobrancelha-masculina-natural",
+    title: "Sobrancelha masculina: alinhamento com aparência natural",
+    excerpt:
+      "Saiba como remover excessos e organizar o desenho da sobrancelha masculina sem deixá-la fina ou artificial.",
+    image: "/images/blog/sobrancelha-masculina.webp",
+    publishedDate: "2026-07-15T09:00:00-03:00",
+    updatedDate: "2026-07-15T09:00:00-03:00",
+    serviceSlugs: ["sobrancelha-masculina"],
+    faqs: [
+      {
+        question: "Fazer a sobrancelha masculina deixa o desenho fino?",
+        answer: "Não quando o objetivo é um resultado natural. O atendimento remove excessos, organiza fios longos e preserva a espessura e o formato original da sobrancelha.",
+      },
+      {
+        question: "Pinça ou navalha: qual técnica é melhor?",
+        answer: "As técnicas podem ser combinadas conforme a região e a sensibilidade da pele. A pinça oferece precisão em fios isolados, enquanto a navalha ajuda no acabamento superficial. O profissional escolhe a abordagem adequada.",
+      },
+      {
+        question: "Posso combinar sobrancelha com corte de cabelo?",
+        answer: "Sim. É uma forma prática de concluir o atendimento e deixar o visual mais organizado. O desenho é feito para acompanhar o rosto e o estilo do corte, sem exageros.",
+      },
+    ],
+    content: `Cuidar da sobrancelha masculina não significa criar um desenho fino ou marcado. Na maioria dos casos, o melhor resultado vem da remoção de excessos e da organização dos fios, mantendo a expressão natural do rosto.
+
+Fios muito longos, concentração entre as sobrancelhas e crescimento fora da linha principal podem deixar o olhar com aparência pesada. Um alinhamento discreto abre a região e melhora o acabamento do visual sem chamar atenção para o procedimento.
+
+O que é feito no atendimento
+
+Primeiro, o profissional observa o formato natural e a simetria do rosto. Depois, penteia e apara apenas os fios que ultrapassam a linha. A remoção é feita de forma controlada, com pinça e navalha conforme a necessidade.
+
+O objetivo não é transformar a sobrancelha, mas preservar sua identidade. Pequenas diferenças entre os lados são naturais e não precisam ser corrigidas com uma retirada excessiva de fios.
+
+Erros comuns ao fazer em casa
+
+O erro mais frequente é retirar demais na parte inferior ou tentar igualar completamente os dois lados. Isso pode afinar o desenho e criar falhas que levam semanas para crescer. Outro problema é encurtar fios sem penteá-los, o que deixa espaços visíveis.
+
+Se for fazer uma manutenção entre atendimentos, limite-se aos fios claramente isolados e evite alterar a linha principal. Quando houver dúvida, espere a próxima visita.
+
+Como combinar com cabelo e barba
+
+A sobrancelha participa da leitura do rosto. Um cuidado discreto pode complementar um corte preciso e uma barba bem desenhada. Tudo deve seguir a mesma proposta: acabamento limpo e aparência natural.
+
+Na DiFaria Barber Music, o serviço de sobrancelha masculina em Presidente Epitácio respeita o formato de cada cliente. É um detalhe rápido que pode deixar o conjunto mais organizado sem apagar suas características.`,
+  },
+  {
+    slug: "cabelo-e-barba-para-casamento",
+    title: "Cabelo e barba para casamento: quando fazer cada cuidado",
+    excerpt:
+      "Um cronograma simples ajuda o noivo a chegar ao casamento com corte, barba e acabamento no ponto certo, sem mudanças de última hora.",
+    image: "/images/blog/noivo-casamento.webp",
+    publishedDate: "2026-07-15T09:00:00-03:00",
+    updatedDate: "2026-07-15T09:00:00-03:00",
+    serviceSlugs: ["pacote-para-noivos", "producao-masculina-para-casamento", "corte-e-barba"],
+    faqs: [
+      {
+        question: "Quantos dias antes do casamento devo cortar o cabelo?",
+        answer: "Isso depende do estilo e da velocidade de crescimento. Muitos cortes ficam naturais após um pequeno intervalo, enquanto degradês muito definidos podem ser feitos mais perto da data. O ideal é planejar com o barbeiro após um teste prévio.",
+      },
+      {
+        question: "Vale a pena fazer um corte de teste?",
+        answer: "Sim, principalmente se você deseja mudar o estilo. O teste permite ajustar comprimento, acabamento e finalização sem pressão e ainda ajuda a definir o melhor intervalo para o atendimento final.",
+      },
+      {
+        question: "O que levar para a produção no dia?",
+        answer: "Leve referências do traje e do penteado desejado, se houver. Informe horário, local da cerimônia e uso de acessórios. Esses detalhes ajudam a escolher uma finalização compatível com o evento.",
+      },
+    ],
+    content: `A preparação do noivo não precisa começar na manhã do casamento. Um cronograma simples evita mudanças apressadas e permite que corte, barba e pele cheguem ao evento com um resultado natural.
+
+O primeiro passo é definir a proposta. Terno, horário da cerimônia, estilo da festa e preferência pessoal ajudam a escolher entre um visual clássico, contemporâneo ou mais descontraído.
+
+Algumas semanas antes
+
+Se você deseja mudar o corte, deixar a barba crescer ou testar uma nova finalização, faça isso com antecedência. Um atendimento de teste permite avaliar fotos, conforto e manutenção. Também dá tempo para pequenos ajustes antes da data.
+
+Nesse período, mantenha uma rotina simples de hidratação do cabelo e da barba. Evite experimentar produtos agressivos ou procedimentos desconhecidos perto do casamento.
+
+Na semana do evento
+
+Confirme o horário com o barbeiro e alinhe o que será feito. A antecedência ideal do corte varia conforme o estilo. Alguns clientes preferem um aspecto recém-cortado, enquanto outros gostam de esperar um ou dois dias para que os fios assentem.
+
+A barba pode ser alinhada próxima ao evento, respeitando a sensibilidade da pele. Se você costuma ficar com vermelhidão após o barbear, essa informação deve entrar no planejamento.
+
+No dia do casamento
+
+A produção final organiza o penteado, controla o brilho e reforça o acabamento da barba. Use apenas produtos já testados e adequados ao tempo de duração da cerimônia e da festa.
+
+Não é o momento para uma transformação radical. O noivo precisa se reconhecer no espelho e sentir segurança para aproveitar o dia.
+
+Na DiFaria Barber Music, o pacote para noivos e a produção masculina para casamento em Presidente Epitácio são planejados de forma personalizada. Agende uma conversa com antecedência para montar o cronograma ideal para seu estilo e sua data.`,
+  },
   {
     slug: "corte-ideal-formato-rosto",
     title: "Como escolher o corte ideal para o formato do seu rosto",

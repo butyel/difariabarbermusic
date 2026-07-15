@@ -77,11 +77,11 @@ export default function BlogPage() {
                     />
                   </div>
                   <div style={{ padding: 24, flex: 1, display: "flex", flexDirection: "column" }}>
-                    <h2 style={{ fontSize: "1.1rem", marginBottom: 8 }}>{post.title}</h2>
-                    <p style={{ color: "#72816a", fontSize: "0.9rem", lineHeight: 1.6, flex: 1 }}>
+                    <h2 style={{ fontSize: "1.1rem", marginBottom: 8, color: "var(--cream)" }}>{post.title}</h2>
+                    <p style={{ color: "rgba(240, 234, 220, 0.72)", fontSize: "0.9rem", lineHeight: 1.6, flex: 1 }}>
                       {post.excerpt}
                     </p>
-                    <div style={{ display: "flex", alignItems: "center", gap: 8, fontSize: "0.78rem", color: "#8a9a8a", marginTop: 12 }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: 8, fontSize: "0.78rem", color: "rgba(240, 234, 220, 0.58)", marginTop: 12 }}>
                       <span>{BLOG_AUTHOR.name}</span>
                       <span>·</span>
                       <span>{formatDate(post.publishedDate)}</span>

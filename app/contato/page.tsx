@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { Clock3, MapPin, MessageCircle, Car, Accessibility, Navigation, Landmark } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -114,7 +115,7 @@ export default function ContatoPage() {
           </AnimateIn>
           <AnimateIn variant="fade-up" delay={150}>
             <p style={{ maxWidth: 600, marginBottom: 40, color: "#72816a" }}>
-              Fale com a DiFaria Barber Music e reserve seu horário.
+              Escolha seu serviço, profissional, data e horário ou fale com a equipe pelo WhatsApp.
             </p>
           </AnimateIn>
           <div className="contact-card">
@@ -142,9 +143,9 @@ export default function ContatoPage() {
               </AnimateIn>
             </div>
             <AnimateIn variant="scale-in" delay={300}>
-              <a className="button button-light" href={WHATSAPP.url} target="_blank" rel="noreferrer">
+              <Link className="button button-light" href="/agendar" data-ga="click_booking_contato">
                 <span>Agendar agora</span>
-              </a>
+              </Link>
             </AnimateIn>
           </div>
         </div>

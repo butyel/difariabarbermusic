@@ -6,7 +6,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import AnimateIn from "@/components/AnimateIn";
-import { COMPANY, WHATSAPP, SERVICES } from "@/lib/constants";
+import { COMPANY, SERVICES } from "@/lib/constants";
 
 const baseUrl = COMPANY.domain;
 
@@ -39,7 +39,7 @@ export default function ServicosPage() {
             <span className="eyebrow">Especialidades</span>
           </AnimateIn>
           <AnimateIn variant="fade-up" delay={100}>
-            <h1 style={{ margin: "20px auto 24px", maxWidth: 800 }}>Serviços de barbearia em Presidente Epitácio</h1>
+            <h1 style={{ margin: "20px 0 24px", maxWidth: 800 }}>Serviços de barbearia em Presidente Epitácio</h1>
           </AnimateIn>
           <AnimateIn variant="fade-up" delay={150}>
             <p style={{ maxWidth: 600, marginBottom: 48, color: "#72816a" }}>
@@ -70,9 +70,9 @@ export default function ServicosPage() {
           </AnimateIn>
           <AnimateIn variant="fade-up" delay={300}>
             <div className="center" style={{ marginTop: 48 }}>
-              <a className="button" href={WHATSAPP.url} target="_blank" rel="noreferrer" data-ga="click_whatsapp_service">
+              <Link className="button" href="/agendar" data-ga="click_booking_service">
                 <span>Consultar e agendar</span>
-              </a>
+              </Link>
             </div>
           </AnimateIn>
         </div>
@@ -138,13 +138,13 @@ export default function ServicosPage() {
           </AnimateIn>
           <AnimateIn variant="fade-up" delay={150}>
             <p style={{ maxWidth: 500, margin: "0 auto 32px", color: "#72816a" }}>
-              Fale conosco pelo WhatsApp e agende o melhor horário para você.
+              Escolha o serviço, profissional, data e o melhor horário para você.
             </p>
           </AnimateIn>
           <AnimateIn variant="fade-up" delay={200}>
-            <a className="button" href={WHATSAPP.url} target="_blank" rel="noreferrer" data-ga="click_whatsapp_service">
+            <Link className="button" href="/agendar" data-ga="click_booking_service">
               <span>Agendar agora</span>
-            </a>
+            </Link>
           </AnimateIn>
         </div>
       </div>

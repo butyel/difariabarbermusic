@@ -76,6 +76,7 @@ export const NAV_LINKS = [
   { label: "Serviços", href: "/servicos" },
   { label: "Sobre", href: "/sobre" },
   { label: "Galeria", href: "/galeria" },
+  { label: "Empresas", href: "/codigo-de-imagem" },
   { label: "Blog", href: "/blog" },
   { label: "Perguntas", href: "/perguntas-frequentes" },
   { label: "Contato", href: "/contato" },
@@ -247,6 +248,10 @@ export const SEO_KEYWORDS = [
   "produção casamento masculino",
   "barbearia premium",
   "barbearia perto de mim",
+  "programa corporativo de imagem",
+  "barbearia para empresas",
+  "benefício corporativo para equipes",
+  "Código de Imagem",
   "DiFaria Barber Music",
 ];
 

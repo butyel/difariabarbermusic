@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
-import { NAV_LINKS, WHATSAPP } from "@/lib/constants";
+import { NAV_LINKS } from "@/lib/constants";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -20,17 +20,7 @@ export default function Header() {
   }, []);
 
   return (
-    <header
-      className={`site-header${scrolled ? " scrolled" : ""}`}
-      style={{
-        background: scrolled
-          ? "rgba(5, 12, 8, 0.92)"
-          : "rgba(5, 12, 8, 0.6)",
-        borderColor: scrolled
-          ? "rgba(255, 255, 255, 0.08)"
-          : "rgba(255, 255, 255, 0.12)",
-      }}
-    >
+    <header className={`site-header${scrolled ? " scrolled" : ""}`}>
       <Link className="brand" href="/" aria-label="DiFaria Barber Music - início">
         <Image src="/images/logo.png" alt="DiFaria Barber Music" width={120} height={44} priority />
       </Link>
@@ -53,15 +43,14 @@ export default function Header() {
             {label}
           </Link>
         ))}
-        <a
+        <Link
           className="button button-small"
-          href={WHATSAPP.url}
-          target="_blank"
-          rel="noreferrer"
-          data-ga="click_whatsapp_header"
+          href="/agendar"
+          onClick={() => setOpen(false)}
+          data-ga="click_booking_header"
         >
           <span>Agendar</span>
-        </a>
+        </Link>
       </nav>
     </header>
   );

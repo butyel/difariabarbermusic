@@ -2,9 +2,12 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import {
+  ArrowUpRight,
+  CalendarDays,
   Clock3,
   MapPin,
   MessageCircle,
+  Music2,
   Scissors,
   Sparkles,
   Star,
@@ -129,26 +132,24 @@ export default function Home() {
         <div className="hero-overlay" />
         <div className="hero-content container">
           <AnimateIn variant="fade-up">
-            <span className="eyebrow">
-              Estilo. Música. Identidade.
-            </span>
+            <span className="eyebrow">Estilo • Música • Identidade</span>
           </AnimateIn>
           <AnimateIn variant="fade-up" delay={100}>
             <h1>
-              Barbearia premium em <strong>Presidente Epitácio</strong>
+              Barbearia em <strong>Presidente Epitácio</strong> para quem valoriza presença.
             </h1>
           </AnimateIn>
           <AnimateIn variant="fade-up" delay={200}>
             <p>
-              Corte masculino, barba e atendimento personalizado em um ambiente
-              criado para transformar o seu visual em uma experiência.
+              Corte, barba e atendimento personalizado em uma experiência criada
+              para valorizar sua identidade.
             </p>
           </AnimateIn>
           <AnimateIn variant="fade-up" delay={300}>
             <div className="hero-actions">
-              <a className="button" href={WHATSAPP.url} target="_blank" rel="noreferrer" data-ga="click_whatsapp_hero">
-                <MessageCircle size={19} aria-hidden="true" /> <span>Agendar pelo WhatsApp</span>
-              </a>
+              <Link className="button" href="/agendar" data-ga="click_booking_hero">
+                <CalendarDays size={19} aria-hidden="true" /> <span>Agendar horário</span>
+              </Link>
               <a className="button button-ghost" href={COMPANY.mapsUrl} target="_blank" rel="noreferrer" data-ga="click_directions">
                 <MapPin size={19} aria-hidden="true" /> <span>Como chegar</span>
               </a>
@@ -169,6 +170,23 @@ export default function Home() {
               <span>{COMPANY.googleReviews} avaliações</span>
             </a>
           </AnimateIn>
+        </div>
+      </section>
+
+      <section className="proof-strip" aria-label="Diferenciais da DiFaria">
+        <div className="container proof-strip-grid">
+          <a href={COMPANY.googleReviewLink} target="_blank" rel="noreferrer" data-ga="click_google_reviews">
+            <strong>{COMPANY.googleRating.toFixed(1)}</strong>
+            <span><Star size={14} fill="currentColor" aria-hidden="true" /> {COMPANY.googleReviews} avaliações no Google</span>
+          </a>
+          <div>
+            <strong>Atendimento personalizado</strong>
+            <span>Estilo pensado para seus traços e sua rotina</span>
+          </div>
+          <a href={COMPANY.mapsUrl} target="_blank" rel="noreferrer" data-ga="click_directions">
+            <strong>Centro de Presidente Epitácio</strong>
+            <span><MapPin size={14} aria-hidden="true" /> Veja como chegar</span>
+          </a>
         </div>
       </section>
 
@@ -207,56 +225,126 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section section-dark">
-        <div className="container" style={{ textAlign: "center" }}>
-          <AnimateIn variant="fade-up">
-            <span className="eyebrow">A experiência</span>
-          </AnimateIn>
-          <AnimateIn variant="fade-up" delay={100}>
-            <h2 style={{ textAlign: "center", margin: "16px auto 28px" }}>Mais que um corte. Uma experiência que transforma sua presença.</h2>
-          </AnimateIn>
-          <AnimateIn variant="fade-up" delay={150}>
-            <p style={{ maxWidth: 600, margin: "0 auto", color: "#72816a" }}>
-              Técnica, estética, música e atendimento personalizado para valorizar seu estilo em Presidente Epitácio.
-            </p>
-          </AnimateIn>
-          <AnimateIn variant="fade-up" delay={200} stagger>
-            <div className="feature-grid" style={{ justifyContent: "center", marginTop: 32 }}>
-              <div className="stagger-item" style={{ textAlign: "center" }}>
-                <Scissors aria-hidden="true" />
-                <h3>Técnica e precisão</h3>
-                <p>Acabamento limpo e consultoria para encontrar o estilo ideal.</p>
-              </div>
-              <div className="stagger-item" style={{ textAlign: "center" }}>
-                <Sparkles aria-hidden="true" />
-                <h3>Atendimento premium</h3>
-                <p>Cuidado individual para você sair confiante em cada visita.</p>
+      <section className="section section-dark experience-editorial">
+        <div className="container experience-editorial-grid">
+          <AnimateIn variant="slide-left">
+            <div className="experience-portrait">
+              <Image
+                src="/images/will.jpeg"
+                alt="William Farias, CEO e barbeiro da DiFaria Barber Music"
+                fill
+                sizes="(max-width: 900px) 100vw, 44vw"
+              />
+              <div className="portrait-caption">
+                <strong>William Farias</strong>
+                <span>CEO e barbeiro</span>
               </div>
             </div>
           </AnimateIn>
-          <AnimateIn variant="fade-up" delay={300}>
-            <div className="center" style={{ marginTop: 32 }}>
-              <Link className="button button-ghost" href="/sobre">
-                <span>Conheça nossa história</span>
+          <div className="experience-copy">
+            <AnimateIn variant="fade-up">
+              <span className="eyebrow">A experiência DiFaria</span>
+            </AnimateIn>
+            <AnimateIn variant="fade-up" delay={100}>
+              <h2>Mais que um corte. Uma presença que fala por você.</h2>
+            </AnimateIn>
+            <AnimateIn variant="fade-up" delay={150}>
+              <p>
+                Técnica, estética, música e atenção aos detalhes se encontram em um
+                atendimento feito para valorizar quem você é.
+              </p>
+            </AnimateIn>
+            <AnimateIn variant="fade-up" delay={200} stagger>
+              <div className="experience-features">
+                <div className="stagger-item">
+                  <Scissors aria-hidden="true" />
+                  <div><h3>Técnica e precisão</h3><p>Acabamento limpo e escolha do estilo ideal.</p></div>
+                </div>
+                <div className="stagger-item">
+                  <Sparkles aria-hidden="true" />
+                  <div><h3>Identidade em cada detalhe</h3><p>Um resultado coerente com seus traços e personalidade.</p></div>
+                </div>
+                <div className="stagger-item">
+                  <Music2 aria-hidden="true" />
+                  <div><h3>Atmosfera Barber Music</h3><p>Conforto, música e uma experiência com personalidade.</p></div>
+                </div>
+              </div>
+            </AnimateIn>
+            <AnimateIn variant="fade-up" delay={300}>
+              <Link className="text-link" href="/sobre">
+                Conheça nossa história <ArrowUpRight size={17} aria-hidden="true" />
               </Link>
+            </AnimateIn>
+          </div>
+        </div>
+      </section>
+
+      <section className="section section-cream home-gallery-section">
+        <div className="container">
+          <div className="section-heading-row">
+            <div>
+              <AnimateIn variant="fade-up">
+                <span className="eyebrow dark">Galeria</span>
+              </AnimateIn>
+              <AnimateIn variant="fade-up" delay={100}>
+                <h2>Onde estilo e música se encontram</h2>
+              </AnimateIn>
+            </div>
+            <AnimateIn variant="fade-up" delay={150}>
+              <Link className="text-link text-link-dark" href="/galeria">
+                Ver galeria completa <ArrowUpRight size={17} aria-hidden="true" />
+              </Link>
+            </AnimateIn>
+          </div>
+          <AnimateIn variant="fade-up" delay={200} stagger>
+            <div className="home-gallery-grid">
+              <div className="home-gallery-item home-gallery-main stagger-item">
+                <Image src="/images/barbearia-interior.jpg" alt="Interior da DiFaria Barber Music" fill sizes="(max-width: 800px) 100vw, 58vw" />
+                <span>O espaço</span>
+              </div>
+              <div className="home-gallery-item stagger-item">
+                <Image src="/images/barbearia-atendimento.jpg" alt="Atendimento na DiFaria Barber Music" fill sizes="(max-width: 800px) 50vw, 30vw" />
+                <span>O cuidado</span>
+              </div>
+              <div className="home-gallery-item stagger-item">
+                <Image src="/images/barbearia-exterior.jpg" alt="Fachada da DiFaria Barber Music" fill sizes="(max-width: 800px) 50vw, 30vw" />
+                <span>A DiFaria</span>
+              </div>
             </div>
           </AnimateIn>
         </div>
       </section>
 
-      <section className="section section-cream">
-        <div className="container" style={{ textAlign: "center" }}>
-          <AnimateIn variant="fade-up">
-            <span className="eyebrow dark">Galeria</span>
-          </AnimateIn>
-          <AnimateIn variant="fade-up" delay={100}>
-            <h2 style={{ textAlign: "center", margin: "16px auto 28px" }}>Onde estilo e música se encontram</h2>
-          </AnimateIn>
-          <AnimateIn variant="fade-up" delay={300}>
-            <div className="center" style={{ marginTop: 24 }}>
-              <Link className="button" href="/galeria">
-                <span>Ver galeria completa</span>
+      <section className="section corporate-teaser">
+        <div className="container corporate-teaser-card">
+          <div className="corporate-teaser-copy">
+            <AnimateIn variant="fade-up">
+              <span className="eyebrow">Para empresas</span>
+            </AnimateIn>
+            <AnimateIn variant="fade-up" delay={100}>
+              <h2>Sua equipe também representa o padrão da sua marca.</h2>
+            </AnimateIn>
+            <AnimateIn variant="fade-up" delay={150}>
+              <p>
+                O Código de Imagem é o programa corporativo da DiFaria para organizar
+                a manutenção do visual de líderes e equipes, com atendimento prioritário
+                e agendamento em lote.
+              </p>
+            </AnimateIn>
+            <AnimateIn variant="fade-up" delay={220}>
+              <Link className="button" href="/codigo-de-imagem">
+                <span>Conhecer o Código de Imagem</span>
+                <ArrowUpRight size={17} aria-hidden="true" />
               </Link>
+            </AnimateIn>
+          </div>
+          <AnimateIn variant="fade-up" delay={140} stagger>
+            <div className="corporate-teaser-pillars">
+              <span className="stagger-item">Presença</span>
+              <span className="stagger-item">Credibilidade</span>
+              <span className="stagger-item">Autoridade</span>
+              <span className="stagger-item">Performance</span>
+              <span className="stagger-item">Experiência</span>
             </div>
           </AnimateIn>
         </div>
@@ -329,9 +417,9 @@ export default function Home() {
             </AnimateIn>
           </div>
           <AnimateIn variant="scale-in" delay={300}>
-            <a className="button button-light" href={WHATSAPP.url} target="_blank" rel="noreferrer" data-ga="click_whatsapp_hero">
+            <Link className="button button-light" href="/agendar" data-ga="click_booking_footer">
               <span>Agendar agora</span>
-            </a>
+            </Link>
           </AnimateIn>
         </div>
       </section>
