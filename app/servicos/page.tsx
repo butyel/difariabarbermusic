@@ -39,7 +39,7 @@ export default function ServicosPage() {
             <span className="eyebrow">Especialidades</span>
           </AnimateIn>
           <AnimateIn variant="fade-up" delay={100}>
-            <h1 style={{ margin: "20px auto 24px", maxWidth: 800 }}>Serviços de barbearia em Presidente Epitácio</h1>
+            <h1 style={{ margin: "20px 0 24px", maxWidth: 800 }}>Serviços de barbearia em Presidente Epitácio</h1>
           </AnimateIn>
           <AnimateIn variant="fade-up" delay={150}>
             <p style={{ maxWidth: 600, marginBottom: 48, color: "#72816a" }}>
