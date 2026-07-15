@@ -314,6 +314,41 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section corporate-teaser">
+        <div className="container corporate-teaser-card">
+          <div className="corporate-teaser-copy">
+            <AnimateIn variant="fade-up">
+              <span className="eyebrow">Para empresas</span>
+            </AnimateIn>
+            <AnimateIn variant="fade-up" delay={100}>
+              <h2>Sua equipe também representa o padrão da sua marca.</h2>
+            </AnimateIn>
+            <AnimateIn variant="fade-up" delay={150}>
+              <p>
+                O Código de Imagem é o programa corporativo da DiFaria para organizar
+                a manutenção do visual de líderes e equipes, com atendimento prioritário
+                e agendamento em lote.
+              </p>
+            </AnimateIn>
+            <AnimateIn variant="fade-up" delay={220}>
+              <Link className="button" href="/codigo-de-imagem">
+                <span>Conhecer o Código de Imagem</span>
+                <ArrowUpRight size={17} aria-hidden="true" />
+              </Link>
+            </AnimateIn>
+          </div>
+          <AnimateIn variant="fade-up" delay={140} stagger>
+            <div className="corporate-teaser-pillars">
+              <span className="stagger-item">Presença</span>
+              <span className="stagger-item">Credibilidade</span>
+              <span className="stagger-item">Autoridade</span>
+              <span className="stagger-item">Performance</span>
+              <span className="stagger-item">Experiência</span>
+            </div>
+          </AnimateIn>
+        </div>
+      </section>
+
       <section className="section section-dark">
         <div className="container" style={{ textAlign: "center" }}>
           <AnimateIn variant="fade-up">

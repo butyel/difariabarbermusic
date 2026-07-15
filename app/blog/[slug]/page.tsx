@@ -148,6 +148,34 @@ export default async function BlogPostPage(props: { params: Promise<{ slug: stri
             </div>
           </AnimateIn>
 
+          {post.relatedPage && (
+            <AnimateIn variant="fade-up" delay={170}>
+              <Link
+                href={post.relatedPage.href}
+                style={{
+                  display: "block",
+                  marginTop: 36,
+                  padding: "24px 26px",
+                  background: "var(--bg-card)",
+                  border: "1px solid var(--line-dark)",
+                  borderRadius: 12,
+                  color: "var(--cream)",
+                  textDecoration: "none",
+                }}
+              >
+                <strong style={{ display: "block", fontSize: "1.05rem", marginBottom: 8 }}>
+                  {post.relatedPage.title}
+                </strong>
+                <span style={{ display: "block", color: "rgba(240, 234, 220, 0.72)", fontSize: "0.9rem", lineHeight: 1.6 }}>
+                  {post.relatedPage.description}
+                </span>
+                <span style={{ display: "inline-block", marginTop: 14, color: "var(--cream)", fontSize: "0.75rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.08em" }}>
+                  {post.relatedPage.label} →
+                </span>
+              </Link>
+            </AnimateIn>
+          )}
+
           {post.faqs.length > 0 && (
             <AnimateIn variant="fade-up" delay={180}>
               <div style={{ marginTop: 48, paddingTop: 32, borderTop: "1px solid var(--line-dark)" }}>

@@ -12,6 +12,12 @@ export type BlogPost = {
   updatedDate: string;
   faqs: { question: string; answer: string }[];
   serviceSlugs: string[];
+  relatedPage?: {
+    title: string;
+    description: string;
+    href: string;
+    label: string;
+  };
 };
 
 const authorName = "William Farias";
@@ -23,6 +29,69 @@ const reviewedTitle = "CEO e barbeiro";
 export const BLOG_AUTHOR = { name: authorName, bio: authorBio, image: authorImage, title: reviewedTitle };
 
 export const posts: BlogPost[] = [
+  {
+    slug: "codigo-de-imagem-programa-para-empresas",
+    title: "Código de Imagem: cuidado pessoal como benefício corporativo",
+    excerpt:
+      "Conheça o programa da DiFaria que organiza a manutenção do visual de líderes e equipes com planos mensais e atendimento prioritário.",
+    image: "/images/blog/visagismo-masculino.webp",
+    publishedDate: "2026-07-15T15:00:00-03:00",
+    updatedDate: "2026-07-15T15:00:00-03:00",
+    serviceSlugs: [],
+    relatedPage: {
+      title: "Código de Imagem para empresas",
+      description:
+        "Veja como funciona o programa, conheça os planos e solicite uma apresentação para sua equipe.",
+      href: "/codigo-de-imagem",
+      label: "Conhecer o programa",
+    },
+    faqs: [
+      {
+        question: "O que é o Código de Imagem?",
+        answer:
+          "É um programa corporativo da DiFaria Barber Music que organiza a manutenção de cortes de cabelo de proprietários, líderes e colaboradores por meio de planos mensais e agendamento em lote.",
+      },
+      {
+        question: "Quais empresas podem participar?",
+        answer:
+          "Empresas de diferentes segmentos podem consultar o programa, especialmente aquelas com equipes de atendimento, vendas, liderança ou contato frequente com clientes e parceiros.",
+      },
+      {
+        question: "O programa pode ser adaptado ao tamanho da equipe?",
+        answer:
+          "Sim. Os planos apresentados usam uma equipe-base de nove profissionais, mas outras configurações podem ser avaliadas diretamente com a DiFaria.",
+      },
+    ],
+    content: `A experiência de uma empresa é construída por processos, ambiente, produto e pelas pessoas que representam a marca todos os dias. Quem recebe um cliente, conduz uma reunião ou lidera uma equipe também participa dessa percepção.
+
+Foi a partir dessa visão que a DiFaria Barber Music criou o Código de Imagem, um programa corporativo para organizar a manutenção do visual de proprietários, lideranças e colaboradores.
+
+O que o programa entrega
+
+O Código de Imagem transforma atendimentos individuais em uma rotina simples para a empresa. Os participantes recebem cortes de cabelo conforme a frequência prevista no plano, com atendimento prioritário e horários organizados em lote.
+
+A proposta não é impor um padrão único de aparência. Cada profissional continua recebendo um atendimento coerente com seus traços, seu estilo e sua função. O ganho para a empresa está na constância e na facilidade de gestão.
+
+Como funciona na prática
+
+Primeiro, a DiFaria entende o tamanho da equipe e a rotina da operação. Depois, organiza uma agenda distribuída para que os colaboradores sejam atendidos sem concentrar ausências no mesmo período.
+
+Os planos mensais ajudam a manter essa organização ao longo do tempo. A empresa sabe quantos atendimentos estão previstos, enquanto a equipe conta com um benefício de cuidado pessoal fácil de utilizar.
+
+Para quem o Código de Imagem é indicado
+
+O programa pode atender empresas de diferentes segmentos. Ele é especialmente interessante para equipes de atendimento, vendas, hospitalidade, gastronomia, liderança e outras funções em que os profissionais mantêm contato frequente com clientes e parceiros.
+
+Também pode fazer parte de ações de valorização interna, benefícios corporativos ou preparação para eventos e momentos importantes da empresa.
+
+Planos para diferentes frequências
+
+O Plano Fundador contempla um corte mensal para cada profissional da equipe-base. O Plano Presença Premium oferece dois cortes mensais, indicado para quem deseja uma manutenção mais frequente.
+
+Empresas com outro número de participantes podem solicitar uma avaliação personalizada. A disponibilidade, os horários e as condições são confirmados diretamente com a DiFaria.
+
+O Código de Imagem amplia a experiência Barber Music para o ambiente corporativo: cuidado pessoal, organização e atendimento com identidade. Conheça a página do programa e converse com William sobre a melhor configuração para sua equipe.`,
+  },
   {
     slug: "barboterapia-o-que-e-beneficios",
     title: "Barboterapia: o que é e quando vale a pena",
