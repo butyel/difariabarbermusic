@@ -14,17 +14,6 @@ import {
   UserRound,
 } from "lucide-react";
 import { FormEvent, useEffect, useMemo, useState } from "react";
-import {
-  collection,
-  doc,
-  getDoc,
-  getDocs,
-  query,
-  runTransaction,
-  serverTimestamp,
-  where,
-} from "firebase/firestore";
-import { bookingDb, configuredBarbershopId } from "@/lib/firebase-booking";
 import { COMPANY, SERVICES, whatsappUrl } from "@/lib/constants";
 
 type LiveService = {
@@ -157,7 +146,7 @@ export default function BookingExperience() {
   const [services, setServices] = useState<LiveService[]>(fallbackServices);
   const [barbers, setBarbers] = useState<Barber[]>([]);
   const [shopName, setShopName] = useState(COMPANY.name);
-  const [loading, setLoading] = useState(Boolean(configuredBarbershopId));
+  const [loading, setLoading] = useState(true);
   const [onlineMode, setOnlineMode] = useState(false);
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
   const [barberId, setBarberId] = useState("");
@@ -190,46 +179,40 @@ export default function BookingExperience() {
   const times = availableTimes(day, duration);
 
   useEffect(() => {
-    if (!configuredBarbershopId) return;
-
     async function loadBookingData() {
       try {
-        const shopRef = doc(bookingDb, "barbearias", configuredBarbershopId);
-        const [shopSnapshot, serviceSnapshot, barberSnapshot] = await Promise.all([
-          getDoc(shopRef),
-          getDocs(collection(bookingDb, `barbearias/${configuredBarbershopId}/servicos`)),
-          getDocs(collection(bookingDb, `barbearias/${configuredBarbershopId}/barbeiros`)),
-        ]);
+        const response = await fetch("/api/agendamento?action=bootstrap", {
+          headers: { Accept: "application/json" },
+          cache: "no-store",
+        });
+        const data = (await response.json()) as {
+          error?: string;
+          shopName?: string;
+          services?: Array<{
+            id: string;
+            nome: string;
+            preco: number | null;
+            duracaoMinutos: number | null;
+          }>;
+          barbers?: Barber[];
+        };
+        if (!response.ok) throw new Error(data.error || "Integração indisponível.");
 
-        if (shopSnapshot.exists()) {
-          setShopName(shopSnapshot.data().nome || COMPANY.name);
-        }
-
-        const liveServices = serviceSnapshot.docs.map((serviceDoc) => {
-          const data = serviceDoc.data();
+        setShopName(data.shopName || COMPANY.name);
+        const liveServices = (data.services || []).map((service) => {
           return {
-            id: serviceDoc.id,
-            nome: String(data.nome || "Serviço"),
-            preco: typeof data.preco === "number" ? data.preco : null,
+            id: service.id,
+            nome: String(service.nome || "Serviço"),
+            preco: typeof service.preco === "number" ? service.preco : null,
             duracaoMinutos:
-              typeof data.duracaoMinutos === "number"
-                ? Math.max(30, Math.ceil(data.duracaoMinutos / 30) * 30)
-                : serviceDuration(String(data.nome || "")),
+              typeof service.duracaoMinutos === "number"
+                ? Math.max(30, Math.ceil(service.duracaoMinutos / 30) * 30)
+                : serviceDuration(String(service.nome || "")),
           };
         });
-        const liveBarbers = barberSnapshot.docs.map((barberDoc) => {
-          const data = barberDoc.data();
-          return {
-            id: barberDoc.id,
-            nome: String(data.nome || "Profissional"),
-            comissaoServico:
-              typeof data.comissaoServico === "number"
-                ? data.comissaoServico
-                : 40,
-          };
-        });
+        const liveBarbers = data.barbers || [];
 
-        if (!shopSnapshot.exists() || !liveServices.length || !liveBarbers.length) {
+        if (!liveServices.length || !liveBarbers.length) {
           throw new Error("Cadastro de agendamento incompleto no GBarber.");
         }
 
@@ -238,7 +221,7 @@ export default function BookingExperience() {
         setBarberId(liveBarbers[0].id);
         setOnlineMode(true);
       } catch (loadError) {
-        console.error("Não foi possível carregar o GBarber:", loadError);
+        console.info("Agendamento online em modo de contingência:", loadError);
         setError(
           "O agendamento online está temporariamente indisponível. Você ainda pode montar o pedido e concluir pelo WhatsApp.",
         );
@@ -262,18 +245,21 @@ export default function BookingExperience() {
       setLoadingTimes(true);
       setSelectedTime("");
       try {
-        const appointmentsQuery = query(
-          collection(
-            bookingDb,
-            `barbearias/${configuredBarbershopId}/atendimentos`,
-          ),
-          where("barbeiroId", "==", barberId),
-          where("data", "==", selectedDate),
-        );
-        const snapshot = await getDocs(appointmentsQuery);
-        const appointments = snapshot.docs.map(
-          (appointmentDoc) => appointmentDoc.data() as OccupiedAppointment,
-        );
+        const params = new URLSearchParams({
+          action: "availability",
+          barberId,
+          date: selectedDate,
+        });
+        const response = await fetch(`/api/agendamento?${params}`, {
+          headers: { Accept: "application/json" },
+          cache: "no-store",
+        });
+        const data = (await response.json()) as {
+          error?: string;
+          appointments?: OccupiedAppointment[];
+        };
+        if (!response.ok) throw new Error(data.error || "Consulta indisponível.");
+        const appointments = data.appointments || [];
         if (active) setOccupied(occupiedSlots(appointments));
       } catch (loadError) {
         console.error("Não foi possível consultar os horários:", loadError);
@@ -339,78 +325,24 @@ export default function BookingExperience() {
 
     setSubmitting(true);
     try {
-      const currentQuery = query(
-        collection(
-          bookingDb,
-          `barbearias/${configuredBarbershopId}/atendimentos`,
-        ),
-        where("barbeiroId", "==", barberId),
-        where("data", "==", selectedDate),
-      );
-      const currentSnapshot = await getDocs(currentQuery);
-      const currentOccupied = occupiedSlots(
-        currentSnapshot.docs.map(
-          (appointmentDoc) => appointmentDoc.data() as OccupiedAppointment,
-        ),
-      );
-      const neededSlots = Array.from(
-        { length: Math.ceil(duration / 30) },
-        (_, index) => minutesToTime(timeToMinutes(selectedTime) + index * 30),
-      );
-
-      if (neededSlots.some((slot) => currentOccupied.has(slot))) {
-        throw new Error("Esse horário acabou de ser reservado. Escolha outro.");
-      }
-
-      const slotId = `${barberId}_${selectedDate}_${selectedTime.replace(":", "")}`;
-      const appointmentRef = doc(
-        bookingDb,
-        `barbearias/${configuredBarbershopId}/atendimentos/${slotId}`,
-      );
-      const customerRef = doc(
-        collection(
-          bookingDb,
-          `barbearias/${configuredBarbershopId}/clientes`,
-        ),
-      );
-
-      await runTransaction(bookingDb, async (transaction) => {
-        const existingAppointment = await transaction.get(appointmentRef);
-        if (
-          existingAppointment.exists() &&
-          existingAppointment.data().status !== "cancelado"
-        ) {
-          throw new Error("Esse horário acabou de ser reservado. Escolha outro.");
-        }
-
-        transaction.set(customerRef, {
-          nome: name.trim(),
-          telefone: phone,
-          dataNascimento: birthDate || null,
-          pontosFidelidade: 0,
-          origem: "site-difaria",
-          createdAt: serverTimestamp(),
-        });
-
-        transaction.set(appointmentRef, {
-          cliente: name.trim(),
-          telefone: phone,
-          clienteId: customerRef.id,
-          barbeiroId: barberId,
-          barbeiroNome: chosenBarber?.nome || "",
-          servicoIds: chosenServices.map((service) => service.id),
-          servicoNomes: chosenServices.map((service) => service.nome).join(", "),
-          valor: total,
-          comissao:
-            (total * (chosenBarber?.comissaoServico || 40)) / 100,
-          duracaoMinutos: duration,
-          data: selectedDate,
-          hora: selectedTime,
-          status: "agendado",
-          origem: "site-difaria",
-          createdAt: serverTimestamp(),
-        });
+      const response = await fetch("/api/agendamento", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          name: name.trim(),
+          phone,
+          birthDate,
+          serviceIds: chosenServices.map((service) => service.id),
+          barberId,
+          date: selectedDate,
+          time: selectedTime,
+          website,
+        }),
       });
+      const data = (await response.json()) as { error?: string };
+      if (!response.ok) {
+        throw new Error(data.error || "Não foi possível concluir o agendamento.");
+      }
 
       setSuccess(true);
       setOccupied((current) => {
@@ -477,7 +409,7 @@ export default function BookingExperience() {
         </p>
       </div>
 
-      {!configuredBarbershopId && (
+      {!loading && !onlineMode && (
         <div className="booking-notice" role="status">
           <MessageCircle aria-hidden="true" />
           <div>
