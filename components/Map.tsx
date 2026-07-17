@@ -197,6 +197,7 @@ export default function Map() {
   return (
     <div
       ref={mapRef}
+      className="map-container"
       style={{ width: "100%", height: 400, borderRadius: 12, overflow: "hidden" }}
     />
   );

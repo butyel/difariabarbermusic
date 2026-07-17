@@ -79,7 +79,7 @@ export default function ServicosPage() {
       </section>
 
       <section className="section section-cream">
-        <div className="container experience" style={{ gridTemplateColumns: "1fr 1fr" }}>
+          <div className="container experience experience-equal">
           <div className="section-copy">
             <AnimateIn variant="fade-up">
               <span className="eyebrow dark">Preços sob consulta</span>

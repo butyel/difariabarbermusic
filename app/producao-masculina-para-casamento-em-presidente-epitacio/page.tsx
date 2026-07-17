@@ -153,16 +153,16 @@ export default function ProducaoCasamentoPage() {
           <AnimateIn variant="fade-up"><span className="eyebrow">Investimento</span></AnimateIn>
           <AnimateIn variant="fade-up" delay={100}><h2 style={{ margin: "16px auto 28px" }}>Preço e duração</h2></AnimateIn>
           <AnimateIn variant="fade-up" delay={200}>
-            <div className="center" style={{ marginTop: 28, display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
-              <div style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 16, padding: "24px 32px", minWidth: 180 }}>
-                <Clock aria-hidden="true" style={{ margin: "0 auto 12px", opacity: 0.6 }} size={28} />
-                <p style={{ fontSize: "0.95rem", margin: 0, color: "#72816a" }}>Duração</p>
-                <p style={{ fontSize: "1.6rem", fontWeight: 700, margin: "8px 0 0", color: "#d4a853" }}>75 min</p>
+            <div className="pricing-cards" style={{ marginTop: 28 }}>
+              <div className="pricing-card">
+                <Clock aria-hidden="true" className="pricing-card-icon" size={28} />
+                <p className="pricing-card-label">Duração</p>
+                <p className="pricing-card-value">75 min</p>
               </div>
-              <div style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 16, padding: "24px 32px", minWidth: 180 }}>
-                <DollarSign aria-hidden="true" style={{ margin: "0 auto 12px", opacity: 0.6 }} size={28} />
-                <p style={{ fontSize: "0.95rem", margin: 0, color: "#72816a" }}>Valor</p>
-                <p style={{ fontSize: "1.6rem", fontWeight: 700, margin: "8px 0 0", color: "#d4a853" }}>Sob consulta</p>
+              <div className="pricing-card">
+                <DollarSign aria-hidden="true" className="pricing-card-icon" size={28} />
+                <p className="pricing-card-label">Valor</p>
+                <p className="pricing-card-value">Sob consulta</p>
               </div>
             </div>
             <p style={{ marginTop: 20, fontSize: "0.85rem", color: "#72816a" }}>
